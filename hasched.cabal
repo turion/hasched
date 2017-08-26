@@ -21,9 +21,10 @@ executable hasched
     LPUtils
   -- other-extensions:
   build-depends:
-      base >=4.9 && <4.10
+      base >=4.8 && <4.10
     , glpk-hs >=0.5 && <0.6
     , hxt >= 9.3.1.16 && < 9.4
     , hxt-curl >= 9.1.1.1 && < 10
+    ,mtl >=2.2 && <2.3
   -- hs-source-dirs:
   default-language:    Haskell2010

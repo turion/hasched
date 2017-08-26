@@ -16,10 +16,10 @@ testzeiteinheiten = [ Zeiteinheit (Node 100 "Z0")
 testseminar :: Seminar
 testseminar = Seminar
   (Node 0 "Testseminar")
-  [ SchuelerIn (Person 100000 "Testperson") [Themenwahl (testthemen !! 0) 2]
-  , SchuelerIn (Person 100001 "Testperson1") testthemen
+  [ SchuelerIn (Person 100000 "Testperson" "Nachname") [Themenwahl (testthemen !! 0) 2]
+  , SchuelerIn (Person 100001 "Testperson1" "Nachname") [Themenwahl (testthemen !! 0) 2]
   ]
-  [ BetreuerIn (Person 200000 "Testbetreuer") , testthemen
+  [ BetreuerIn (Person 200000 "Testbetreuer" "Nachname") testthemen
   ]
   testthemen
   testzeiteinheiten
@@ -27,6 +27,7 @@ testseminar = Seminar
 
 -- TODO ListT?
 -- TODO Modularisieren
+{-
 testLP :: Seminar -> LPM String Double ()
 testLP seminar@(Seminar _ schuelerInnen _ themen zeiteinheiten raeume) = do
   forM_ (moeglicheGlobalBelegungen seminar) $ \gb -> setVarKind (var gb) BinVar
@@ -46,6 +47,7 @@ testLP seminar@(Seminar _ schuelerInnen _ themen zeiteinheiten raeume) = do
     zeiteinheit <- zeiteinheiten
     return $ add [var (LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn) | thema <- themen] `leq` 1
     -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
+-}
 
 
 main :: IO ()

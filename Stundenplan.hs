@@ -1,8 +1,13 @@
+{-# LANGUAGE TypeSynonymInstances, FlexibleInstances, MultiParamTypeClasses #-}
+
 module Stundenplan where
+
+import LPUtils
+import Data.List
 
 data Node = Node
   { nid   :: Integer
-  , titel :: Node
+  , titel :: String
   }
   deriving (Eq, Ord)
 
@@ -21,7 +26,7 @@ data Zeiteinheit = Zeiteinheit
   deriving (Eq, Ord)
 
 instance LPVar Zeiteinheit String where
-  var (Zeiteinheit (Node nid _) _) = "zeiteinheit " ++ show nid
+  var (Zeiteinheit (Node nid _)) = "zeiteinheit " ++ show nid
 
 
 data Raum = Raum
@@ -37,6 +42,7 @@ data Themenwahl = Themenwahl
   { gewaehltesThema :: Thema
   , praeferenz      :: Double
   }
+  deriving (Eq, Ord)
 
 data Person = Person
   { uid      :: Integer
@@ -51,11 +57,17 @@ data SchuelerIn = SchuelerIn
   }
   deriving (Eq, Ord)
 
+instance LPVar SchuelerIn String where
+  var (SchuelerIn (Person uid _ _) _) = "schuelerin " ++ show uid
+
 data BetreuerIn = BetreuerIn
   { bPerson        :: Person
   , betreuteThemen :: [ Thema ]
   }
   deriving (Eq, Ord)
+  
+instance LPVar BetreuerIn String where
+  var (BetreuerIn (Person uid _ _) _) = "betreuerin " ++ show uid
 
 data Seminar = Seminar
   { semnode       :: Node
@@ -76,13 +88,13 @@ data GlobalBelegung = GlobalBelegung
 -- TODO ReaderT Seminar?
 moeglicheGlobalBelegungen :: Seminar -> [ GlobalBelegung ]
 moeglicheGlobalBelegungen (Seminar _ _ _ themen zeiteinheiten raeume)
-  = [ GlobalBelegung z t
+  = [ GlobalBelegung t z
     | t <- themen
     , z <- zeiteinheiten
     ]
 
 instance LPVar GlobalBelegung String where
-  var (GlobalBelegung gbZeiteinheit gbRaum gbThema) = intercalate " " [var gbZeiteinheit, var gbRaum, var gbThema]
+  var (GlobalBelegung gbZeiteinheit gbThema) = intercalate " " [var gbZeiteinheit, var gbThema]
 
 
 data BetreuerBelegung = BetreuerBelegung
@@ -96,13 +108,10 @@ moeglicheBetreuerBelegungen seminar
   = [ BetreuerBelegung gb b r
     | gb <- moeglicheGlobalBelegungen seminar
     , b  <- betreuerInnen seminar
-    , r  <- raeume
+    , r  <- raeume seminar
     ]
 instance LPVar BetreuerBelegung String where
-  var (BetreuerBelegung bGlobalBelegung bBetreuerIn) = var bGlobalBelegung ++ " " ++ var bBetreuerIn
-
-instance LPVar BetreuerBelegung String where
-  var (Raum (Node nid _) _) = "raum " ++ show nid
+  var (BetreuerBelegung bGlobalBelegung bBetreuerIn _) = var bGlobalBelegung ++ " " ++ var bBetreuerIn
 
 data LokalBelegung = LokalBelegung
   { lbGlobalBelegung :: GlobalBelegung
@@ -112,7 +121,7 @@ data LokalBelegung = LokalBelegung
 
 moeglicheLokalBelegungen :: Seminar -> [ LokalBelegung ]
 moeglicheLokalBelegungen seminar
-  = [ LokalBelegung gb b
+  = [ LokalBelegung gb s
       | gb <- moeglicheGlobalBelegungen seminar
       , s  <- schuelerInnen seminar
     ]
@@ -120,6 +129,6 @@ moeglicheLokalBelegungen seminar
 data GlobalStundenplan = GlobalStundenplan
   { seminar            :: Seminar
   , globalBelegungen   :: [ GlobalBelegung ]
-  , betreuerBelegungen :: [ BetreuerBelegungen ]
+  , betreuerBelegungen :: [ BetreuerBelegung ]
   , version            :: String
   }
