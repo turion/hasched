@@ -65,7 +65,7 @@ data BetreuerIn = BetreuerIn
   , betreuteThemen :: [ Thema ]
   }
   deriving (Eq, Ord)
-  
+
 instance LPVar BetreuerIn String where
   var (BetreuerIn (Person uid _ _) _) = "betreuerin " ++ show uid
 
@@ -100,22 +100,34 @@ instance LPVar GlobalBelegung String where
 data BetreuerBelegung = BetreuerBelegung
   { bGlobalBelegung :: GlobalBelegung
   , bBetreuerIn     :: BetreuerIn
-  , bRaum           :: Raum
   }
 
 moeglicheBetreuerBelegungen :: Seminar -> [ BetreuerBelegung ]
 moeglicheBetreuerBelegungen seminar
-  = [ BetreuerBelegung gb b r
-    | gb <- moeglicheGlobalBelegungen seminar
-    , b  <- betreuerInnen seminar
-    , r  <- raeume seminar
+  = [ BetreuerBelegung gb b
+      | gb <- moeglicheGlobalBelegungen seminar
+      , b  <- betreuerInnen seminar
     ]
+
 instance LPVar BetreuerBelegung String where
-  var (BetreuerBelegung bGlobalBelegung bBetreuerIn _) = var bGlobalBelegung ++ " " ++ var bBetreuerIn
+  var (BetreuerBelegung bGlobalBelegung bBetreuerIn) = var bGlobalBelegung ++ " " ++ var bBetreuerIn
+
+
+data RaumBelegung = RaumBelegung
+  { rGlobalBelegung :: GlobalBelegung
+  , bRaum           :: Raum
+  }
+
+moeglicheRaumBelegungen :: Seminar -> [ RaumBelegung ]
+moeglicheRaumBelegungen seminar
+  = [ RaumBelegung gb r
+      | gb <- moeglicheGlobalBelegungen seminar
+      , r  <- raeume seminar
+    ]
 
 data LokalBelegung = LokalBelegung
-  { lbGlobalBelegung :: GlobalBelegung
-  , lbSchuelerIn   :: SchuelerIn
+  { lGlobalBelegung :: GlobalBelegung
+  , lSchuelerIn     :: SchuelerIn
   }
   deriving (Eq, Ord)
 
@@ -130,5 +142,6 @@ data GlobalStundenplan = GlobalStundenplan
   { seminar            :: Seminar
   , globalBelegungen   :: [ GlobalBelegung ]
   , betreuerBelegungen :: [ BetreuerBelegung ]
+  , raumBelegungen     :: [ RaumBelegung ]
   , version            :: String
   }
