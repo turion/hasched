@@ -119,8 +119,11 @@ instance LPVar BetreuerBelegung String where
 
 data RaumBelegung = RaumBelegung
   { rGlobalBelegung :: GlobalBelegung
-  , bRaum           :: Raum
+  , rRaum           :: Raum
   }
+
+instance LPVar RaumBelegung String where
+  var (RaumBelegung rGlobalBelegung rRaum) = var rGlobalBelegung ++ " " ++ var rRaum
 
 moeglicheRaumBelegungen :: Seminar -> [ RaumBelegung ]
 moeglicheRaumBelegungen seminar
@@ -134,6 +137,9 @@ data LokalBelegung = LokalBelegung
   , lSchuelerIn     :: SchuelerIn
   }
   deriving (Eq, Ord, Show)
+
+instance LPVar LokalBelegung String where
+  var (LokalBelegung lGlobalBelegung lSchuelerIn) = var lGlobalBelegung ++ " " ++ var lSchuelerIn
 
 moeglicheLokalBelegungen :: Seminar -> [ LokalBelegung ]
 moeglicheLokalBelegungen seminar

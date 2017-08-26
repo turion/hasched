@@ -15,16 +15,36 @@ build-type:          Simple
 extra-source-files:  ChangeLog.md
 cabal-version:       >=1.10
 
-executable hasched
-  main-is:             Main.hs
-  other-modules:
+library
+  exposed-modules:
     LPUtils
-  -- other-extensions:
+    LP
+    Stundenplan
+    Parser
   build-depends:
       base >=4.8 && <4.10
     , glpk-hs >=0.5 && <0.6
     , hxt >= 9.3.1.16 && < 9.4
     , hxt-curl >= 9.1.1.1 && < 10
-    ,mtl >=2.2 && <2.3
-  -- hs-source-dirs:
+    , mtl >=2.2 && <2.3
+  default-language:    Haskell2010
+
+executable hasched
+  main-is: Main.hs
+  build-depends:
+      hasched
+    , base >=4.8 && <4.10
+    , hxt >= 9.3.1.16 && < 9.4
+    , hxt-curl >= 9.1.1.1 && < 10
+    , glpk-hs >=0.5 && <0.6
+    , mtl >=2.2 && <2.3
+  default-language:    Haskell2010
+
+executable test
+  main-is: Test.hs
+  build-depends:
+      hasched
+    , base >=4.8 && <4.10
+    , glpk-hs >=0.5 && <0.6
+    , mtl >=2.2 && <2.3
   default-language:    Haskell2010
