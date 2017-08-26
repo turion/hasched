@@ -2,7 +2,8 @@ module Main where
 
 import Control.Monad.LPMonad
 import Stundenplan
-
+import Parser
+{-
 testthemen :: [ Thema ]
 testthemen = [ Thema (Node 23 "Mondflug") []
              , Thema (Node 42 "Supernova") [testthemen !! 0]
@@ -27,7 +28,7 @@ testseminar = Seminar
 
 -- TODO ListT?
 -- TODO Modularisieren
-{-
+
 testLP :: Seminar -> LPM String Double ()
 testLP seminar@(Seminar _ schuelerInnen _ themen zeiteinheiten raeume) = do
   forM_ (moeglicheGlobalBelegungen seminar) $ \gb -> setVarKind (var gb) BinVar
@@ -49,6 +50,7 @@ testLP seminar@(Seminar _ schuelerInnen _ themen zeiteinheiten raeume) = do
     -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
 -}
 
-
 main :: IO ()
-main = putStrLn "Hello, Haskell!"
+main = do 
+  seminar  <- leseSeminar "jena/"
+  print seminar
