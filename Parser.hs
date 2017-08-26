@@ -9,7 +9,9 @@ leseSeminar dir = do
   zeiteinheiten <- leseZeiteinheiten dir
   raeume <- leseRaeume dir
   themen <- leseThemen dir raeume
-  return $ Seminar (Node 0 "seminar") [] [] themen zeiteinheiten raeume
+  voraussetzungen <- leseVoraussetzungen dir 
+  let themen' = map (findeVoraussetzungen themen voraussetzungen) themen
+  return $ Seminar (Node 0 "seminar") [] [] themen' zeiteinheiten raeume
 
 leseZeiteinheiten dir = runX $ parseXML (dir ++ "zeiteinheiten.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseZeiteinheiten
 
@@ -17,6 +19,7 @@ leseRaeume dir = runX $ parseXML (dir ++ "räume.xml") >>> atTag "nodes" >>> atT
 
 leseThemen dir raeume = runX $ parseXML (dir ++ "themenauswahl.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseThemen raeume
 
+leseVoraussetzungen dir = runX $ parseXML (dir ++ "alle-vorriussetzungen.xml") >>> atTag "eck_vorausetzungs" >>> atTag "eck_voraussetzung"  >>> parseVoraussetzungen
 
 parseXML file = readDocument [ withValidate no
                              , withRemoveWS yes  -- throw away formating WS
@@ -52,6 +55,20 @@ parseThemen  raeume = proc node -> do
   returnA -<  Thema (Node (read nid) titel) r b []  
 --  returnA -< raum
 
+parseVoraussetzungen  = proc node -> do
+  voraussetzend <- getText <<<  getChildren <<<  atTag "voraussetzend" -< node
+  voraussetzung <- getText <<< getChildren <<< atTag "Voraussetzung" -< node
+  returnA -<  (read voraussetzend, read voraussetzung)    
+
 findeRaumById raeume rid = 
   if (length rs == 1) then Just (head rs) else Nothing
   where rs = [r|r <- raeume, (nid  (rnode r)) == rid]
+
+findeThemaById themen tid = 
+  head ts
+  where ts = [t|t <- themen, (nid  (tnode t)) == tid]
+
+findeVoraussetzungen themen voraussetzungen thema = 
+  Thema (tnode thema) (raum thema) (tbeamer thema) liste
+  where idlist = [voraussetzung | (voraussetzend, voraussetzung) <- voraussetzungen, voraussetzend == (nid (tnode thema))] 
+        liste = map (findeThemaById themen) idlist 
