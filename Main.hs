@@ -7,6 +7,7 @@ import Data.LinearProgram
 
 import Stundenplan
 import LPUtils
+import Parser
 
 testthemen :: [ Thema ]
 testthemen = [ Thema (Node 23 "Mondflug") []
@@ -53,6 +54,7 @@ testLP seminar@(Seminar _ schuelerInnen betreuerInnen themen zeiteinheiten raeum
     -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
 
 
-
 main :: IO ()
-main = putStrLn "Hello, Haskell!"
+main = do
+  seminar  <- leseSeminar "jena/"
+  print seminar

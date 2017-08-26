@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<nodes>
+  <node>
+    <id>1268</id>
+    <Name>5.03.36 d</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>8</Raumgr-e>
+  </node>
+  <node>
+    <id>1267</id>
+    <Name>5.03.36 c</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>8</Raumgr-e>
+  </node>
+  <node>
+    <id>1266</id>
+    <Name>5.03.36 b</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>8</Raumgr-e>
+  </node>
+  <node>
+    <id>1265</id>
+    <Name>5.03.36 a</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>8</Raumgr-e>
+  </node>
+  <node>
+    <id>1264</id>
+    <Name>W Wärme</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>8</Raumgr-e>
+  </node>
+  <node>
+    <id>1263</id>
+    <Name>T Torsion</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>8</Raumgr-e>
+  </node>
+  <node>
+    <id>1262</id>
+    <Name>O Optik</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>8</Raumgr-e>
+  </node>
+  <node>
+    <id>1261</id>
+    <Name>M Millikan</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>6</Raumgr-e>
+  </node>
+  <node>
+    <id>1260</id>
+    <Name>K Kugelfall</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>8</Raumgr-e>
+  </node>
+  <node>
+    <id>1259</id>
+    <Name>E Erdmagnetfeld</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>8</Raumgr-e>
+  </node>
+  <node>
+    <id>1258</id>
+    <Name>Elektronikpraktikum</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>12</Raumgr-e>
+  </node>
+  <node>
+    <id>1254</id>
+    <Name>HS 4</Name>
+    <Beamer>Ja</Beamer>
+    <Raumgr-e>140</Raumgr-e>
+  </node>
+  <node>
+    <id>1253</id>
+    <Name>5.03.36</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>38</Raumgr-e>
+  </node>
+  <node>
+    <id>1252</id>
+    <Name>5.03.29</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>26</Raumgr-e>
+  </node>
+  <node>
+    <id>1251</id>
+    <Name>5.03.229</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>36</Raumgr-e>
+  </node>
+  <node>
+    <id>1250</id>
+    <Name>5.03.225</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>28</Raumgr-e>
+  </node>
+  <node>
+    <id>1249</id>
+    <Name>5.03.224</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>28</Raumgr-e>
+  </node>
+  <node>
+    <id>1248</id>
+    <Name>5.03.206</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>30</Raumgr-e>
+  </node>
+  <node>
+    <id>1247</id>
+    <Name>5.03.203</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>36</Raumgr-e>
+  </node>
+  <node>
+    <id>1246</id>
+    <Name>5.03.204</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>36</Raumgr-e>
+  </node>
+  <node>
+    <id>1244</id>
+    <Name>5.03.201</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>34</Raumgr-e>
+  </node>
+  <node>
+    <id>1229</id>
+    <Name>MWP, Optik</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>18</Raumgr-e>
+  </node>
+  <node>
+    <id>1228</id>
+    <Name>MWP, Mechanik-Gang</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>16</Raumgr-e>
+  </node>
+  <node>
+    <id>1227</id>
+    <Name>MWP, E-Saal</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>16</Raumgr-e>
+  </node>
+</nodes>

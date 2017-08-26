@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<nodes>
+  <node>
+    <Raum>W Wärme</Raum>
+    <id>1264</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>W Wärme</Raum>
+    <id>1264</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>W Wärme</Raum>
+    <id>1264</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>W Wärme</Raum>
+    <id>1264</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>W Wärme</Raum>
+    <id>1264</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>W Wärme</Raum>
+    <id>1264</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>W Wärme</Raum>
+    <id>1264</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>W Wärme</Raum>
+    <id>1264</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>W Wärme</Raum>
+    <id>1264</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>T Torsion</Raum>
+    <id>1263</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>T Torsion</Raum>
+    <id>1263</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>T Torsion</Raum>
+    <id>1263</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>T Torsion</Raum>
+    <id>1263</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>T Torsion</Raum>
+    <id>1263</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>T Torsion</Raum>
+    <id>1263</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>T Torsion</Raum>
+    <id>1263</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>T Torsion</Raum>
+    <id>1263</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>T Torsion</Raum>
+    <id>1263</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>O Optik</Raum>
+    <id>1262</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>O Optik</Raum>
+    <id>1262</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>O Optik</Raum>
+    <id>1262</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>O Optik</Raum>
+    <id>1262</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>O Optik</Raum>
+    <id>1262</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>O Optik</Raum>
+    <id>1262</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>O Optik</Raum>
+    <id>1262</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>O Optik</Raum>
+    <id>1262</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>O Optik</Raum>
+    <id>1262</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>M Millikan</Raum>
+    <id>1261</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>M Millikan</Raum>
+    <id>1261</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>M Millikan</Raum>
+    <id>1261</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>M Millikan</Raum>
+    <id>1261</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>M Millikan</Raum>
+    <id>1261</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>M Millikan</Raum>
+    <id>1261</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>M Millikan</Raum>
+    <id>1261</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>M Millikan</Raum>
+    <id>1261</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>M Millikan</Raum>
+    <id>1261</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>K Kugelfall</Raum>
+    <id>1260</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>K Kugelfall</Raum>
+    <id>1260</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>K Kugelfall</Raum>
+    <id>1260</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>K Kugelfall</Raum>
+    <id>1260</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>K Kugelfall</Raum>
+    <id>1260</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>K Kugelfall</Raum>
+    <id>1260</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>K Kugelfall</Raum>
+    <id>1260</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>K Kugelfall</Raum>
+    <id>1260</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>K Kugelfall</Raum>
+    <id>1260</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>E Erdmagnetfeld</Raum>
+    <id>1259</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>E Erdmagnetfeld</Raum>
+    <id>1259</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>E Erdmagnetfeld</Raum>
+    <id>1259</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>E Erdmagnetfeld</Raum>
+    <id>1259</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>E Erdmagnetfeld</Raum>
+    <id>1259</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>E Erdmagnetfeld</Raum>
+    <id>1259</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>E Erdmagnetfeld</Raum>
+    <id>1259</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>E Erdmagnetfeld</Raum>
+    <id>1259</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>E Erdmagnetfeld</Raum>
+    <id>1259</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>Elektronikpraktikum</Raum>
+    <id>1258</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>Elektronikpraktikum</Raum>
+    <id>1258</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>Elektronikpraktikum</Raum>
+    <id>1258</id>
+    <zid>1205</zid>
+  </node>
+  <node>
+    <Raum>Elektronikpraktikum</Raum>
+    <id>1258</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>Elektronikpraktikum</Raum>
+    <id>1258</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>Elektronikpraktikum</Raum>
+    <id>1258</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>Elektronikpraktikum</Raum>
+    <id>1258</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>Elektronikpraktikum</Raum>
+    <id>1258</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>HS 4</Raum>
+    <id>1254</id>
+    <zid>1205</zid>
+  </node>
+  <node>
+    <Raum>HS 4</Raum>
+    <id>1254</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>HS 4</Raum>
+    <id>1254</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>HS 4</Raum>
+    <id>1254</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>HS 4</Raum>
+    <id>1254</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>HS 4</Raum>
+    <id>1254</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>HS 4</Raum>
+    <id>1254</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>5.03.36</Raum>
+    <id>1253</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>5.03.36</Raum>
+    <id>1253</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>5.03.36</Raum>
+    <id>1253</id>
+    <zid>1205</zid>
+  </node>
+  <node>
+    <Raum>5.03.36</Raum>
+    <id>1253</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>5.03.36</Raum>
+    <id>1253</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>5.03.36</Raum>
+    <id>1253</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>5.03.36</Raum>
+    <id>1253</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>5.03.36</Raum>
+    <id>1253</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>5.03.36</Raum>
+    <id>1253</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>5.03.36</Raum>
+    <id>1253</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>5.03.29</Raum>
+    <id>1252</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>5.03.29</Raum>
+    <id>1252</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>5.03.29</Raum>
+    <id>1252</id>
+    <zid>1205</zid>
+  </node>
+  <node>
+    <Raum>5.03.29</Raum>
+    <id>1252</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>5.03.29</Raum>
+    <id>1252</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>5.03.29</Raum>
+    <id>1252</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>5.03.29</Raum>
+    <id>1252</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>5.03.29</Raum>
+    <id>1252</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>5.03.29</Raum>
+    <id>1252</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>5.03.29</Raum>
+    <id>1252</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>5.03.225</Raum>
+    <id>1250</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>5.03.225</Raum>
+    <id>1250</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>5.03.225</Raum>
+    <id>1250</id>
+    <zid>1205</zid>
+  </node>
+  <node>
+    <Raum>5.03.225</Raum>
+    <id>1250</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>5.03.225</Raum>
+    <id>1250</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>5.03.225</Raum>
+    <id>1250</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>5.03.225</Raum>
+    <id>1250</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>5.03.225</Raum>
+    <id>1250</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>5.03.225</Raum>
+    <id>1250</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>5.03.225</Raum>
+    <id>1250</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>5.03.224</Raum>
+    <id>1249</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>5.03.224</Raum>
+    <id>1249</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>5.03.224</Raum>
+    <id>1249</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>5.03.224</Raum>
+    <id>1249</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>5.03.224</Raum>
+    <id>1249</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>5.03.206</Raum>
+    <id>1248</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>5.03.206</Raum>
+    <id>1248</id>
+    <zid>1213</zid>
+  </node>
+  <node>
+    <Raum>5.03.206</Raum>
+    <id>1248</id>
+    <zid>1225</zid>
+  </node>
+  <node>
+    <Raum>MWP, Optik</Raum>
+    <id>1229</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>MWP, Optik</Raum>
+    <id>1229</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>MWP, Optik</Raum>
+    <id>1229</id>
+    <zid>1205</zid>
+  </node>
+  <node>
+    <Raum>MWP, Optik</Raum>
+    <id>1229</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>MWP, Optik</Raum>
+    <id>1229</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>MWP, Optik</Raum>
+    <id>1229</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>MWP, Optik</Raum>
+    <id>1229</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>MWP, Optik</Raum>
+    <id>1229</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>MWP, Mechanik-Gang</Raum>
+    <id>1228</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>MWP, Mechanik-Gang</Raum>
+    <id>1228</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>MWP, Mechanik-Gang</Raum>
+    <id>1228</id>
+    <zid>1205</zid>
+  </node>
+  <node>
+    <Raum>MWP, Mechanik-Gang</Raum>
+    <id>1228</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>MWP, Mechanik-Gang</Raum>
+    <id>1228</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>MWP, Mechanik-Gang</Raum>
+    <id>1228</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>MWP, Mechanik-Gang</Raum>
+    <id>1228</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>MWP, Mechanik-Gang</Raum>
+    <id>1228</id>
+    <zid>1222</zid>
+  </node>
+  <node>
+    <Raum>MWP, E-Saal</Raum>
+    <id>1227</id>
+    <zid>1198</zid>
+  </node>
+  <node>
+    <Raum>MWP, E-Saal</Raum>
+    <id>1227</id>
+    <zid>1199</zid>
+  </node>
+  <node>
+    <Raum>MWP, E-Saal</Raum>
+    <id>1227</id>
+    <zid>1205</zid>
+  </node>
+  <node>
+    <Raum>MWP, E-Saal</Raum>
+    <id>1227</id>
+    <zid>1206</zid>
+  </node>
+  <node>
+    <Raum>MWP, E-Saal</Raum>
+    <id>1227</id>
+    <zid>1217</zid>
+  </node>
+  <node>
+    <Raum>MWP, E-Saal</Raum>
+    <id>1227</id>
+    <zid>1218</zid>
+  </node>
+  <node>
+    <Raum>MWP, E-Saal</Raum>
+    <id>1227</id>
+    <zid>1221</zid>
+  </node>
+  <node>
+    <Raum>MWP, E-Saal</Raum>
+    <id>1227</id>
+    <zid>1222</zid>
+  </node>
+</nodes>

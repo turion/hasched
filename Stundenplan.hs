@@ -9,21 +9,23 @@ data Node = Node
   { nid   :: Integer
   , titel :: String
   }
-  deriving (Eq, Ord)
+  deriving (Show, Eq, Ord)
 
 data Thema = Thema
   { tnode :: Node
+  , raum :: Maybe Raum
+  , tbeamer :: Bool
   , voraussetzungen :: [ Thema ]
   }
-  deriving (Eq, Ord)
+  deriving (Show, Eq, Ord)
 
 instance LPVar Thema String where
-  var (Thema (Node nid _) _) = "thema " ++ show nid
+  var (Thema (Node nid _) _ _ _) = "thema " ++ show nid
 
 data Zeiteinheit = Zeiteinheit
   { znode :: Node
   }
-  deriving (Eq, Ord)
+  deriving (Show, Eq, Ord)
 
 instance LPVar Zeiteinheit String where
   var (Zeiteinheit (Node nid _)) = "zeiteinheit " ++ show nid
@@ -31,31 +33,32 @@ instance LPVar Zeiteinheit String where
 
 data Raum = Raum
   { rnode :: Node
-  , beamer :: Bool
+  , raumgroesse :: Int
+  , rbeamer :: Bool
   }
-  deriving (Eq, Ord)
+  deriving (Show, Eq, Ord)
 
 instance LPVar Raum String where
-  var (Raum (Node nid _) _) = "raum " ++ show nid
+  var (Raum (Node nid _) _  _) = "raum " ++ show nid
 
 data Themenwahl = Themenwahl
   { gewaehltesThema :: Thema
   , praeferenz      :: Double
   }
-  deriving (Eq, Ord)
+  deriving (Eq, Ord, Show)
 
 data Person = Person
   { uid      :: Integer
   , vorname  :: String
   , nachname :: String
   }
-  deriving (Eq, Ord)
+  deriving (Eq, Ord, Show)
 
 data SchuelerIn = SchuelerIn
   { sPerson      :: Person
   , themenwahlen :: [ Themenwahl ]
   }
-  deriving (Eq, Ord)
+  deriving (Eq, Ord, Show)
 
 instance LPVar SchuelerIn String where
   var (SchuelerIn (Person uid _ _) _) = "schuelerin " ++ show uid
@@ -64,7 +67,7 @@ data BetreuerIn = BetreuerIn
   { bPerson        :: Person
   , betreuteThemen :: [ Thema ]
   }
-  deriving (Eq, Ord)
+  deriving (Eq, Ord, Show)
 
 instance LPVar BetreuerIn String where
   var (BetreuerIn (Person uid _ _) _) = "betreuerin " ++ show uid
@@ -77,12 +80,13 @@ data Seminar = Seminar
   , zeiteinheiten :: [ Zeiteinheit ]
   , raeume        :: [ Raum ]
   }
+  deriving(Show)
 
 data GlobalBelegung = GlobalBelegung
   { gbThema       :: Thema
   , gbZeiteinheit :: Zeiteinheit
   }
-  deriving (Eq, Ord)
+  deriving (Eq, Ord, Show)
 
 
 -- TODO ReaderT Seminar?
@@ -129,7 +133,7 @@ data LokalBelegung = LokalBelegung
   { lGlobalBelegung :: GlobalBelegung
   , lSchuelerIn     :: SchuelerIn
   }
-  deriving (Eq, Ord)
+  deriving (Eq, Ord, Show)
 
 moeglicheLokalBelegungen :: Seminar -> [ LokalBelegung ]
 moeglicheLokalBelegungen seminar
