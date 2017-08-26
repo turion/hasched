@@ -1,7 +1,12 @@
 module Main where
 
+import Control.Monad
+
 import Control.Monad.LPMonad
+import Data.LinearProgram
+
 import Stundenplan
+import LPUtils
 
 testthemen :: [ Thema ]
 testthemen = [ Thema (Node 23 "Mondflug") []
@@ -27,27 +32,26 @@ testseminar = Seminar
 
 -- TODO ListT?
 -- TODO Modularisieren
-{-
+
 testLP :: Seminar -> LPM String Double ()
-testLP seminar@(Seminar _ schuelerInnen _ themen zeiteinheiten raeume) = do
+testLP seminar@(Seminar _ schuelerInnen betreuerInnen themen zeiteinheiten raeume) = do
   forM_ (moeglicheGlobalBelegungen seminar) $ \gb -> setVarKind (var gb) BinVar
   forM_ (moeglicheBetreuerBelegungen seminar) $ \bb -> do
     setVarKind (var bb) BinVar
-    bb `leq` bGlobalBelegung bb
+    var bb `leq` var (bGlobalBelegung bb)
   sequence_ $ do
     betreuerIn <- betreuerInnen
-    raum <- raeume
     zeiteinheit <- zeiteinheiten
-    return $ add [var [BetreuerBelegung (GlobalBelegung ...)]]
-  forM_ (moeglicheLokalBelegungen) $ \lb -> do
+    return $ add (map var [BetreuerBelegung (GlobalBelegung thema zeiteinheit) | thema <- themen]) `leq` 1
+  forM_ (moeglicheLokalBelegungen seminar) $ \lb -> do
     setVarKind (var lb) BinVar
-    lb `leq` lGlobalBelegung lb
+    var lb `leq` var (lGlobalBelegung lb)
   sequence_ $ do
     schuelerIn <- schuelerInnen
     zeiteinheit <- zeiteinheiten
     return $ add [var (LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn) | thema <- themen] `leq` 1
     -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
--}
+
 
 
 main :: IO ()
