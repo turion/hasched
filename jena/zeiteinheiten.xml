@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<nodes>
+  <node>
+    <Titel>Treffpunkt vor dem Haupteingang</Titel>
+    <id>1255</id>
+    <Beschreibung>&lt;p&gt;Gruppenfoto&lt;/p&gt;
+</Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-07 11:37:00</Zeit>
+    <Ort>Platz vor dem Haupteingang, Haus 4</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475840220</timestamp>
+  </node>
+  <node>
+    <Titel>Abendprogramm</Titel>
+    <id>1241</id>
+    <Beschreibung>&lt;p&gt;Vorträge von euch sind erwünscht!&lt;/p&gt;
+</Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-06 18:00:00</Zeit>
+    <Ort>Jugendgästehaus</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475776800</timestamp>
+  </node>
+  <node>
+    <Titel>Treffpunkt im Hörsaal</Titel>
+    <id>1240</id>
+    <Beschreibung>&lt;p&gt;Ansagen über das Programm; Verteilung der Versuchsanleitungen für das Praktikum am Freitag&lt;/p&gt;
+</Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-06 16:00:00</Zeit>
+    <Ort>Hörsaal 4</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475769600</timestamp>
+  </node>
+  <node>
+    <Titel>Physikblock</Titel>
+    <id>1225</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2016-10-08 08:30:00 bis 2016-10-08 10:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475915400</timestamp>
+  </node>
+  <node>
+    <Titel>Imbiss und individuelle Abreise</Titel>
+    <id>1224</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-09 11:37:00</Zeit>
+    <Ort>Foyer 3. Etage</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1476013020</timestamp>
+  </node>
+  <node>
+    <Titel>Verabschiedung</Titel>
+    <id>1223</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-09 11:00:00</Zeit>
+    <Ort>Hörsaal 4</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1476010800</timestamp>
+  </node>
+  <node>
+    <Titel>Physikblock</Titel>
+    <id>1222</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2016-10-09 09:00:00 bis 2016-10-09 10:30:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1476003600</timestamp>
+  </node>
+  <node>
+    <Titel>Physikblock</Titel>
+    <id>1221</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2016-10-09 07:15:00 bis 2016-10-09 08:45:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475997300</timestamp>
+  </node>
+  <node>
+    <Titel>Frühstück</Titel>
+    <id>1220</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-09 05:30:00</Zeit>
+    <Ort>Jugendgästehaus</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475991000</timestamp>
+  </node>
+  <node>
+    <Titel>Abendessen</Titel>
+    <id>1219</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-08 17:00:00</Zeit>
+    <Ort>Jugendgästehaus</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475946000</timestamp>
+  </node>
+  <node>
+    <Titel>Physikblock</Titel>
+    <id>1218</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2016-10-08 14:45:00 bis 2016-10-08 16:15:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475937900</timestamp>
+  </node>
+  <node>
+    <Titel>Physikblock</Titel>
+    <id>1217</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2016-10-08 13:00:00 bis 2016-10-08 14:30:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475931600</timestamp>
+  </node>
+  <node>
+    <Titel>Vortrag</Titel>
+    <id>1216</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-08 12:00:00 bis 2016-10-08 12:45:00</Zeit>
+    <Ort>Hörsaal 4</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475928000</timestamp>
+  </node>
+  <node>
+    <Titel>Mittagessen</Titel>
+    <id>1215</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-08 11:00:00</Zeit>
+    <Ort>Cafeteria in der FH</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475924400</timestamp>
+  </node>
+  <node>
+    <Titel>Weg zur EAH</Titel>
+    <id>1214</id>
+    <Beschreibung>&lt;p&gt;Zu Fuß oder mit öffentlichem Bus in Gruppen.&lt;/p&gt;
+</Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-08 10:15:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475921700</timestamp>
+  </node>
+  <node>
+    <Titel>Physikblock</Titel>
+    <id>1213</id>
+    <Beschreibung>&lt;p&gt;Praktikumsversuche in der Uni von 8:45 bis 12:00&lt;/p&gt;
+&lt;p&gt;Seminare wie immer&lt;/p&gt;
+</Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2016-10-08 06:45:00 bis 2016-10-08 08:15:00</Zeit>
+    <Ort>Physikfakultät MWP bzw. EAH</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475909100</timestamp>
+  </node>
+  <node>
+    <Titel>Aufbruch zur Uni bzw. EAH</Titel>
+    <id>1210</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-08 06:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475906400</timestamp>
+  </node>
+  <node>
+    <Titel>Frühstük</Titel>
+    <id>1209</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-08 05:30:00</Zeit>
+    <Ort>Jugendgästehaus</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475904600</timestamp>
+  </node>
+  <node>
+    <Titel>Treff im Hörsaal</Titel>
+    <id>1208</id>
+    <Beschreibung>&lt;p&gt;Plenum und Verteilung der Praktikumsversuche für Samstag.&lt;/p&gt;
+</Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-07 16:00:00</Zeit>
+    <Ort>Hörsaal 4</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475856000</timestamp>
+  </node>
+  <node>
+    <Titel>Abendessen</Titel>
+    <id>1207</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-07 17:00:00</Zeit>
+    <Ort>Jugendgästehaus</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475859600</timestamp>
+  </node>
+  <node>
+    <Titel>Physikblock</Titel>
+    <id>1206</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2016-10-07 14:15:00 bis 2016-10-07 15:45:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475849700</timestamp>
+  </node>
+  <node>
+    <Titel>Physikblock</Titel>
+    <id>1205</id>
+    <Beschreibung>&lt;p&gt;Praktikumsversuche im Haus 3 sowie Vorträge&lt;/p&gt;
+</Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2016-10-07 12:00:00 bis 2016-10-07 14:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475841600</timestamp>
+  </node>
+  <node>
+    <Titel>Fahrt zur EAH, Mittagessen in der Mensa</Titel>
+    <id>1204</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-07 11:00:00</Zeit>
+    <Ort>Zeiss-Mensa</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475838000</timestamp>
+  </node>
+  <node>
+    <Titel>Aufbruch zur Exkursion</Titel>
+    <id>1203</id>
+    <Beschreibung>&lt;p&gt;Optisches Museum, Phyletisches Museum, Institutsführung, Botanischer Garten+Jentower, Jenoptik&lt;/p&gt;
+</Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-07 06:30:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475821800</timestamp>
+  </node>
+  <node>
+    <Titel>Frühstück</Titel>
+    <id>1202</id>
+    <Beschreibung>&lt;p&gt;heute nur bis 8:00!&lt;/p&gt;
+</Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-07 05:00:00 bis 2016-10-07 06:00:00</Zeit>
+    <Ort>Jugendgästehaus</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475816400</timestamp>
+  </node>
+  <node>
+    <Titel>Zimmerverteilung und Abendbrot in der JH</Titel>
+    <id>1201</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-06 17:00:00</Zeit>
+    <Ort>Jugendgästehaus</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475773200</timestamp>
+  </node>
+  <node>
+    <Titel>Fußweg zur JH</Titel>
+    <id>1200</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-06 16:15:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475770500</timestamp>
+  </node>
+  <node>
+    <Titel>Physikblock</Titel>
+    <id>1199</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2016-10-06 14:15:00 bis 2016-10-06 15:45:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475763300</timestamp>
+  </node>
+  <node>
+    <Titel>Physikblock</Titel>
+    <id>1198</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2016-10-06 12:30:00 bis 2016-10-06 14:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475757000</timestamp>
+  </node>
+  <node>
+    <Titel>Begrüßung</Titel>
+    <id>1197</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-06 11:30:00</Zeit>
+    <Ort>Haus 5, Hörsaal 4</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475753400</timestamp>
+  </node>
+  <node>
+    <Titel>Mittagessen in der Mensa</Titel>
+    <id>1196</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-06 09:30:00 bis 2016-10-06 10:30:00</Zeit>
+    <Ort>Zeiss-Mensa</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475746200</timestamp>
+  </node>
+  <node>
+    <Titel>Anreise in die Ernst-Abbe-Hochschule</Titel>
+    <id>1195</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2016-10-06 09:15:00 bis 2016-10-06 11:15:00</Zeit>
+    <Ort>Haus 5, Foyer vor dem Hörsaal 4</Ort>
+    <Exkursion></Exkursion>
+    <timestamp>1475745300</timestamp>
+  </node>
+</nodes>

@@ -1,0 +1,1246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<users>
+  <user>
+    <id>1770</id>
+    <Nick>Ludwig</Nick>
+    <Name>Ludwig Sontag</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 176 76221860</Handynummer>
+    <Notfallnummer>0179/8596756</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>105</id>
+    <Nick>georg.krause</Nick>
+    <Name>Georg Krause</Name>
+    <Rollen>Organisator, forum administrator, Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 157 35437322</Handynummer>
+    <Notfallnummer>-</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>402</id>
+    <Nick>klara.1337</Nick>
+    <Name>Klara Knupfer</Name>
+    <Rollen>Organisator, forum administrator, Betreuer, Kein Herbergsplatzbedarf</Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 1575 4098790</Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>377</id>
+    <Nick>slinss</Nick>
+    <Name>Sebastian Linß</Name>
+    <Rollen>Organisator, forum administrator, Betreuer, Inhaltlicher Organisator, Kein Herbergsplatzbedarf</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>2177</id>
+    <Nick>gast_d</Nick>
+    <Name>Herr Dietzel</Name>
+    <Rollen>Gastbetreuer</Rollen>
+    <Geschlecht></Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1838</id>
+    <Nick>ANTPOL0909</Nick>
+    <Name>Antonella Polzin</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>015158155478</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1799</id>
+    <Nick>Gykonik</Nick>
+    <Name>Niklas Büchel </Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>01772832435</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1800</id>
+    <Nick>Mia Sittinger</Nick>
+    <Name>Mia Sittinger</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 1772460404</Handynummer>
+    <Notfallnummer>01727439036</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>82</id>
+    <Nick>ilja</Nick>
+    <Name>Ilja Göthel</Name>
+    <Rollen>Betreuer, Kein Herbergsplatzbedarf</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1578 6143627</Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>489</id>
+    <Nick>bright vader</Nick>
+    <Name>Vincent Grande</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>415</id>
+    <Nick>maximalgrantig</Nick>
+    <Name>Maximilian Keitel</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>01622611727</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1441</id>
+    <Nick>Anka</Nick>
+    <Name>Ann-Kathrin Raab</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>228</id>
+    <Nick>Johannes R</Nick>
+    <Name>Johannes Rothe</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>865</id>
+    <Nick>ChrisP</Nick>
+    <Name>Christopher -Dustin Alcidio Pfeiffer</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1786335092</Handynummer>
+    <Notfallnummer>03461/504080</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>322</id>
+    <Nick>Vincent</Nick>
+    <Name>Vincent Stimper</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 160 91605727</Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>410</id>
+    <Nick>Lordfelice</Nick>
+    <Name>Felix Wechsler</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>0178/4525000</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>565</id>
+    <Nick>kai_g</Nick>
+    <Name>Kai Lukas Gipp</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>112</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>224</id>
+    <Nick>Naphthalin</Nick>
+    <Name>Georg Schröter</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>869</id>
+    <Nick>jandus</Nick>
+    <Name>Sven Jandura</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1734530128</Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1806</id>
+    <Nick>Passi</Nick>
+    <Name>Pascal Reeck</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1753622533</Handynummer>
+    <Notfallnummer>112</Notfallnummer>
+    <Essensw-nsche>Andere Schokolade</Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1805</id>
+    <Nick>Willi H.</Nick>
+    <Name>Wilhelm Holfeld</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1811</id>
+    <Nick>Charlie Ceel</Nick>
+    <Name>Charlotte Emilie Elektra Lange</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche>vegan </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1554</id>
+    <Nick>BeeCruel</Nick>
+    <Name>Nikola Alexandrov Tsarigradski</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 17634948277</Handynummer>
+    <Notfallnummer>07083 4142</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1484</id>
+    <Nick>Avital</Nick>
+    <Name>Avital Sievers</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>0531/70733645</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1828</id>
+    <Nick>murcielagos</Nick>
+    <Name>Adrian Stobbe</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1741018263</Handynummer>
+    <Notfallnummer>015254640722</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1711</id>
+    <Nick>Lilith</Nick>
+    <Name>Lilith Diringer</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 17652651304</Handynummer>
+    <Notfallnummer>07243 769967</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1812</id>
+    <Nick>Sören Selbach</Nick>
+    <Name>Sören Selbach</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>015221617042</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1835</id>
+    <Nick>Nike2000yo</Nick>
+    <Name>Yoshi Eschen</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>0177-6945876 oder 0172-6397691</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1833</id>
+    <Nick>Auguste Medert</Nick>
+    <Name>Auguste Medert</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>017626102383</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1818</id>
+    <Nick>Caya</Nick>
+    <Name>Caya Larissa Oceana Hotstegs</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 15758186315</Handynummer>
+    <Notfallnummer>01755263563</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1853</id>
+    <Nick>Nina</Nick>
+    <Name>Nina Isabel Grözinger</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>07042/92165</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1845</id>
+    <Nick>f.knebel</Nick>
+    <Name>Florian Alexander Knebel</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>089529003</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1862</id>
+    <Nick>Lernbiest</Nick>
+    <Name>Antonia Westphal</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 15905355870</Handynummer>
+    <Notfallnummer>01733784231</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1471</id>
+    <Nick>CES99</Nick>
+    <Name>Carlos Esparza-Sanchez</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 160 99892159</Handynummer>
+    <Notfallnummer>081656471423</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1867</id>
+    <Nick>Adrian</Nick>
+    <Name>Adrian Kühn</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1729554572</Handynummer>
+    <Notfallnummer>01729554572</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1871</id>
+    <Nick>Jonas Rex</Nick>
+    <Name>Jonathan Alexander Hirsch</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15162974082</Handynummer>
+    <Notfallnummer>01704632435</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>825</id>
+    <Nick>13mamari</Nick>
+    <Name>Maximilian Maverick Marienhagen</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>015158535878</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1810</id>
+    <Nick>phili131</Nick>
+    <Name>Philippa  Petersen</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>04626 222</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1846</id>
+    <Nick>Ricardo</Nick>
+    <Name>Ricardo Ochel</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1623123490</Handynummer>
+    <Notfallnummer>01623124054</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1880</id>
+    <Nick>Jonas Wanke</Nick>
+    <Name>Jonas Wanke</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>0049 176 24 167 167</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1884</id>
+    <Nick>queliver</Nick>
+    <Name>Elisabeth Quanz</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 15754674962</Handynummer>
+    <Notfallnummer>015780865951</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1883</id>
+    <Nick>Daniel F</Nick>
+    <Name>Daniel Fridljand</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 17622823145</Handynummer>
+    <Notfallnummer>491711112980</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1458</id>
+    <Nick>Anton</Nick>
+    <Name>Anton Ullrich</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>911</id>
+    <Nick>Marcel</Nick>
+    <Name>Marcel Ullrich</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1488</id>
+    <Nick>maximilianwiesmann</Nick>
+    <Name>Maximilian Wiesmann</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15254369859</Handynummer>
+    <Notfallnummer>01734253242</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1499</id>
+    <Nick>finn.chr.pe</Nick>
+    <Name>Finn Christopher Petersen</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15780486181</Handynummer>
+    <Notfallnummer>01636163201</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1479</id>
+    <Nick>Sebastianharris</Nick>
+    <Name>Sebastian -Philip Harris</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>05773 991974</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1462</id>
+    <Nick>FloH@science</Nick>
+    <Name>Florian Hilpert</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1898</id>
+    <Nick>Jonas</Nick>
+    <Name>Jonas Werner</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>05745/920192</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1899</id>
+    <Nick>jquasebarth</Nick>
+    <Name>Julius Leon Quasebarth</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 162 253 9609</Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1897</id>
+    <Nick>Yaacov</Nick>
+    <Name>Yaacov Xu Yong Schukys</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 17648280910</Handynummer>
+    <Notfallnummer>0176-48101104</Notfallnummer>
+    <Essensw-nsche>glutenfrei </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1904</id>
+    <Nick>elisabett25</Nick>
+    <Name>Lara Broschmann</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>01749794456</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1910</id>
+    <Nick>JONWIE2001</Nick>
+    <Name>Jonathan Maximilian Erik Wiebusch</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15750315687</Handynummer>
+    <Notfallnummer>01713448713</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1909</id>
+    <Nick>LAWETU</Nick>
+    <Name>László  Dirks</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 175 8108458</Handynummer>
+    <Notfallnummer>05775 1350</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1916</id>
+    <Nick>pc.schange</Nick>
+    <Name>Philipp Schange</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>01701735877</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>920</id>
+    <Nick>Kevin</Nick>
+    <Name>Kevin Pascal Mours</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>06353/505987</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1920</id>
+    <Nick>SATHKEDI05</Nick>
+    <Name>Saskia Drechsel</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>035046258303</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1807</id>
+    <Nick>MaxMeyer</Nick>
+    <Name>Maximilian Tim Meyer</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 157 84413045</Handynummer>
+    <Notfallnummer>015782624530</Notfallnummer>
+    <Essensw-nsche>Andere laktosefrei</Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1464</id>
+    <Nick>pb2555</Nick>
+    <Name>Paul Bunk</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>08856/8020697</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1511</id>
+    <Nick>felixkrabbes</Nick>
+    <Name>Felix Krabbes</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1473</id>
+    <Nick>Hanna</Nick>
+    <Name>Hanna Werner</Name>
+    <Rollen>forum administrator</Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>01739137960</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1922</id>
+    <Nick>njpopp1</Nick>
+    <Name>Niclas Joshua Popp</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1744281214</Handynummer>
+    <Notfallnummer>01727635442</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>841</id>
+    <Nick>BenjaminB</Nick>
+    <Name>Benjamin Brindle</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>074516660</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1940</id>
+    <Nick>Haasler</Nick>
+    <Name>Jupp Nepomuk Haasler</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>03081473731</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1921</id>
+    <Nick>Dmonyar</Nick>
+    <Name>Raymond Stewart Mason</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1729847800</Handynummer>
+    <Notfallnummer>0173 463562</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>840</id>
+    <Nick>-'Palos'-</Nick>
+    <Name>Paul Lukas Fuchs</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>07451 625535</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1937</id>
+    <Nick>ina</Nick>
+    <Name>Ina Verbücheln</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 17666620237</Handynummer>
+    <Notfallnummer>017666620237</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1936</id>
+    <Nick>LH16</Nick>
+    <Name>Laura Herzberg</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1935</id>
+    <Nick>Eike Peters</Nick>
+    <Name>Eike Uwe Peters</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>017672798410</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1928</id>
+    <Nick>JohannesW</Nick>
+    <Name>Johannes Wolansky</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1934</id>
+    <Nick>L.F.</Nick>
+    <Name>Leon Feyer</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1933</id>
+    <Nick>EllaH</Nick>
+    <Name>Ella Hutschenreiter</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 1605216876</Handynummer>
+    <Notfallnummer>01736603232</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1919</id>
+    <Nick>Siggi</Nick>
+    <Name>Marcel Schmitz</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1938</id>
+    <Nick>Ferdinand</Nick>
+    <Name>Ferdinand Jobusch</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15123877031</Handynummer>
+    <Notfallnummer>05745/2257</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1475</id>
+    <Nick>Milena</Nick>
+    <Name>Milena Zadro</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 15150853698</Handynummer>
+    <Notfallnummer>01728731492</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1939</id>
+    <Nick>Sese</Nick>
+    <Name>Sebastian Meyer</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche>Andere kein Fisch</Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1947</id>
+    <Nick>Marc Ickler</Nick>
+    <Name>Marc Kevin Ickler</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>01634020017</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1958</id>
+    <Nick>kerstano</Nick>
+    <Name>Johannes Kerstan</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1762629470</Handynummer>
+    <Notfallnummer>017686213241</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1955</id>
+    <Nick>MelinaASun</Nick>
+    <Name>Katharina Melisande Albrecht</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>015773467272</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1949</id>
+    <Nick>Pfanferno</Nick>
+    <Name>Arman Pour Tak Dost</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>+4915730330692</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1956</id>
+    <Nick>Amelie</Nick>
+    <Name>Amelie Birli</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 15227432882</Handynummer>
+    <Notfallnummer>015227432880</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1953</id>
+    <Nick>nico schroedter</Nick>
+    <Name>nico Johannes Schroedter</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15736922123</Handynummer>
+    <Notfallnummer>01771700747</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1952</id>
+    <Nick>linusaltan</Nick>
+    <Name>Linus Altan</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15778308043</Handynummer>
+    <Notfallnummer>0157 30321791</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1944</id>
+    <Nick>Lukas Schlotter</Nick>
+    <Name>Lukas Schlotter</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15737379465</Handynummer>
+    <Notfallnummer>074864166 oder 015751507098 oder 015156157043</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1948</id>
+    <Nick>Leroy Schmidt</Nick>
+    <Name>Leroy Schmidt</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>0706296775</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1512</id>
+    <Nick>MaxiHerzog</Nick>
+    <Name>Maximilian Herzog</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 17698335443</Handynummer>
+    <Notfallnummer>01714045107</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1561</id>
+    <Nick>Olexiy</Nick>
+    <Name>Olexiy Davydov</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 17657486016</Handynummer>
+    <Notfallnummer>017649667497</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1957</id>
+    <Nick>Drajon296</Nick>
+    <Name>Jan Henrik Thomm</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15202191466</Handynummer>
+    <Notfallnummer>01722379145</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1967</id>
+    <Nick>Brodi</Nick>
+    <Name>Ferdinand Christoph Rießle</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>01637622769</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1970</id>
+    <Nick>Laura Bracht</Nick>
+    <Name>Laura Bracht</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 15161008223</Handynummer>
+    <Notfallnummer>017657830363</Notfallnummer>
+    <Essensw-nsche>vegan </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1973</id>
+    <Nick>Felix Chr</Nick>
+    <Name>Felix Bekir Christensen</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>0152 04101361</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1974</id>
+    <Nick>julian</Nick>
+    <Name>Julian David Münster</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 17680818522</Handynummer>
+    <Notfallnummer>041312216864</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1980</id>
+    <Nick>Connor</Nick>
+    <Name>Connor Hennemann</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>017696981071</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1978</id>
+    <Nick>Guschin</Nick>
+    <Name>Viktor Guschin</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 17672257011</Handynummer>
+    <Notfallnummer>017661016228</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1983</id>
+    <Nick>Engert</Nick>
+    <Name>Anabelle Engert</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>03641 21 10 30 oder 03641 508 400</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1927</id>
+    <Nick>klhlubek</Nick>
+    <Name>Kamil Viktor Hlubek</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>080717554</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1994</id>
+    <Nick>r_bellm</Nick>
+    <Name>Raphael Dominicus Bellm</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>0251-393108</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1992</id>
+    <Nick>Eren Yildirim</Nick>
+    <Name>Eren Can Yildirim</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>01736195815</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1888</id>
+    <Nick>Maurice</Nick>
+    <Name>Maurice Zeuner</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche>Andere Bloß keine Nudeln!</Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1990</id>
+    <Nick>HansO</Nick>
+    <Name>Hans Christian Olischläger</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15155255002</Handynummer>
+    <Notfallnummer>015115067979</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1987</id>
+    <Nick>Markus</Nick>
+    <Name>Markus Schulz</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 15756343725</Handynummer>
+    <Notfallnummer>07243/67451</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1986</id>
+    <Nick>laszlohinz</Nick>
+    <Name>Laszlo Hinz</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1868</id>
+    <Nick>nwiekilsass</Nick>
+    <Name>Niklas Weiß</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>0481 / 59983855</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>735</id>
+    <Nick>Aaron Wild</Nick>
+    <Name>Aaron Wild</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>2180</id>
+    <Nick>Arne Wolf</Nick>
+    <Name>Arne Wolf</Name>
+    <Rollen>Betreuer</Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1999</id>
+    <Nick>Lara2016</Nick>
+    <Name>Lara Ahrens</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer>+49 1629146909</Handynummer>
+    <Notfallnummer>04489/3550</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1989</id>
+    <Nick>noah köstner</Nick>
+    <Name>Noah Köstner</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche>vegan </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>1954</id>
+    <Nick>Linda17</Nick>
+    <Name>Linda Homa Sebzevari</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>015234056104</Notfallnummer>
+    <Essensw-nsche>vegetarisch </Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>2005</id>
+    <Nick>Grisha</Nick>
+    <Name>Grigory Kornilov</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 1724651113</Handynummer>
+    <Notfallnummer>01724651116</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>2010</id>
+    <Nick>Christian Linß</Nick>
+    <Name>Christian Linß</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer>+49 17622743659</Handynummer>
+    <Notfallnummer>03641360185</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>2016</id>
+    <Nick>m.ernst</Nick>
+    <Name>Mathis Ernst</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>004915117166841</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>2024</id>
+    <Nick>Florian Dolzmann</Nick>
+    <Name>Florian Dolzmann</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Männlich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer></Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+  <user>
+    <id>2023</id>
+    <Nick>ClaraBecker</Nick>
+    <Name>Clara Becker</Name>
+    <Rollen></Rollen>
+    <Geschlecht>Weiblich</Geschlecht>
+    <Handynummer></Handynummer>
+    <Notfallnummer>017632587898</Notfallnummer>
+    <Essensw-nsche></Essensw-nsche>
+    <Behinderung>Nein</Behinderung>
+  </user>
+</users>
