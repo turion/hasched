@@ -5,7 +5,9 @@
 module Stundenplan where
 
 import LPUtils
+
 import Data.List
+import Data.Maybe (fromMaybe)
 
 data Node = Node
   { nid   :: Integer
@@ -25,13 +27,24 @@ data Thema = Thema
 instance LPVar Thema String where
   var (Thema (Node nid _) _ _ _ _) = "thema " ++ show nid
 
+data ZeiteinheitTyp = Physikeinheit | Exkursion | Anderes
+  deriving (Show, Eq, Ord)
+    
 data Zeiteinheit = Zeiteinheit
   { znode :: Node
+  , zTyp :: ZeiteinheitTyp
+  , zeit :: String
   }
   deriving (Show, Eq, Ord)
 
 instance LPVar Zeiteinheit String where
-  var (Zeiteinheit (Node nid _)) = "zeiteinheit " ++ show nid
+  var (Zeiteinheit (Node nid _) _ _) = "zeiteinheit " ++ show nid
+
+-- TODO Zu testen
+-- | Findet alle vorherigen Zeiteinheiten,
+-- | unter der Annahme, dass sie chronologisch sortiert sind
+vorherigeZeiteinheiten :: Zeiteinheit -> [Zeiteinheit] -> [Zeiteinheit]
+vorherigeZeiteinheiten z zs = take (fromMaybe 1 (elemIndex z zs) - 1) zs
 
 
 data Raum = Raum
@@ -55,6 +68,7 @@ data Person = Person
   { uid      :: Integer
   , vorname  :: String
   , nachname :: String
+  , verpasst :: [Zeiteinheit]
   }
   deriving (Eq, Ord, Show)
 
@@ -65,7 +79,7 @@ data SchuelerIn = SchuelerIn
   deriving (Eq, Ord, Show)
 
 instance LPVar SchuelerIn String where
-  var (SchuelerIn (Person uid _ _) _) = "schuelerin " ++ show uid
+  var (SchuelerIn (Person uid _ _ _) _) = "schuelerin " ++ show uid
 
 data BetreuerIn = BetreuerIn
   { bPerson        :: Person
@@ -74,7 +88,7 @@ data BetreuerIn = BetreuerIn
   deriving (Eq, Ord, Show)
 
 instance LPVar BetreuerIn String where
-  var (BetreuerIn (Person uid _ _) _) = "betreuerin " ++ show uid
+  var (BetreuerIn (Person uid _ _ _) _) = "betreuerin " ++ show uid
 
 data Seminar = Seminar
   { semnode       :: Node
