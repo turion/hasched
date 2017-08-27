@@ -1,4 +1,6 @@
-{-# LANGUAGE TypeSynonymInstances, FlexibleInstances, MultiParamTypeClasses #-}
+{-# LANGUAGE TypeSynonymInstances  #-}
+{-# LANGUAGE FlexibleInstances     #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 
 module Stundenplan where
 
@@ -15,12 +17,13 @@ data Thema = Thema
   { tnode :: Node
   , raum :: Maybe Raum
   , tbeamer :: Bool
+  , mussStattfindenAn :: [ Zeiteinheit ]
   , voraussetzungen :: [ Thema ]
   }
   deriving (Show, Eq, Ord)
 
 instance LPVar Thema String where
-  var (Thema (Node nid _) _ _ _) = "thema " ++ show nid
+  var (Thema (Node nid _) _ _ _ _) = "thema " ++ show nid
 
 data Zeiteinheit = Zeiteinheit
   { znode :: Node
@@ -35,11 +38,12 @@ data Raum = Raum
   { rnode :: Node
   , raumgroesse :: Int
   , rbeamer :: Bool
+  , nichtVerfuegbar :: [ Zeiteinheit ]
   }
   deriving (Show, Eq, Ord)
 
 instance LPVar Raum String where
-  var (Raum (Node nid _) _  _) = "raum " ++ show nid
+  var (Raum (Node nid _) _  _ _) = "raum " ++ show nid
 
 data Themenwahl = Themenwahl
   { gewaehltesThema :: Thema

@@ -1,8 +1,9 @@
 import Parser
-import Stundenplan 
+import Stundenplan
+import GHC.Exts (sortWith) 
 
 main = do
   seminar <- leseSeminar "jena/" 
-  let betreuer=betreuerInnen seminar
-  print (betreuer!!1)
+  let r= sortWith (nid.rnode) (raeume seminar)
+  print r
   
