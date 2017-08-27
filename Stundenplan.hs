@@ -5,7 +5,9 @@
 module Stundenplan where
 
 import LPUtils
+
 import Data.List
+import Data.Maybe (fromMaybe)
 
 data Node = Node
   { nid   :: Integer
@@ -32,6 +34,12 @@ data Zeiteinheit = Zeiteinheit
 
 instance LPVar Zeiteinheit String where
   var (Zeiteinheit (Node nid _)) = "zeiteinheit " ++ show nid
+
+-- TODO Zu testen
+-- | Findet alle vorherigen Zeiteinheiten,
+-- | unter der Annahme, dass sie chronologisch sortiert sind
+vorherigeZeiteinheiten :: Zeiteinheit -> [Zeiteinheit] -> [Zeiteinheit]
+vorherigeZeiteinheiten z zs = take (fromMaybe 1 (elemIndex z zs) - 1) zs
 
 
 data Raum = Raum

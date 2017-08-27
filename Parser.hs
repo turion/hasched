@@ -8,6 +8,7 @@ import GHC.Exts (sortWith)
 
 leseSeminar dir = do
   zeiteinheiten <- leseZeiteinheiten dir
+  -- TODO Zeiteinheiten müssen chronologisch sortiert werden!
   raeume <- leseRaeume dir
   themen <- sortWith (nid . tnode) <$> leseThemen dir raeume
   voraussetzungen <- leseVoraussetzungen dir
