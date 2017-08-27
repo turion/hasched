@@ -12,17 +12,17 @@ testthemen = [ Thema (Node 23 "Mondflug") Nothing False [] []
              ]
 
 testzeiteinheiten :: [ Zeiteinheit ]
-testzeiteinheiten = [ Zeiteinheit (Node 100 "Z0")
-                    , Zeiteinheit (Node 101 "Z1")
+testzeiteinheiten = [ Zeiteinheit (Node 100 "Z0") Physikeinheit "dann"
+                    , Zeiteinheit (Node 101 "Z1") Physikeinheit "und wann"
                     ]
 
 testseminar :: Seminar
 testseminar = Seminar
   (Node 0 "Testseminar")
-  [ SchuelerIn (Person 100000 "Testperson" "Nachname") [Themenwahl (testthemen !! 0) 2]
-  , SchuelerIn (Person 100001 "Testperson1" "Nachname") [Themenwahl (testthemen !! 0) 2]
+  [ SchuelerIn (Person 100000 "Testperson" "Nachname" []) [Themenwahl (testthemen !! 0) 2]
+  , SchuelerIn (Person 100001 "Testperson1" "Nachname" []) [Themenwahl (testthemen !! 0) 2]
   ]
-  [ BetreuerIn (Person 200000 "Testbetreuer" "Nachname") [Themenwahl thema 100 | thema <- testthemen]
+  [ BetreuerIn (Person 200000 "Testbetreuer" "Nachname" []) [Themenwahl thema 100 | thema <- testthemen]
   ]
   testthemen
   testzeiteinheiten
