@@ -36,11 +36,12 @@ data Raum = Raum
   { rnode :: Node
   , raumgroesse :: Int
   , rbeamer :: Bool
+  , nichtVerfuegbar :: [ Zeiteinheit ]
   }
   deriving (Show, Eq, Ord)
 
 instance LPVar Raum String where
-  var (Raum (Node nid _) _  _) = "raum " ++ show nid
+  var (Raum (Node nid _) _  _ _) = "raum " ++ show nid
 
 data Themenwahl = Themenwahl
   { gewaehltesThema :: Thema

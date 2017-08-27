@@ -9,6 +9,8 @@ import GHC.Exts (sortWith)
 leseSeminar dir = do 
   zeiteinheiten <- leseZeiteinheiten dir
   raeume <- leseRaeume dir
+  nichtVerfuegbar <- leseNichtVerfuegbar dir
+  --let raeume' = map (findeNichtVerfuegbar zeiteinheiten nichtVerfuegbar) raeume
   themen <- sortWith (nid . tnode) <$> leseThemen dir raeume
   voraussetzungen <- leseVoraussetzungen dir
   mussStattfinden <- leseMussStattfinden dir 
@@ -23,7 +25,7 @@ leseSeminar dir = do
 
 leseZeiteinheiten dir = runX $ parseXML (dir ++ "zeiteinheiten.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseZeiteinheiten
 
-leseRaeume dir = runX $ parseXML (dir ++ "räume.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseRaeume
+leseRaeume dir = runX $ parseXML (dir ++ "räume.xml") >>> atTag "nodes" >>> atTag "node"  >>> 
 
 leseThemen dir raeume = runX $ parseXML (dir ++ "themenauswahl.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseThemen raeume
 
@@ -38,6 +40,8 @@ leseThemenwahlen dir = runX $ parseXML (dir ++ "themenwahlen.xml") >>> atTag "no
 leseMussStattfinden dir = runX $ parseXML (dir ++ "muss-stattfinden-an.xml") >>> atTag "nodes" >>> atTag "node" >>> parseMussStattfinden
 
 leseVerpasst dir = runX $ parseXML (dir ++ "verpassen.xml") >>> atTag "users" >>> atTag "user"  >>> parseVerpasst
+
+leseNichtVerfuegbar dir = runX $ parseXML (dir ++ "raum-nicht-verfügbar.xml") >>> atTag "nodes" >>> atTag "nodes"  >>> parseNichtVerfuegbar
 
 
 parseXML file = readDocument [ withValidate no
@@ -112,6 +116,11 @@ parseMussStattfinden = proc node -> do
   zid <- getText <<< getChildren <<< atTag "zid" -< node
   tid <- getText <<< getChildren <<< atTag "tid" -< node
   returnA -< (read tid, read zid) :: (Integer, Integer)
+  
+parseNichtVerfuegbar = proc node -> do
+  zid <- getText <<< getChildren <<< atTag "zid" -< node
+  rid <- getText <<< getChildren <<< atTag "id" -< node
+  returnA -< (read rid, read zid) :: (Integer, Integer)
 
 findeRaumById raeume rid = 
   if (length rs == 1) then Just (head rs) else Nothing
@@ -140,3 +149,6 @@ fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = BetreuerIn (bPerson bet
 findeMussStattfinden zeiteinheiten mussStattfinden thema=Thema (tnode thema) (raum thema) (tbeamer thema) stattfinden (voraussetzungen thema)
   where zid=lookup (nid (tnode thema)) mussStattfinden
         stattfinden=fmap (findeZeiteinheitById zeiteinheiten) zid
+        
+findeNichtVerfuegbar zeiteinheiten nichtVerfuegbar raum=Raum (rnode raum) (raumgroesse raum) (rbeamer raum) liste
+  where liste=map (findeZeiteinheitById zeiteinheiten) [zid |(rid,zid)<-nichtVerfuegbar, rid==(nid (rnode raum))] 
