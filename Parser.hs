@@ -33,6 +33,7 @@ leseBetreuerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>
 
 leseThemenwahlen dir = runX $ parseXML (dir ++ "themenwahlen.xml") >>> atTag "nodes" >>> atTag "node" >>> parseThemenwahlen
 
+leseVerpasst dir = runX $ parseXML (dir ++ "verpassen.xml") >>> atTag "users" >>> atTag "user"  >>> parseVerpasst
 
 parseXML file = readDocument [ withValidate no
                              , withRemoveWS yes  -- throw away formating WS
@@ -81,7 +82,7 @@ parseSchuelerInnen=proc user->do
   if rollen == "" 
     then returnA -< SchuelerIn (Person (read uid) vorname nachname) [] 
     else zeroArrow -< ()
-    
+   
 parseBetreuerInnen=proc user->do
   uid <- getText <<< getChildren <<<atTag "id" -< user
   vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
@@ -90,6 +91,11 @@ parseBetreuerInnen=proc user->do
   if rollen/="" 
     then returnA -< BetreuerIn (Person (read uid) vorname nachname) [] 
     else zeroArrow -< ()
+  
+parseVerpasst = proc user->do
+  teilnehmerid <- getText <<< getChildren <<< atTag "Benutzer" -< user
+  zeiteinheit <- getText <<< getChildren <<<atTag "Zeiteinheit" -< user
+  returnA -<  (read teilnehmerid, read zeiteinheit) :: (Integer, Integer)
 
 parseThemenwahlen = proc node -> do
   themaid <- getText <<< getChildren <<< atTag "Thema" -< node
