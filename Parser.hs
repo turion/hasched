@@ -53,7 +53,7 @@ leseThemenwahlen dir = runX $ parseXML (dir ++ "themenwahlen.xml") >>> atTag "no
 leseVerpasst :: String -> IO([Verpasst]) 
 leseVerpasst dir = runX $ parseXML (dir ++ "verpassen.xml") >>> atTag "users" >>> atTag "user"  >>> parseVerpasst
 
---parseXML :: String -> IOSArrow XmlTree c
+parseXML :: String ->  IOStateArrow s b XmlTree
 parseXML file = readDocument [ withValidate no
                              , withRemoveWS yes  -- throw away formating WS
                              ] file
