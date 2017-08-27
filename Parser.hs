@@ -10,14 +10,16 @@ leseSeminar dir = do
   zeiteinheiten <- leseZeiteinheiten dir
   raeume <- leseRaeume dir
   themen <- sortWith (nid . tnode) <$> leseThemen dir raeume
-  voraussetzungen <- leseVoraussetzungen dir 
+  voraussetzungen <- leseVoraussetzungen dir
+  mussStattfinden <- leseMussStattfinden dir 
   let themen' = map (findeVoraussetzungen themen voraussetzungen) themen
+  let themen'' = map (findeMussStattfinden zeiteinheiten mussStattfinden) themen'
   themenwahlen <- leseThemenwahlen dir
   schuelerInnen <- leseSchuelerInnen dir
   betreuerInnen <- leseBetreuerInnen dir
   let schuelerInnen' = map (fuegeThemenwahlenHinzuS themen themenwahlen) schuelerInnen
   let betreuerInnen' = map (fuegeThemenwahlenHinzuB themen themenwahlen) betreuerInnen
-  return $ Seminar (Node 0 "seminar") schuelerInnen' betreuerInnen' themen' zeiteinheiten raeume
+  return $ Seminar (Node 0 "seminar") schuelerInnen' betreuerInnen' themen'' zeiteinheiten raeume
 
 leseZeiteinheiten dir = runX $ parseXML (dir ++ "zeiteinheiten.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseZeiteinheiten
 
@@ -32,6 +34,8 @@ leseSchuelerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>
 leseBetreuerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>> atTag "users" >>> atTag "user"  >>> parseBetreuerInnen
 
 leseThemenwahlen dir = runX $ parseXML (dir ++ "themenwahlen.xml") >>> atTag "nodes" >>> atTag "node" >>> parseThemenwahlen
+
+leseMussStattfinden dir = runX $ parseXML (dir ++ "muss-stattfinden-an.xml") >>> atTag "nodes" >>> atTag "node" >>> parseMussStattfinden
 
 
 parseXML file = readDocument [ withValidate no
@@ -65,7 +69,7 @@ parseThemen  raeume = proc node -> do
   beamer <- withDefault (getText <<< getChildren <<< atTag "Beamer") "Nein" -< node
   let b = beamer == "Ja"
   let r  = if raum == Nothing then Nothing else findeRaumById raeume $ read (fromJust raum)
-  returnA -<  Thema (Node (read nid) titel) r b []  
+  returnA -<  Thema (Node (read nid) titel) r b Nothing []  
 
 parseVoraussetzungen  = proc node -> do
   voraussetzend <- getText <<<  getChildren <<<  atTag "voraussetzend" -< node
@@ -96,6 +100,11 @@ parseThemenwahlen = proc node -> do
   teilnehmerid <- getText <<< getChildren <<< atTag "Benutzer" -< node
   bewertung <- getText <<< getChildren <<< atTag "Wahl" -< node
   returnA -< (read themaid, read teilnehmerid, read bewertung) :: (Integer, Integer, Double)
+  
+parseMussStattfinden = proc node -> do
+  zid <- getText <<< getChildren <<< atTag "zid" -< node
+  tid <- getText <<< getChildren <<< atTag "tid" -< node
+  returnA -< (read tid, read zid) :: (Integer, Integer)
 
 findeRaumById raeume rid = 
   if (length rs == 1) then Just (head rs) else Nothing
@@ -104,9 +113,13 @@ findeRaumById raeume rid =
 findeThemaById themen tid = 
   head ts
   where ts = [t|t <- themen, (nid  (tnode t)) == tid]
+  
+findeZeiteinheitById zeiteinheiten zid = 
+  head zs
+  where zs = [z|z <- zeiteinheiten, (nid  (znode z)) == zid]
 
 findeVoraussetzungen themen voraussetzungen thema = 
-  Thema (tnode thema) (raum thema) (tbeamer thema) liste
+  Thema (tnode thema) (raum thema) (tbeamer thema) (mussStattfindenAn thema) liste
   where idlist = [voraussetzung | (voraussetzend, voraussetzung) <- voraussetzungen, voraussetzend == (nid (tnode thema))] 
         liste = map (findeThemaById themen) idlist
         
@@ -115,3 +128,8 @@ findeThemenwahlen themen themenwahlen uid = [Themenwahl (findeThemaById themen t
 fuegeThemenwahlenHinzuS themen themenwahlen schuelerIn = SchuelerIn (sPerson schuelerIn) (findeThemenwahlen themen themenwahlen (uid (sPerson schuelerIn)))
 
 fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = BetreuerIn (bPerson betreuerIn) (findeThemenwahlen themen themenwahlen (uid (bPerson betreuerIn)))
+
+
+findeMussStattfinden zeiteinheiten mussStattfinden thema=Thema (tnode thema) (raum thema) (tbeamer thema) stattfinden (voraussetzungen thema)
+  where zid=lookup (nid (tnode thema)) mussStattfinden
+        stattfinden=fmap (findeZeiteinheitById zeiteinheiten) zid
