@@ -6,12 +6,12 @@ import Text.XML.HXT.Core
 import Data.Maybe
 import GHC.Exts (sortWith)
 
-leseSeminar dir = do 
+leseSeminar dir = do
   zeiteinheiten <- leseZeiteinheiten dir
   raeume <- leseRaeume dir
   themen <- sortWith (nid . tnode) <$> leseThemen dir raeume
   voraussetzungen <- leseVoraussetzungen dir
-  mussStattfinden <- leseMussStattfinden dir 
+  mussStattfinden <- leseMussStattfinden dir
   let themen' = map (findeVoraussetzungen themen voraussetzungen) themen
   let themen'' = map (findeMussStattfinden zeiteinheiten mussStattfinden) themen'
   themenwahlen <- leseThemenwahlen dir
@@ -43,7 +43,7 @@ leseVerpasst dir = runX $ parseXML (dir ++ "verpassen.xml") >>> atTag "users" >>
 parseXML file = readDocument [ withValidate no
                              , withRemoveWS yes  -- throw away formating WS
                              ] file
- 
+
 atTag tag = deep (isElem >>> hasName tag)
 
 
@@ -52,7 +52,7 @@ parseZeiteinheiten = proc node -> do
   titel <- getText <<< getChildren <<< atTag "Titel" -< node
   pe <- getText <<< getChildren <<< atTag "Physikeinheit" -< node
   if pe == "Ja"
-    then returnA -< Zeiteinheit (Node (read nid) titel) 
+    then returnA -< Zeiteinheit (Node (read nid) titel)
     else zeroArrow -< ()
 
 parseRaeume = proc node -> do
@@ -61,13 +61,13 @@ parseRaeume = proc node -> do
   beamer <- getText <<< getChildren <<< atTag "Beamer" -< node
   rgr <- getText <<< getChildren <<< atTag "Raumgr-e" -< node
   let b = if beamer == "Ja" then True else False
-  returnA -< Raum (Node (read nid) titel) (read rgr) b 
+  returnA -< Raum (Node (read nid) titel) (read rgr) b
 
-  
+
 parseThemen  raeume = proc node -> do
   nid <- getText <<<  getChildren <<<  atTag "id" -< node
   titel <- getText <<< getChildren <<< atTag "Thema" -< node
-  raum  <- withDefault  ( arr Just <<< getText <<< getChildren <<< atTag "Raum") Nothing -< node 
+  raum  <- withDefault  ( arr Just <<< getText <<< getChildren <<< atTag "Raum") Nothing -< node
   beamer <- withDefault (getText <<< getChildren <<< atTag "Beamer") "Nein" -< node
   let b = beamer == "Ja"
   let r  = if raum == Nothing then Nothing else findeRaumById raeume $ read (fromJust raum)
@@ -76,27 +76,27 @@ parseThemen  raeume = proc node -> do
 parseVoraussetzungen  = proc node -> do
   voraussetzend <- getText <<<  getChildren <<<  atTag "voraussetzend" -< node
   voraussetzung <- getText <<< getChildren <<< atTag "Voraussetzung" -< node
-  returnA -<  (read voraussetzend, read voraussetzung)    
-  
+  returnA -<  (read voraussetzend, read voraussetzung)
+
 
 parseSchuelerInnen=proc user->do
   uid <- getText <<< getChildren <<<atTag "id" -< user
   vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
   nachname <- getText <<< getChildren <<<atTag "Nachname" -< user
   rollen<- withDefault (getText <<< getChildren <<<atTag "Rollen") "" -< user
-  if rollen == "" 
-    then returnA -< SchuelerIn (Person (read uid) vorname nachname) [] 
+  if rollen == ""
+    then returnA -< SchuelerIn (Person (read uid) vorname nachname) []
     else zeroArrow -< ()
-   
+
 parseBetreuerInnen=proc user->do
   uid <- getText <<< getChildren <<<atTag "id" -< user
   vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
   nachname <- getText <<< getChildren <<<atTag "Nachname" -< user
   rollen<- withDefault (getText <<< getChildren <<<atTag "Rollen") "" -< user
-  if rollen/="" 
-    then returnA -< BetreuerIn (Person (read uid) vorname nachname) [] 
+  if rollen/=""
+    then returnA -< BetreuerIn (Person (read uid) vorname nachname) []
     else zeroArrow -< ()
-  
+
 parseVerpasst = proc user->do
   teilnehmerid <- getText <<< getChildren <<< atTag "Benutzer" -< user
   zeiteinheit <- getText <<< getChildren <<<atTag "Zeiteinheit" -< user
@@ -107,29 +107,29 @@ parseThemenwahlen = proc node -> do
   teilnehmerid <- getText <<< getChildren <<< atTag "Benutzer" -< node
   bewertung <- getText <<< getChildren <<< atTag "Wahl" -< node
   returnA -< (read themaid, read teilnehmerid, read bewertung) :: (Integer, Integer, Double)
-  
+
 parseMussStattfinden = proc node -> do
   zid <- getText <<< getChildren <<< atTag "zid" -< node
   tid <- getText <<< getChildren <<< atTag "tid" -< node
   returnA -< (read tid, read zid) :: (Integer, Integer)
 
-findeRaumById raeume rid = 
+findeRaumById raeume rid =
   if (length rs == 1) then Just (head rs) else Nothing
   where rs = [r|r <- raeume, (nid  (rnode r)) == rid]
 
-findeThemaById themen tid = 
+findeThemaById themen tid =
   head ts
   where ts = [t|t <- themen, (nid  (tnode t)) == tid]
-  
-findeZeiteinheitById zeiteinheiten zid = 
+
+findeZeiteinheitById zeiteinheiten zid =
   head zs
   where zs = [z|z <- zeiteinheiten, (nid  (znode z)) == zid]
 
-findeVoraussetzungen themen voraussetzungen thema = 
+findeVoraussetzungen themen voraussetzungen thema =
   Thema (tnode thema) (raum thema) (tbeamer thema) (mussStattfindenAn thema) liste
-  where idlist = [voraussetzung | (voraussetzend, voraussetzung) <- voraussetzungen, voraussetzend == (nid (tnode thema))] 
+  where idlist = [voraussetzung | (voraussetzend, voraussetzung) <- voraussetzungen, voraussetzend == (nid (tnode thema))]
         liste = map (findeThemaById themen) idlist
-        
+
 findeThemenwahlen themen themenwahlen uid = [Themenwahl (findeThemaById themen tid) wahl| (tid, uid', wahl)<- themenwahlen, uid'==uid]
 
 fuegeThemenwahlenHinzuS themen themenwahlen schuelerIn = SchuelerIn (sPerson schuelerIn) (findeThemenwahlen themen themenwahlen (uid (sPerson schuelerIn)))
