@@ -21,6 +21,8 @@ instance LPVar String String where
 asLinFunc :: (Ord v, Additive c, Num c) => v -> LinFunc v c
 asLinFunc v = linCombination [(1, v)]
 
+varLF :: (LPVar a v, Additive c, Num c) => a -> LinFunc v c
+varLF = asLinFunc . var
 
 defVar :: (Num c, LPVar a v, Group c, MonadState (LP v c) m)
        => a -> LinFunc v c -> m v

@@ -1,4 +1,7 @@
 import Stundenplan
+import LP
+
+import Data.LinearProgram.GLPK
 
 testthemen :: [ Thema ]
 testthemen = [ Thema (Node 23 "Mondflug") Nothing False []
@@ -23,4 +26,4 @@ testseminar = Seminar
   [ Raum (Node 200 "Raum") 100 False ]
 
 main :: IO ()
-main = return ()
+main = print =<< glpSolveVars mipDefaults (testLP testseminar)
