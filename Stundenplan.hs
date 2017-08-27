@@ -17,7 +17,7 @@ data Thema = Thema
   { tnode :: Node
   , raum :: Maybe Raum
   , tbeamer :: Bool
-  , mussStattfindenAn ::Maybe Zeiteinheit
+  , mussStattfindenAn :: [ Zeiteinheit ]
   , voraussetzungen :: [ Thema ]
   }
   deriving (Show, Eq, Ord)

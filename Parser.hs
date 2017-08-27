@@ -138,5 +138,8 @@ fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = BetreuerIn (bPerson bet
 
 
 findeMussStattfinden zeiteinheiten mussStattfinden thema=Thema (tnode thema) (raum thema) (tbeamer thema) stattfinden (voraussetzungen thema)
-  where zid=lookup (nid (tnode thema)) mussStattfinden
-        stattfinden=fmap (findeZeiteinheitById zeiteinheiten) zid
+  where
+    maybeZid=lookup (nid (tnode thema)) mussStattfinden
+    stattfinden = case maybeZid of
+      Nothing  -> []
+      Just zid -> [z|z <- zeiteinheiten, (nid  (znode z)) == zid]

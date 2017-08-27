@@ -4,8 +4,8 @@ import LP
 import Data.LinearProgram.GLPK
 
 testthemen :: [ Thema ]
-testthemen = [ Thema (Node 23 "Mondflug") Nothing False []
-             , Thema (Node 42 "Supernova")  Nothing False [testthemen !! 0]
+testthemen = [ Thema (Node 23 "Mondflug") Nothing False [] []
+             , Thema (Node 42 "Supernova")  Nothing False [] [testthemen !! 0]
              ]
 
 testzeiteinheiten :: [ Zeiteinheit ]
@@ -19,7 +19,7 @@ testseminar = Seminar
   [ SchuelerIn (Person 100000 "Testperson" "Nachname") [Themenwahl (testthemen !! 0) 2]
   , SchuelerIn (Person 100001 "Testperson1" "Nachname") [Themenwahl (testthemen !! 0) 2]
   ]
-  [ BetreuerIn (Person 200000 "Testbetreuer" "Nachname") testthemen
+  [ BetreuerIn (Person 200000 "Testbetreuer" "Nachname") [Themenwahl thema 100 | thema <- testthemen]
   ]
   testthemen
   testzeiteinheiten
