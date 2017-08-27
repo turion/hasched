@@ -130,8 +130,7 @@ fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = BetreuerIn (bPerson bet
 
 findeVerpassen zeiteinheiten verpassen uid = [(findeZeiteinheitById zeiteinheiten zid) | (zid, uid')<- verpassen, uid'==uid]
 
-fuegeVerpassenHinzuS zeiteinheiten verpassen schuelerIn = SchuelerIn person (themenwahlen schuelerIn) 
-  where person' = sPerson schuelerIn 
-        person = Person (uid person') (vorname person') (nachname person') (findeVerpassen zeiteinheiten verpassen (uid (sPerson schuelerIn)))
+fuegeVerpassenHinzuS zeiteinheiten verpassen schuelerIn = schuelerIn {sPerson = (sPerson schuelerIn) {verpasst = verpassteEinheiten}} 
+ where verpassteEinheiten = findeVerpassen zeiteinheiten verpassen (uid (sPerson schuelerIn)) 
  
 fuegeVerpassenHinzuB zeiteinheiten verpassen betreuerIn = BetreuerIn person (findeVerpassen zeiteinheiten verpassen (uid (bPerson betreuerIn)))
