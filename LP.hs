@@ -36,7 +36,7 @@ global seminar = do
     setVarKind (var gb) BinVar
     varLF gb `leq` add
       [ varLF $ BetreuerBelegung gb betreuerIn
-      | betreuerIn <- betreuerInnen seminar
+        | betreuerIn <- betreuerInnen seminar
       ]
   -- BetreuerInnen werden nur eingeteilt, wenn das Thema stattfindet
   forM_ (moeglicheBetreuerBelegungen seminar) $ \bb -> do
@@ -48,7 +48,7 @@ global seminar = do
     zeiteinheit <- zeiteinheiten seminar
     return $ add
       [ varLF $ BetreuerBelegung (GlobalBelegung thema zeiteinheit) betreuerIn
-      | thema <- themen seminar
+        | thema <- themen seminar
       ] `leqTo` 1
 
 -- Lokale (SchülerInnen betreffende) Zwangsbedingungen
@@ -63,6 +63,6 @@ lokal seminar = do
     zeiteinheit <- zeiteinheiten seminar
     return $ add
       [ varLF $ LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn
-      | thema <- themen seminar
+        | thema <- themen seminar
       ] `leqTo` 1
     -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
