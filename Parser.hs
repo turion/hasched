@@ -5,6 +5,8 @@ import Stundenplan
 import Text.XML.HXT.Core
 import Data.Maybe
 import GHC.Exts (sortWith)
+ 
+
 
 leseSeminar dir = do
   zeiteinheiten <- leseZeiteinheiten dir
@@ -46,71 +48,72 @@ parseXML file = readDocument [ withValidate no
 
 atTag tag = deep (isElem >>> hasName tag)
 
+textAtTag = atTag >>> getChildren <<< getText
 
 parseZeiteinheiten = proc node -> do
-  nid <- getText <<<  getChildren <<<  atTag "id" -< node
-  titel <- getText <<< getChildren <<< atTag "Titel" -< node
-  pe <- getText <<< getChildren <<< atTag "Physikeinheit" -< node
+  nid <- textAtTag "id" -< node
+  titel <- textAtTag "Titel" -< node
+  pe <- textAtTag "Physikeinheit" -< node
   if pe == "Ja"
     then returnA -< Zeiteinheit (Node (read nid) titel)
     else zeroArrow -< ()
 
 parseRaeume = proc node -> do
-  nid <- getText <<<  getChildren <<<  atTag "id" -< node
-  titel <- getText <<< getChildren <<< atTag "Name" -< node
-  beamer <- getText <<< getChildren <<< atTag "Beamer" -< node
-  rgr <- getText <<< getChildren <<< atTag "Raumgr-e" -< node
+  nid <- textAtTag "id" -< node
+  titel <- textAtTag "Name" -< node
+  beamer <- textAtTag "Beamer" -< node
+  rgr <- textAtTag "Raumgr-e" -< node
   let b = if beamer == "Ja" then True else False
   returnA -< Raum (Node (read nid) titel) (read rgr) b
 
 
 parseThemen  raeume = proc node -> do
-  nid <- getText <<<  getChildren <<<  atTag "id" -< node
-  titel <- getText <<< getChildren <<< atTag "Thema" -< node
-  raum  <- withDefault  ( arr Just <<< getText <<< getChildren <<< atTag "Raum") Nothing -< node
-  beamer <- withDefault (getText <<< getChildren <<< atTag "Beamer") "Nein" -< node
+  nid <- textAtTag "id" -< node
+  titel <- textAtTag "Thema" -< node
+  raum  <- withDefault  ( arr Just <<< textAtTag "Raum") Nothing -< node
+  beamer <- withDefault (textAtTag "Beamer") "Nein" -< node
   let b = beamer == "Ja"
   let r  = if raum == Nothing then Nothing else findeRaumById raeume $ read (fromJust raum)
   returnA -<  Thema (Node (read nid) titel) r b [] []
 
 parseVoraussetzungen  = proc node -> do
-  voraussetzend <- getText <<<  getChildren <<<  atTag "voraussetzend" -< node
-  voraussetzung <- getText <<< getChildren <<< atTag "Voraussetzung" -< node
+  voraussetzend <- textAtTag "voraussetzend" -< node
+  voraussetzung <- textAtTag "Voraussetzung" -< node
   returnA -<  (read voraussetzend, read voraussetzung)
 
 
 parseSchuelerInnen=proc user->do
-  uid <- getText <<< getChildren <<<atTag "id" -< user
-  vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
-  nachname <- getText <<< getChildren <<<atTag "Nachname" -< user
-  rollen<- withDefault (getText <<< getChildren <<<atTag "Rollen") "" -< user
+  uid <- textAtTag "id" -< user
+  vorname <- textAtTag "Vorname" -< user
+  nachname <- textAtTag "Nachname" -< user
+  rollen<- withDefault (textAtTag "Rollen") "" -< user
   if rollen == ""
     then returnA -< SchuelerIn (Person (read uid) vorname nachname) []
     else zeroArrow -< ()
 
 parseBetreuerInnen=proc user->do
-  uid <- getText <<< getChildren <<<atTag "id" -< user
-  vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
-  nachname <- getText <<< getChildren <<<atTag "Nachname" -< user
-  rollen<- withDefault (getText <<< getChildren <<<atTag "Rollen") "" -< user
+  uid <- textAtTag "id" -< user
+  vorname <- textAtTag "Vorname" -< user
+  nachname <- textAtTag "Nachname" -< user
+  rollen<- withDefault (textAtTag "Rollen") "" -< user
   if rollen/=""
     then returnA -< BetreuerIn (Person (read uid) vorname nachname) []
     else zeroArrow -< ()
 
 parseVerpasst = proc user->do
-  teilnehmerid <- getText <<< getChildren <<< atTag "Benutzer" -< user
-  zeiteinheit <- getText <<< getChildren <<<atTag "Zeiteinheit" -< user
+  teilnehmerid <- textAtTag "Benutzer" -< user
+  zeiteinheit <- textAtTag "Zeiteinheit" -< user
   returnA -<  (read teilnehmerid, read zeiteinheit) :: (Integer, Integer)
 
 parseThemenwahlen = proc node -> do
-  themaid <- getText <<< getChildren <<< atTag "Thema" -< node
-  teilnehmerid <- getText <<< getChildren <<< atTag "Benutzer" -< node
-  bewertung <- getText <<< getChildren <<< atTag "Wahl" -< node
+  themaid <- textAtTag "Thema" -< node
+  teilnehmerid <- textAtTag "Benutzer" -< node
+  bewertung <- textAtTag "Wahl" -< node
   returnA -< (read themaid, read teilnehmerid, read bewertung) :: (Integer, Integer, Double)
 
 parseMussStattfinden = proc node -> do
-  zid <- getText <<< getChildren <<< atTag "zid" -< node
-  tid <- getText <<< getChildren <<< atTag "tid" -< node
+  zid <- textAtTag "zid" -< node
+  tid <- textAtTag "tid" -< node
   returnA -< (read tid, read zid) :: (Integer, Integer)
 
 findeRaumById raeume rid =
