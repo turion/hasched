@@ -30,15 +30,19 @@ testseminar = Seminar
 
 main :: IO ()
 main = do
-  putStrLn "Teste mit 0) Jena-Testdaten 1) Testseminar (default)"
+  putStrLn "Teste mit 0) Testseminar (default) 1) Jena-Testdaten 2) Jena-Testdaten mit der Hälfte der SchülerInnen"
   auswahl <- readMaybe <$> getLine
   let
     getSeminar = case auswahl of
-      Just 0  -> leseSeminar "jena/"
-      Just 1  -> return testseminar
-      Nothing -> do
+      Just 0 -> return testseminar
+      Just 1 -> leseSeminar "jena/"
+      Just 2 -> do
+        seminar <- leseSeminar "jena/"
+        let alleSchuelerInnen = schuelerInnen seminar
+        return $ seminar { schuelerInnen = take (length alleSchuelerInnen `div` 2) alleSchuelerInnen }
+      _      -> do
         putStrLn "Default zu Testseminar"
         return testseminar
   seminar <- getSeminar
-  stundenplan <- glpSolveVars mipDefaults $ testLP seminar
+  stundenplan <- glpSolveVars orpheusLPOptionen $ testLP seminar
   print stundenplan
