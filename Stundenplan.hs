@@ -17,12 +17,13 @@ data Thema = Thema
   { tnode :: Node
   , raum :: Maybe Raum
   , tbeamer :: Bool
+  , mussStattfindenAn ::Maybe Zeiteinheit
   , voraussetzungen :: [ Thema ]
   }
   deriving (Show, Eq, Ord)
 
 instance LPVar Thema String where
-  var (Thema (Node nid _) _ _ _) = "thema " ++ show nid
+  var (Thema (Node nid _) _ _ _ _) = "thema " ++ show nid
 
 data Zeiteinheit = Zeiteinheit
   { znode :: Node
@@ -67,7 +68,7 @@ instance LPVar SchuelerIn String where
 
 data BetreuerIn = BetreuerIn
   { bPerson        :: Person
-  , betreuteThemen :: [ Thema ]
+  , betreuteThemen :: [ Themenwahl ]
   }
   deriving (Eq, Ord, Show)
 
