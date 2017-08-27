@@ -3,6 +3,6 @@ import Stundenplan
 
 main = do
   seminar <- leseSeminar "jena/" 
-  let t = head $ themen seminar 
-  voraussetzungen <- leseVoraussetzungen "jena/"
-  print voraussetzungen 
+  let betreuer=betreuerInnen seminar
+  print (betreuer!!1)
+  

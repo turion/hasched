@@ -12,9 +12,12 @@ leseSeminar dir = do
   themen <- sortWith (nid . tnode) <$> leseThemen dir raeume
   voraussetzungen <- leseVoraussetzungen dir 
   let themen' = map (findeVoraussetzungen themen voraussetzungen) themen
+  themenwahlen <- leseThemenwahlen dir
   schuelerInnen <- leseSchuelerInnen dir
   betreuerInnen <- leseBetreuerInnen dir
-  return $ Seminar (Node 0 "seminar") schuelerInnen betreuerInnen themen' zeiteinheiten raeume
+  let schuelerInnen' = map (fuegeThemenwahlenHinzuS themen themenwahlen) schuelerInnen
+  let betreuerInnen' = map (fuegeThemenwahlenHinzuB themen themenwahlen) betreuerInnen
+  return $ Seminar (Node 0 "seminar") schuelerInnen' betreuerInnen' themen' zeiteinheiten raeume
 
 leseZeiteinheiten dir = runX $ parseXML (dir ++ "zeiteinheiten.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseZeiteinheiten
 
@@ -28,7 +31,7 @@ leseSchuelerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>
 
 leseBetreuerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>> atTag "users" >>> atTag "user"  >>> parseBetreuerInnen
 
-leseThemenwahlen dir = runX $ parseXML (dir ++ "themenauswahlen.xml") >>> atTag "nodes" >>> atTag "node" >>> parseThemenwahlen
+leseThemenwahlen dir = runX $ parseXML (dir ++ "themenwahlen.xml") >>> atTag "nodes" >>> atTag "node" >>> parseThemenwahlen
 
 
 parseXML file = readDocument [ withValidate no
@@ -92,7 +95,7 @@ parseThemenwahlen = proc node -> do
   themaid <- getText <<< getChildren <<< atTag "Thema" -< node
   teilnehmerid <- getText <<< getChildren <<< atTag "Benutzer" -< node
   bewertung <- getText <<< getChildren <<< atTag "Wahl" -< node
-  returnA -< (read themaid, read teilnehmerid, read bewertung) :: (Int, Int, Int)
+  returnA -< (read themaid, read teilnehmerid, read bewertung) :: (Integer, Integer, Double)
 
 findeRaumById raeume rid = 
   if (length rs == 1) then Just (head rs) else Nothing
@@ -107,6 +110,8 @@ findeVoraussetzungen themen voraussetzungen thema =
   where idlist = [voraussetzung | (voraussetzend, voraussetzung) <- voraussetzungen, voraussetzend == (nid (tnode thema))] 
         liste = map (findeThemaById themen) idlist
         
-findeThemenwahlen themen themenwahlen uid=[Themenwahl (findeThemaById themen tid) wahl| (tid, uid', wahl)<- themenwahlen, uid'==uid]
+findeThemenwahlen themen themenwahlen uid = [Themenwahl (findeThemaById themen tid) wahl| (tid, uid', wahl)<- themenwahlen, uid'==uid]
 
-fuegeThemenwahlenHinzu themen themenwahlen schuelerIn=SchuelerIn (sPerson schuelerIn) (findeThemenwahlen themen themenwahlen (uid (sPerson schuelerIn)))
+fuegeThemenwahlenHinzuS themen themenwahlen schuelerIn = SchuelerIn (sPerson schuelerIn) (findeThemenwahlen themen themenwahlen (uid (sPerson schuelerIn)))
+
+fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = BetreuerIn (bPerson betreuerIn) (findeThemenwahlen themen themenwahlen (uid (bPerson betreuerIn)))
