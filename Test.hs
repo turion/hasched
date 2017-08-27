@@ -1,7 +1,10 @@
 import Stundenplan
 import LP
+import Parser (leseSeminar)
 
 import Data.LinearProgram.GLPK
+
+import Text.Read (readMaybe)
 
 testthemen :: [ Thema ]
 testthemen = [ Thema (Node 23 "Mondflug") Nothing False [] []
@@ -26,4 +29,16 @@ testseminar = Seminar
   [ Raum (Node 200 "Raum") 100 False ]
 
 main :: IO ()
-main = print =<< glpSolveVars mipDefaults (testLP testseminar)
+main = do
+  putStrLn "Teste mit 0) Jena-Testdaten 1) Testseminar (default)"
+  auswahl <- readMaybe <$> getLine
+  let
+    getSeminar = case auswahl of
+      Just 0  -> leseSeminar "jena/"
+      Just 1  -> return testseminar
+      Nothing -> do
+        putStrLn "Default zu Testseminar"
+        return testseminar
+  seminar <- getSeminar
+  stundenplan <- glpSolveVars mipDefaults $ testLP seminar
+  print stundenplan
