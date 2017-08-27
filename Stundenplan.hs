@@ -51,6 +51,7 @@ data Person = Person
   { uid      :: Integer
   , vorname  :: String
   , nachname :: String
+  , verpasst :: [Zeiteinheit]
   }
   deriving (Eq, Ord, Show)
 
@@ -61,7 +62,7 @@ data SchuelerIn = SchuelerIn
   deriving (Eq, Ord, Show)
 
 instance LPVar SchuelerIn String where
-  var (SchuelerIn (Person uid _ _) _) = "schuelerin " ++ show uid
+  var (SchuelerIn (Person uid _ _ _) _) = "schuelerin " ++ show uid
 
 data BetreuerIn = BetreuerIn
   { bPerson        :: Person
@@ -70,7 +71,7 @@ data BetreuerIn = BetreuerIn
   deriving (Eq, Ord, Show)
 
 instance LPVar BetreuerIn String where
-  var (BetreuerIn (Person uid _ _) _) = "betreuerin " ++ show uid
+  var (BetreuerIn (Person uid _ _ _) _) = "betreuerin " ++ show uid
 
 data Seminar = Seminar
   { semnode       :: Node

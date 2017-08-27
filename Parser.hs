@@ -17,7 +17,9 @@ leseSeminar dir = do
   betreuerInnen <- leseBetreuerInnen dir
   let schuelerInnen' = map (fuegeThemenwahlenHinzuS themen themenwahlen) schuelerInnen
   let betreuerInnen' = map (fuegeThemenwahlenHinzuB themen themenwahlen) betreuerInnen
-  return $ Seminar (Node 0 "seminar") schuelerInnen' betreuerInnen' themen' zeiteinheiten raeume
+  let schuelerInnen''  = map (fuegeVerpassenHinzuS  zeiteinheiten verpassen) schuelerInnen
+  let betreuerInnen''  = map (fuegeVerpassenHinzuB  zeiteinheiten verpassen) betreuerInnen
+  return $ Seminar (Node 0 "seminar") schuelerInnen'' betreuerInnen'' themen' zeiteinheiten raeume
 
 leseZeiteinheiten dir = runX $ parseXML (dir ++ "zeiteinheiten.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseZeiteinheiten
 
@@ -72,7 +74,6 @@ parseVoraussetzungen  = proc node -> do
   voraussetzend <- getText <<<  getChildren <<<  atTag "voraussetzend" -< node
   voraussetzung <- getText <<< getChildren <<< atTag "Voraussetzung" -< node
   returnA -<  (read voraussetzend, read voraussetzung)    
-  
 
 parseSchuelerInnen=proc user->do
   uid <- getText <<< getChildren <<<atTag "id" -< user
@@ -92,10 +93,10 @@ parseBetreuerInnen=proc user->do
     then returnA -< BetreuerIn (Person (read uid) vorname nachname) [] 
     else zeroArrow -< ()
   
-parseVerpasst = proc user->do
+parseVerpassen = proc user->do
   teilnehmerid <- getText <<< getChildren <<< atTag "Benutzer" -< user
-  zeiteinheit <- getText <<< getChildren <<<atTag "Zeiteinheit" -< user
-  returnA -<  (read teilnehmerid, read zeiteinheit) :: (Integer, Integer)
+  zeiteinheitid <- getText <<< getChildren <<< atTag "Zeiteinheit" -< user
+  returnA -<  (read (teilnehmerid :: String), read zeiteinheitid) :: (Integer, Integer)
 
 parseThemenwahlen = proc node -> do
   themaid <- getText <<< getChildren <<< atTag "Thema" -< node
@@ -111,6 +112,10 @@ findeThemaById themen tid =
   head ts
   where ts = [t|t <- themen, (nid  (tnode t)) == tid]
 
+findeZeiteinheitById zeiteinheiten zid = 
+  head zs
+  where zs = [z|z <- zeiteinheiten, (nid  (tnode z)) == zid]
+
 findeVoraussetzungen themen voraussetzungen thema = 
   Thema (tnode thema) (raum thema) (tbeamer thema) liste
   where idlist = [voraussetzung | (voraussetzend, voraussetzung) <- voraussetzungen, voraussetzend == (nid (tnode thema))] 
@@ -121,3 +126,12 @@ findeThemenwahlen themen themenwahlen uid = [Themenwahl (findeThemaById themen t
 fuegeThemenwahlenHinzuS themen themenwahlen schuelerIn = SchuelerIn (sPerson schuelerIn) (findeThemenwahlen themen themenwahlen (uid (sPerson schuelerIn)))
 
 fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = BetreuerIn (bPerson betreuerIn) (findeThemenwahlen themen themenwahlen (uid (bPerson betreuerIn)))
+
+
+findeVerpassen zeiteinheiten verpassen uid = [(findeZeiteinheitById zeiteinheiten zid) | (zid, uid')<- verpassen, uid'==uid]
+
+fuegeVerpassenHinzuS zeiteinheiten verpassen schuelerIn = SchuelerIn person (themenwahlen schuelerIn) 
+  where person' = sPerson schuelerIn 
+        person = Person (uid person') (vorname person') (nachname person') (findeVerpassen zeiteinheiten verpassen (uid (sPerson schuelerIn)))
+ 
+fuegeVerpassenHinzuB zeiteinheiten verpassen betreuerIn = BetreuerIn person (findeVerpassen zeiteinheiten verpassen (uid (bPerson betreuerIn)))
