@@ -144,6 +144,10 @@ fuegeThemenwahlenHinzuS themen themenwahlen schuelerIn = SchuelerIn (sPerson sch
 
 fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = BetreuerIn (bPerson betreuerIn) (findeThemenwahlen themen themenwahlen (uid (bPerson betreuerIn)))
 
+findeNichtVerfuegbar :: [Zeiteinheit] -> [(Integer, Integer)] -> Raum -> Raum
+findeNichtVerfuegbar zeiteinheiten nichtVerfuegbar raum =raum {nichtVerfuegbar = liste}
+  where liste = map (findeZeiteinheitById zeiteinheiten) [zid | (rid',zid) <- nichtVerfuegbar , rid'==( nid (rnode raum))] 
+
 
 findeMussStattfinden zeiteinheiten mussStattfinden thema=Thema (tnode thema) (raum thema) (tbeamer thema) stattfinden (voraussetzungen thema)
   where
