@@ -75,10 +75,11 @@ parseZeiteinheiten :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode)
 parseZeiteinheiten = proc node -> do
   nid <- getText <<<  getChildren <<<  atTag "id" -< node
   titel <- getText <<< getChildren <<< atTag "Titel" -< node
-  pe <- getText <<< getChildren <<< atTag "Physikeinheit" -< node
-  if pe == "Ja"
-    then returnA -< Zeiteinheit (Node (read nid) titel)
-    else zeroArrow -< ()
+  pe <- withDefault (getText <<< getChildren <<< atTag "Physikeinheit") "Nein" -< node
+  exk <- withDefault (getText <<< getChildren <<< atTag "Exkursion") "Nein" -< node
+  zeit <- getText <<<  getChildren <<<  atTag "Zeit" -< node
+  let typ=if pe=="Ja" then Physikeinheit else (if exk=="Ja" then Exkursion else Anderes)
+  returnA -< Zeiteinheit (Node (read nid) titel) typ zeit
 
 parseRaeume :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) Raum
 parseRaeume = proc node -> do

@@ -27,13 +27,18 @@ data Thema = Thema
 instance LPVar Thema String where
   var (Thema (Node nid _) _ _ _ _) = "thema " ++ show nid
 
+data ZeiteinheitTyp = Physikeinheit | Exkursion | Anderes
+  deriving (Show, Eq, Ord)
+    
 data Zeiteinheit = Zeiteinheit
   { znode :: Node
+  , zTyp :: ZeiteinheitTyp
+  , zeit :: String
   }
   deriving (Show, Eq, Ord)
 
 instance LPVar Zeiteinheit String where
-  var (Zeiteinheit (Node nid _)) = "zeiteinheit " ++ show nid
+  var (Zeiteinheit (Node nid _) _ _) = "zeiteinheit " ++ show nid
 
 -- TODO Zu testen
 -- | Findet alle vorherigen Zeiteinheiten,
