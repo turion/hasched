@@ -75,7 +75,7 @@ parseThemen  raeume = proc node -> do
   beamer <- withDefault (getText <<< getChildren <<< atTag "Beamer") "Nein" -< node
   let b = beamer == "Ja"
   let r  = if raum == Nothing then Nothing else findeRaumById raeume $ read (fromJust raum)
-  returnA -<  Thema (Node (read nid) titel) r b Nothing []  
+  returnA -<  Thema (Node (read nid) titel) r b [] []
 
 parseVoraussetzungen  = proc node -> do
   voraussetzend <- getText <<<  getChildren <<<  atTag "voraussetzend" -< node
@@ -147,8 +147,8 @@ fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = BetreuerIn (bPerson bet
 
 
 findeMussStattfinden zeiteinheiten mussStattfinden thema=Thema (tnode thema) (raum thema) (tbeamer thema) stattfinden (voraussetzungen thema)
-  where zid=lookup (nid (tnode thema)) mussStattfinden
-        stattfinden=fmap (findeZeiteinheitById zeiteinheiten) zid
-        
-findeNichtVerfuegbar zeiteinheiten nichtVerfuegbar raum=Raum (rnode raum) (raumgroesse raum) (rbeamer raum) liste
-  where liste=map (findeZeiteinheitById zeiteinheiten) [zid |(rid,zid)<-nichtVerfuegbar, rid==(nid (rnode raum))] 
+  where
+    maybeZid=lookup (nid (tnode thema)) mussStattfinden
+    stattfinden = case maybeZid of
+      Nothing  -> []
+      Just zid -> [z|z <- zeiteinheiten, (nid  (znode z)) == zid]

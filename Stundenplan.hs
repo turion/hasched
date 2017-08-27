@@ -1,4 +1,6 @@
-{-# LANGUAGE TypeSynonymInstances, FlexibleInstances, MultiParamTypeClasses #-}
+{-# LANGUAGE TypeSynonymInstances  #-}
+{-# LANGUAGE FlexibleInstances     #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 
 module Stundenplan where
 
@@ -15,7 +17,7 @@ data Thema = Thema
   { tnode :: Node
   , raum :: Maybe Raum
   , tbeamer :: Bool
-  , mussStattfindenAn ::Maybe Zeiteinheit
+  , mussStattfindenAn :: [ Zeiteinheit ]
   , voraussetzungen :: [ Thema ]
   }
   deriving (Show, Eq, Ord)
