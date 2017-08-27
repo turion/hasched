@@ -86,7 +86,7 @@ raumPlanung seminar = do
       [ varLF $ RaumBelegung gb raum
         | raum <- raeume seminar
       ]
-  -- TODO Raumausnahmen und weitere Ausnahmen
+  -- TODO Raumgrößen, Raumausnahmen und weitere Ausnahmen
 
 
 -- Lokale (SchülerInnen betreffende) Zwangsbedingungen
