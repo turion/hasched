@@ -28,6 +28,9 @@ leseSchuelerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>
 
 leseBetreuerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>> atTag "users" >>> atTag "user"  >>> parseBetreuerInnen
 
+leseThemenwahlen dir = runX $ parseXML (dir ++ "themenauswahlen.xml") >>> atTag "nodes" >>> atTag "node" >>> parseThemenwahlen
+
+
 parseXML file = readDocument [ withValidate no
                              , withRemoveWS yes  -- throw away formating WS
                              ] file
@@ -66,12 +69,13 @@ parseVoraussetzungen  = proc node -> do
   voraussetzung <- getText <<< getChildren <<< atTag "Voraussetzung" -< node
   returnA -<  (read voraussetzend, read voraussetzung)    
   
+
 parseSchuelerInnen=proc user->do
   uid <- getText <<< getChildren <<<atTag "id" -< user
   vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
   nachname <- getText <<< getChildren <<<atTag "Nachname" -< user
   rollen<- withDefault (getText <<< getChildren <<<atTag "Rollen") "" -< user
-  if rollen==""
+  if rollen == "" 
     then returnA -< SchuelerIn (Person (read uid) vorname nachname) [] 
     else zeroArrow -< ()
     
@@ -83,6 +87,12 @@ parseBetreuerInnen=proc user->do
   if rollen/="" 
     then returnA -< BetreuerIn (Person (read uid) vorname nachname) [] 
     else zeroArrow -< ()
+
+parseThemenwahlen = proc node -> do
+  themaid <- getText <<< getChildren <<< atTag "Thema" -< node
+  teilnehmerid <- getText <<< getChildren <<< atTag "Benutzer" -< node
+  bewertung <- getText <<< getChildren <<< atTag "Wahl" -< node
+  returnA -< (read themaid, read teilnehmerid, read bewertung) :: (Int, Int, Int)
 
 findeRaumById raeume rid = 
   if (length rs == 1) then Just (head rs) else Nothing
