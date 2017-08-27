@@ -6,6 +6,7 @@ import Text.XML.HXT.Core
 import Data.Maybe
 import GHC.Exts (sortWith)
 
+leseSeminar :: String -> IO(Seminar)
 leseSeminar dir = do 
   zeiteinheiten <- leseZeiteinheiten dir
   raeume <- leseRaeume dir
@@ -21,20 +22,29 @@ leseSeminar dir = do
   let betreuerInnen''  = map (fuegeVerpassenHinzuB  zeiteinheiten verpassen) betreuerInnen
   return $ Seminar (Node 0 "seminar") schuelerInnen'' betreuerInnen'' themen' zeiteinheiten raeume
 
+
+leseZeiteinheiten :: String -> IO([Zeiteinheit])
 leseZeiteinheiten dir = runX $ parseXML (dir ++ "zeiteinheiten.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseZeiteinheiten
 
+leseRaeume :: String -> IO([Raum])
 leseRaeume dir = runX $ parseXML (dir ++ "räume.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseRaeume
 
+leseThemen :: String -> [Raum] -> IO([Thema])
 leseThemen dir raeume = runX $ parseXML (dir ++ "themenauswahl.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseThemen raeume
 
+leseVoraussetzungen :: String -> IO([(Integer,Integer)]
 leseVoraussetzungen dir = runX $ parseXML (dir ++ "alle-voraussetzungen.xml") >>> atTag "eck_voraussetzungs" >>> atTag "eck_voraussetzung"  >>> parseVoraussetzungen
 
+leseSchuelerInnen :: String -> IO([SchuelerIn])
 leseSchuelerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>> atTag "users" >>> atTag "user"  >>> parseSchuelerInnen
 
+leseBetreuerInnen :: String -> IO([BetreuerIn])
 leseBetreuerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>> atTag "users" >>> atTag "user"  >>> parseBetreuerInnen
 
+leseThemenwahlen :: String -> IO([(Integer, Integer, Double)])
 leseThemenwahlen dir = runX $ parseXML (dir ++ "themenwahlen.xml") >>> atTag "nodes" >>> atTag "node" >>> parseThemenwahlen
 
+leseVerpasst :: String -> IO([(Integer, Integer)]) 
 leseVerpasst dir = runX $ parseXML (dir ++ "verpassen.xml") >>> atTag "users" >>> atTag "user"  >>> parseVerpasst
 
 parseXML file = readDocument [ withValidate no
