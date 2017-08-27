@@ -15,6 +15,7 @@ type Verpasst = (Integer, Integer)
 leseSeminar :: String -> IO(Seminar)
 leseSeminar dir = do
   zeiteinheiten <- leseZeiteinheiten dir
+  -- TODO Zeiteinheiten müssen chronologisch sortiert werden!
   raeume <- leseRaeume dir
   nichtVerfuegbar <- leseNichtVerfuegbar dir
   let raeume' = map (findeNichtVerfuegbar zeiteinheiten nichtVerfuegbar) raeume

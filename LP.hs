@@ -36,7 +36,7 @@ global seminar = do
     setVarKind (var gb) BinVar
     varLF gb `leq` add
       [ varLF $ BetreuerBelegung gb betreuerIn
-      | betreuerIn <- betreuerInnen seminar
+        | betreuerIn <- betreuerInnen seminar
       ]
   -- BetreuerInnen werden nur eingeteilt, wenn das Thema stattfindet
   forM_ (moeglicheBetreuerBelegungen seminar) $ \bb -> do
@@ -48,8 +48,15 @@ global seminar = do
     zeiteinheit <- zeiteinheiten seminar
     return $ add
       [ varLF $ BetreuerBelegung (GlobalBelegung thema zeiteinheit) betreuerIn
-      | thema <- themen seminar
+        | thema <- themen seminar
       ] `leqTo` 1
+  ausnahmeMussStattfindenAn seminar
+  -- TODO Raumzuordnungen
+
+ausnahmeMussStattfindenAn seminar = sequence_ $ do
+  thema <- themen seminar
+  zeiteinheit <- mussStattfindenAn thema
+  return $ varLF (GlobalBelegung thema zeiteinheit) `equalTo` 1
 
 -- Lokale (SchülerInnen betreffende) Zwangsbedingungen
 lokal seminar = do
@@ -63,6 +70,46 @@ lokal seminar = do
     zeiteinheit <- zeiteinheiten seminar
     return $ add
       [ varLF $ LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn
-      | thema <- themen seminar
+        | thema <- themen seminar
       ] `leqTo` 1
     -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
+  -- Jedes Thema wird höchstens einmal belegt
+  sequence_ $ do
+    schuelerIn <- schuelerInnen seminar
+    thema <- themen seminar
+    return $ add
+      [ varLF $ LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn
+        | zeiteinheit <- zeiteinheiten seminar
+      ] `leqTo` 1
+  voraussetzungenErzwingen seminar
+
+voraussetzungenErzwingen seminar = do
+  -- Diese Variable gibt an,
+  -- ob jemand das Thema zu einer bestimmten Zeit schon besucht hat,
+  -- oder angegeben hat, dass er/sie sich damit auskennt (Präferenz 0 Sterne)
+  sequence_ $ do
+    schuelerIn <- schuelerInnen seminar
+    thema <- themen seminar
+    zeiteinheit <- zeiteinheiten seminar
+    let varKompetent = varLF ("kompetent", LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn)
+    return $ do
+      varKompetent `geq` add
+        [ varLF (GlobalBelegung thema vorher)
+          | vorher <- vorherigeZeiteinheiten zeiteinheit $ zeiteinheiten seminar
+        ]
+      varKompetent `geqTo` if thema `elem`
+        [ gewaehltesThema wahl
+          | wahl <- themenwahlen schuelerIn
+          , praeferenz wahl == 0
+        ]
+        then 1 else 0
+  -- Wenn ein Thema Voraussetzungen hat,
+  -- muss der/die SchuelerIn kompetent darin sein
+  sequence_ $ do
+    schuelerIn <- schuelerInnen seminar
+    thema <- themen seminar
+    zeiteinheit <- zeiteinheiten seminar
+    voraussetzung <- voraussetzungen thema
+    return $
+      varLF (LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn)
+      `leq` varLF ("kompetent", LokalBelegung (GlobalBelegung voraussetzung zeiteinheit) schuelerIn)
