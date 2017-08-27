@@ -65,7 +65,7 @@ instance LPVar SchuelerIn String where
 
 data BetreuerIn = BetreuerIn
   { bPerson        :: Person
-  , betreuteThemen :: [ Thema ]
+  , betreuteThemen :: [ Themenwahl ]
   }
   deriving (Eq, Ord, Show)
 

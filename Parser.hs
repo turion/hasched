@@ -13,7 +13,8 @@ leseSeminar dir = do
   voraussetzungen <- leseVoraussetzungen dir 
   let themen' = map (findeVoraussetzungen themen voraussetzungen) themen
   schuelerInnen <- leseSchuelerInnen dir
-  return $ Seminar (Node 0 "seminar") schuelerInnen [] themen' zeiteinheiten raeume
+  betreuerInnen <- leseBetreuerInnen dir
+  return $ Seminar (Node 0 "seminar") schuelerInnen betreuerInnen themen' zeiteinheiten raeume
 
 leseZeiteinheiten dir = runX $ parseXML (dir ++ "zeiteinheiten.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseZeiteinheiten
 
@@ -23,7 +24,9 @@ leseThemen dir raeume = runX $ parseXML (dir ++ "themenauswahl.xml") >>> atTag "
 
 leseVoraussetzungen dir = runX $ parseXML (dir ++ "alle-voraussetzungen.xml") >>> atTag "eck_voraussetzungs" >>> atTag "eck_voraussetzung"  >>> parseVoraussetzungen
 
-leseSchuelerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>> atTag "users" >>> atTag "user"  >>> parseSchuelerInnnen
+leseSchuelerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>> atTag "users" >>> atTag "user"  >>> parseSchuelerInnen
+
+leseBetreuerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>> atTag "users" >>> atTag "user"  >>> parseBetreuerInnen
 
 parseXML file = readDocument [ withValidate no
                              , withRemoveWS yes  -- throw away formating WS
@@ -63,13 +66,22 @@ parseVoraussetzungen  = proc node -> do
   voraussetzung <- getText <<< getChildren <<< atTag "Voraussetzung" -< node
   returnA -<  (read voraussetzend, read voraussetzung)    
   
-parseSchuelerInnnen=proc user->do
+parseSchuelerInnen=proc user->do
   uid <- getText <<< getChildren <<<atTag "id" -< user
   vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
   nachname <- getText <<< getChildren <<<atTag "Nachname" -< user
   rollen<- withDefault (getText <<< getChildren <<<atTag "Rollen") "" -< user
-  if rollen=="" 
+  if rollen==""
     then returnA -< SchuelerIn (Person (read uid) vorname nachname) [] 
+    else zeroArrow -< ()
+    
+parseBetreuerInnen=proc user->do
+  uid <- getText <<< getChildren <<<atTag "id" -< user
+  vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
+  nachname <- getText <<< getChildren <<<atTag "Nachname" -< user
+  rollen<- withDefault (getText <<< getChildren <<<atTag "Rollen") "" -< user
+  if rollen/="" 
+    then returnA -< BetreuerIn (Person (read uid) vorname nachname) [] 
     else zeroArrow -< ()
 
 findeRaumById raeume rid = 
@@ -83,4 +95,8 @@ findeThemaById themen tid =
 findeVoraussetzungen themen voraussetzungen thema = 
   Thema (tnode thema) (raum thema) (tbeamer thema) liste
   where idlist = [voraussetzung | (voraussetzend, voraussetzung) <- voraussetzungen, voraussetzend == (nid (tnode thema))] 
-        liste = map (findeThemaById themen) idlist 
+        liste = map (findeThemaById themen) idlist
+        
+findeThemenwahlen themen themenwahlen uid=[Themenwahl (findeThemaById themen tid) wahl| (tid, uid', wahl)<- themenwahlen, uid'==uid]
+
+fuegeThemenwahlenHinzu themen themenwahlen schuelerIn=SchuelerIn (sPerson schuelerIn) (findeThemenwahlen themen themenwahlen (uid (sPerson schuelerIn)))
