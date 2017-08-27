@@ -12,7 +12,8 @@ leseSeminar dir = do
   themen <- sortWith (nid . tnode) <$> leseThemen dir raeume
   voraussetzungen <- leseVoraussetzungen dir 
   let themen' = map (findeVoraussetzungen themen voraussetzungen) themen
-  return $ Seminar (Node 0 "seminar") [] [] themen' zeiteinheiten raeume
+  schuelerInnen <- leseSchuelerInnen dir
+  return $ Seminar (Node 0 "seminar") schuelerInnen [] themen' zeiteinheiten raeume
 
 leseZeiteinheiten dir = runX $ parseXML (dir ++ "zeiteinheiten.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseZeiteinheiten
 
@@ -21,6 +22,8 @@ leseRaeume dir = runX $ parseXML (dir ++ "räume.xml") >>> atTag "nodes" >>> atT
 leseThemen dir raeume = runX $ parseXML (dir ++ "themenauswahl.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseThemen raeume
 
 leseVoraussetzungen dir = runX $ parseXML (dir ++ "alle-voraussetzungen.xml") >>> atTag "eck_voraussetzungs" >>> atTag "eck_voraussetzung"  >>> parseVoraussetzungen
+
+leseSchuelerInnen dir =runX $ parseXML (dir ++ "teilnehmer-und-betreuer.xml") >>> atTag "users" >>> atTag "user"  >>> parseSchuelerInnnen
 
 parseXML file = readDocument [ withValidate no
                              , withRemoveWS yes  -- throw away formating WS
@@ -54,14 +57,20 @@ parseThemen  raeume = proc node -> do
   let b = beamer == "Ja"
   let r  = if raum == Nothing then Nothing else findeRaumById raeume $ read (fromJust raum)
   returnA -<  Thema (Node (read nid) titel) r b []  
---  returnA -< raum
 
 parseVoraussetzungen  = proc node -> do
   voraussetzend <- getText <<<  getChildren <<<  atTag "voraussetzend" -< node
   voraussetzung <- getText <<< getChildren <<< atTag "Voraussetzung" -< node
---  let voraussetzung = "181"
---  let voraussetzend = "180"
   returnA -<  (read voraussetzend, read voraussetzung)    
+  
+parseSchuelerInnnen=proc user->do
+  uid <- getText <<< getChildren <<<atTag "id" -< user
+  vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
+  nachname <- getText <<< getChildren <<<atTag "Nachname" -< user
+  rollen<- withDefault (getText <<< getChildren <<<atTag "Rollen") "" -< user
+  if rollen=="" 
+    then returnA -< SchuelerIn (Person (read uid) vorname nachname) [] 
+    else zeroArrow -< ()
 
 findeRaumById raeume rid = 
   if (length rs == 1) then Just (head rs) else Nothing

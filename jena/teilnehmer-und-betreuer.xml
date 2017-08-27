@@ -4,6 +4,8 @@
     <id>1770</id>
     <Nick>Ludwig</Nick>
     <Name>Ludwig Sontag</Name>
+    <Vorname>Ludwig</Vorname>
+    <Nachname>Sontag</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 176 76221860</Handynummer>
@@ -15,6 +17,8 @@
     <id>105</id>
     <Nick>georg.krause</Nick>
     <Name>Georg Krause</Name>
+    <Vorname>Georg</Vorname>
+    <Nachname>Krause</Nachname>
     <Rollen>Organisator, forum administrator, Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 157 35437322</Handynummer>
@@ -26,6 +30,8 @@
     <id>402</id>
     <Nick>klara.1337</Nick>
     <Name>Klara Knupfer</Name>
+    <Vorname>Klara</Vorname>
+    <Nachname>Knupfer</Nachname>
     <Rollen>Organisator, forum administrator, Betreuer, Kein Herbergsplatzbedarf</Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 1575 4098790</Handynummer>
@@ -37,6 +43,8 @@
     <id>377</id>
     <Nick>slinss</Nick>
     <Name>Sebastian Linß</Name>
+    <Vorname>Sebastian</Vorname>
+    <Nachname>Linß</Nachname>
     <Rollen>Organisator, forum administrator, Betreuer, Inhaltlicher Organisator, Kein Herbergsplatzbedarf</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -48,6 +56,8 @@
     <id>2177</id>
     <Nick>gast_d</Nick>
     <Name>Herr Dietzel</Name>
+    <Vorname>Herr</Vorname>
+    <Nachname>Dietzel</Nachname>
     <Rollen>Gastbetreuer</Rollen>
     <Geschlecht></Geschlecht>
     <Handynummer></Handynummer>
@@ -59,6 +69,8 @@
     <id>1838</id>
     <Nick>ANTPOL0909</Nick>
     <Name>Antonella Polzin</Name>
+    <Vorname>Antonella</Vorname>
+    <Nachname>Polzin</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -70,6 +82,8 @@
     <id>1799</id>
     <Nick>Gykonik</Nick>
     <Name>Niklas Büchel </Name>
+    <Vorname>Niklas</Vorname>
+    <Nachname>Büchel </Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -81,6 +95,8 @@
     <id>1800</id>
     <Nick>Mia Sittinger</Nick>
     <Name>Mia Sittinger</Name>
+    <Vorname>Mia</Vorname>
+    <Nachname>Sittinger</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 1772460404</Handynummer>
@@ -92,6 +108,8 @@
     <id>82</id>
     <Nick>ilja</Nick>
     <Name>Ilja Göthel</Name>
+    <Vorname>Ilja</Vorname>
+    <Nachname>Göthel</Nachname>
     <Rollen>Betreuer, Kein Herbergsplatzbedarf</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1578 6143627</Handynummer>
@@ -103,6 +121,8 @@
     <id>489</id>
     <Nick>bright vader</Nick>
     <Name>Vincent Grande</Name>
+    <Vorname>Vincent</Vorname>
+    <Nachname>Grande</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -114,6 +134,8 @@
     <id>415</id>
     <Nick>maximalgrantig</Nick>
     <Name>Maximilian Keitel</Name>
+    <Vorname>Maximilian</Vorname>
+    <Nachname>Keitel</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -125,6 +147,8 @@
     <id>1441</id>
     <Nick>Anka</Nick>
     <Name>Ann-Kathrin Raab</Name>
+    <Vorname>Ann-Kathrin</Vorname>
+    <Nachname>Raab</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -136,6 +160,8 @@
     <id>228</id>
     <Nick>Johannes R</Nick>
     <Name>Johannes Rothe</Name>
+    <Vorname>Johannes</Vorname>
+    <Nachname>Rothe</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -147,6 +173,8 @@
     <id>865</id>
     <Nick>ChrisP</Nick>
     <Name>Christopher -Dustin Alcidio Pfeiffer</Name>
+    <Vorname>Christopher</Vorname>
+    <Nachname>Pfeiffer</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1786335092</Handynummer>
@@ -158,6 +186,8 @@
     <id>322</id>
     <Nick>Vincent</Nick>
     <Name>Vincent Stimper</Name>
+    <Vorname>Vincent</Vorname>
+    <Nachname>Stimper</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 160 91605727</Handynummer>
@@ -169,6 +199,8 @@
     <id>410</id>
     <Nick>Lordfelice</Nick>
     <Name>Felix Wechsler</Name>
+    <Vorname>Felix</Vorname>
+    <Nachname>Wechsler</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -180,6 +212,8 @@
     <id>565</id>
     <Nick>kai_g</Nick>
     <Name>Kai Lukas Gipp</Name>
+    <Vorname>Kai</Vorname>
+    <Nachname>Gipp</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -191,6 +225,8 @@
     <id>224</id>
     <Nick>Naphthalin</Nick>
     <Name>Georg Schröter</Name>
+    <Vorname>Georg</Vorname>
+    <Nachname>Schröter</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -202,6 +238,8 @@
     <id>869</id>
     <Nick>jandus</Nick>
     <Name>Sven Jandura</Name>
+    <Vorname>Sven</Vorname>
+    <Nachname>Jandura</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1734530128</Handynummer>
@@ -213,6 +251,8 @@
     <id>1806</id>
     <Nick>Passi</Nick>
     <Name>Pascal Reeck</Name>
+    <Vorname>Pascal</Vorname>
+    <Nachname>Reeck</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1753622533</Handynummer>
@@ -224,6 +264,8 @@
     <id>1805</id>
     <Nick>Willi H.</Nick>
     <Name>Wilhelm Holfeld</Name>
+    <Vorname>Wilhelm</Vorname>
+    <Nachname>Holfeld</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -235,6 +277,8 @@
     <id>1811</id>
     <Nick>Charlie Ceel</Nick>
     <Name>Charlotte Emilie Elektra Lange</Name>
+    <Vorname>Charlotte</Vorname>
+    <Nachname>Lange</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -246,6 +290,8 @@
     <id>1554</id>
     <Nick>BeeCruel</Nick>
     <Name>Nikola Alexandrov Tsarigradski</Name>
+    <Vorname>Nikola</Vorname>
+    <Nachname>Tsarigradski</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 17634948277</Handynummer>
@@ -257,6 +303,8 @@
     <id>1484</id>
     <Nick>Avital</Nick>
     <Name>Avital Sievers</Name>
+    <Vorname>Avital</Vorname>
+    <Nachname>Sievers</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -268,6 +316,8 @@
     <id>1828</id>
     <Nick>murcielagos</Nick>
     <Name>Adrian Stobbe</Name>
+    <Vorname>Adrian</Vorname>
+    <Nachname>Stobbe</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1741018263</Handynummer>
@@ -279,6 +329,8 @@
     <id>1711</id>
     <Nick>Lilith</Nick>
     <Name>Lilith Diringer</Name>
+    <Vorname>Lilith</Vorname>
+    <Nachname>Diringer</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 17652651304</Handynummer>
@@ -290,6 +342,8 @@
     <id>1812</id>
     <Nick>Sören Selbach</Nick>
     <Name>Sören Selbach</Name>
+    <Vorname>Sören</Vorname>
+    <Nachname>Selbach</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -301,6 +355,8 @@
     <id>1835</id>
     <Nick>Nike2000yo</Nick>
     <Name>Yoshi Eschen</Name>
+    <Vorname>Yoshi</Vorname>
+    <Nachname>Eschen</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -312,6 +368,8 @@
     <id>1833</id>
     <Nick>Auguste Medert</Nick>
     <Name>Auguste Medert</Name>
+    <Vorname>Auguste</Vorname>
+    <Nachname>Medert</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -323,6 +381,8 @@
     <id>1818</id>
     <Nick>Caya</Nick>
     <Name>Caya Larissa Oceana Hotstegs</Name>
+    <Vorname>Caya</Vorname>
+    <Nachname>Hotstegs</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 15758186315</Handynummer>
@@ -334,6 +394,8 @@
     <id>1853</id>
     <Nick>Nina</Nick>
     <Name>Nina Isabel Grözinger</Name>
+    <Vorname>Nina</Vorname>
+    <Nachname>Grözinger</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -345,6 +407,8 @@
     <id>1845</id>
     <Nick>f.knebel</Nick>
     <Name>Florian Alexander Knebel</Name>
+    <Vorname>Florian</Vorname>
+    <Nachname>Knebel</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -356,6 +420,8 @@
     <id>1862</id>
     <Nick>Lernbiest</Nick>
     <Name>Antonia Westphal</Name>
+    <Vorname>Antonia</Vorname>
+    <Nachname>Westphal</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 15905355870</Handynummer>
@@ -367,6 +433,8 @@
     <id>1471</id>
     <Nick>CES99</Nick>
     <Name>Carlos Esparza-Sanchez</Name>
+    <Vorname>Carlos</Vorname>
+    <Nachname>Esparza-Sanchez</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 160 99892159</Handynummer>
@@ -378,6 +446,8 @@
     <id>1867</id>
     <Nick>Adrian</Nick>
     <Name>Adrian Kühn</Name>
+    <Vorname>Adrian</Vorname>
+    <Nachname>Kühn</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1729554572</Handynummer>
@@ -389,6 +459,8 @@
     <id>1871</id>
     <Nick>Jonas Rex</Nick>
     <Name>Jonathan Alexander Hirsch</Name>
+    <Vorname>Jonathan</Vorname>
+    <Nachname>Hirsch</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15162974082</Handynummer>
@@ -400,6 +472,8 @@
     <id>825</id>
     <Nick>13mamari</Nick>
     <Name>Maximilian Maverick Marienhagen</Name>
+    <Vorname>Maximilian</Vorname>
+    <Nachname>Marienhagen</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -411,6 +485,8 @@
     <id>1810</id>
     <Nick>phili131</Nick>
     <Name>Philippa  Petersen</Name>
+    <Vorname>Philippa </Vorname>
+    <Nachname>Petersen</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -422,6 +498,8 @@
     <id>1846</id>
     <Nick>Ricardo</Nick>
     <Name>Ricardo Ochel</Name>
+    <Vorname>Ricardo</Vorname>
+    <Nachname>Ochel</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1623123490</Handynummer>
@@ -433,6 +511,8 @@
     <id>1880</id>
     <Nick>Jonas Wanke</Nick>
     <Name>Jonas Wanke</Name>
+    <Vorname>Jonas</Vorname>
+    <Nachname>Wanke</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -444,6 +524,8 @@
     <id>1884</id>
     <Nick>queliver</Nick>
     <Name>Elisabeth Quanz</Name>
+    <Vorname>Elisabeth</Vorname>
+    <Nachname>Quanz</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 15754674962</Handynummer>
@@ -455,6 +537,8 @@
     <id>1883</id>
     <Nick>Daniel F</Nick>
     <Name>Daniel Fridljand</Name>
+    <Vorname>Daniel</Vorname>
+    <Nachname>Fridljand</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 17622823145</Handynummer>
@@ -466,6 +550,8 @@
     <id>1458</id>
     <Nick>Anton</Nick>
     <Name>Anton Ullrich</Name>
+    <Vorname>Anton</Vorname>
+    <Nachname>Ullrich</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -477,6 +563,8 @@
     <id>911</id>
     <Nick>Marcel</Nick>
     <Name>Marcel Ullrich</Name>
+    <Vorname>Marcel</Vorname>
+    <Nachname>Ullrich</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -488,6 +576,8 @@
     <id>1488</id>
     <Nick>maximilianwiesmann</Nick>
     <Name>Maximilian Wiesmann</Name>
+    <Vorname>Maximilian</Vorname>
+    <Nachname>Wiesmann</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15254369859</Handynummer>
@@ -499,6 +589,8 @@
     <id>1499</id>
     <Nick>finn.chr.pe</Nick>
     <Name>Finn Christopher Petersen</Name>
+    <Vorname>Finn</Vorname>
+    <Nachname>Petersen</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15780486181</Handynummer>
@@ -510,6 +602,8 @@
     <id>1479</id>
     <Nick>Sebastianharris</Nick>
     <Name>Sebastian -Philip Harris</Name>
+    <Vorname>Sebastian</Vorname>
+    <Nachname>Harris</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -521,6 +615,8 @@
     <id>1462</id>
     <Nick>FloH@science</Nick>
     <Name>Florian Hilpert</Name>
+    <Vorname>Florian</Vorname>
+    <Nachname>Hilpert</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -532,6 +628,8 @@
     <id>1898</id>
     <Nick>Jonas</Nick>
     <Name>Jonas Werner</Name>
+    <Vorname>Jonas</Vorname>
+    <Nachname>Werner</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -543,6 +641,8 @@
     <id>1899</id>
     <Nick>jquasebarth</Nick>
     <Name>Julius Leon Quasebarth</Name>
+    <Vorname>Julius</Vorname>
+    <Nachname>Quasebarth</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 162 253 9609</Handynummer>
@@ -554,6 +654,8 @@
     <id>1897</id>
     <Nick>Yaacov</Nick>
     <Name>Yaacov Xu Yong Schukys</Name>
+    <Vorname>Yaacov</Vorname>
+    <Nachname>Schukys</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 17648280910</Handynummer>
@@ -565,6 +667,8 @@
     <id>1904</id>
     <Nick>elisabett25</Nick>
     <Name>Lara Broschmann</Name>
+    <Vorname>Lara</Vorname>
+    <Nachname>Broschmann</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -576,6 +680,8 @@
     <id>1910</id>
     <Nick>JONWIE2001</Nick>
     <Name>Jonathan Maximilian Erik Wiebusch</Name>
+    <Vorname>Jonathan</Vorname>
+    <Nachname>Wiebusch</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15750315687</Handynummer>
@@ -587,6 +693,8 @@
     <id>1909</id>
     <Nick>LAWETU</Nick>
     <Name>László  Dirks</Name>
+    <Vorname>László </Vorname>
+    <Nachname>Dirks</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 175 8108458</Handynummer>
@@ -598,6 +706,8 @@
     <id>1916</id>
     <Nick>pc.schange</Nick>
     <Name>Philipp Schange</Name>
+    <Vorname>Philipp</Vorname>
+    <Nachname>Schange</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -609,6 +719,8 @@
     <id>920</id>
     <Nick>Kevin</Nick>
     <Name>Kevin Pascal Mours</Name>
+    <Vorname>Kevin</Vorname>
+    <Nachname>Mours</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -620,6 +732,8 @@
     <id>1920</id>
     <Nick>SATHKEDI05</Nick>
     <Name>Saskia Drechsel</Name>
+    <Vorname>Saskia</Vorname>
+    <Nachname>Drechsel</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -631,6 +745,8 @@
     <id>1807</id>
     <Nick>MaxMeyer</Nick>
     <Name>Maximilian Tim Meyer</Name>
+    <Vorname>Maximilian</Vorname>
+    <Nachname>Meyer</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 157 84413045</Handynummer>
@@ -642,6 +758,8 @@
     <id>1464</id>
     <Nick>pb2555</Nick>
     <Name>Paul Bunk</Name>
+    <Vorname>Paul</Vorname>
+    <Nachname>Bunk</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -653,6 +771,8 @@
     <id>1511</id>
     <Nick>felixkrabbes</Nick>
     <Name>Felix Krabbes</Name>
+    <Vorname>Felix</Vorname>
+    <Nachname>Krabbes</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -664,6 +784,8 @@
     <id>1473</id>
     <Nick>Hanna</Nick>
     <Name>Hanna Werner</Name>
+    <Vorname>Hanna</Vorname>
+    <Nachname>Werner</Nachname>
     <Rollen>forum administrator</Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -675,6 +797,8 @@
     <id>1922</id>
     <Nick>njpopp1</Nick>
     <Name>Niclas Joshua Popp</Name>
+    <Vorname>Niclas</Vorname>
+    <Nachname>Popp</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1744281214</Handynummer>
@@ -686,6 +810,8 @@
     <id>841</id>
     <Nick>BenjaminB</Nick>
     <Name>Benjamin Brindle</Name>
+    <Vorname>Benjamin</Vorname>
+    <Nachname>Brindle</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -697,6 +823,8 @@
     <id>1940</id>
     <Nick>Haasler</Nick>
     <Name>Jupp Nepomuk Haasler</Name>
+    <Vorname>Jupp</Vorname>
+    <Nachname>Haasler</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -708,6 +836,8 @@
     <id>1921</id>
     <Nick>Dmonyar</Nick>
     <Name>Raymond Stewart Mason</Name>
+    <Vorname>Raymond</Vorname>
+    <Nachname>Mason</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1729847800</Handynummer>
@@ -719,6 +849,8 @@
     <id>840</id>
     <Nick>-'Palos'-</Nick>
     <Name>Paul Lukas Fuchs</Name>
+    <Vorname>Paul</Vorname>
+    <Nachname>Fuchs</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -730,6 +862,8 @@
     <id>1937</id>
     <Nick>ina</Nick>
     <Name>Ina Verbücheln</Name>
+    <Vorname>Ina</Vorname>
+    <Nachname>Verbücheln</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 17666620237</Handynummer>
@@ -741,6 +875,8 @@
     <id>1936</id>
     <Nick>LH16</Nick>
     <Name>Laura Herzberg</Name>
+    <Vorname>Laura</Vorname>
+    <Nachname>Herzberg</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -752,6 +888,8 @@
     <id>1935</id>
     <Nick>Eike Peters</Nick>
     <Name>Eike Uwe Peters</Name>
+    <Vorname>Eike</Vorname>
+    <Nachname>Peters</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -763,6 +901,8 @@
     <id>1928</id>
     <Nick>JohannesW</Nick>
     <Name>Johannes Wolansky</Name>
+    <Vorname>Johannes</Vorname>
+    <Nachname>Wolansky</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -774,6 +914,8 @@
     <id>1934</id>
     <Nick>L.F.</Nick>
     <Name>Leon Feyer</Name>
+    <Vorname>Leon</Vorname>
+    <Nachname>Feyer</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -785,6 +927,8 @@
     <id>1933</id>
     <Nick>EllaH</Nick>
     <Name>Ella Hutschenreiter</Name>
+    <Vorname>Ella</Vorname>
+    <Nachname>Hutschenreiter</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 1605216876</Handynummer>
@@ -796,6 +940,8 @@
     <id>1919</id>
     <Nick>Siggi</Nick>
     <Name>Marcel Schmitz</Name>
+    <Vorname>Marcel</Vorname>
+    <Nachname>Schmitz</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -807,6 +953,8 @@
     <id>1938</id>
     <Nick>Ferdinand</Nick>
     <Name>Ferdinand Jobusch</Name>
+    <Vorname>Ferdinand</Vorname>
+    <Nachname>Jobusch</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15123877031</Handynummer>
@@ -818,6 +966,8 @@
     <id>1475</id>
     <Nick>Milena</Nick>
     <Name>Milena Zadro</Name>
+    <Vorname>Milena</Vorname>
+    <Nachname>Zadro</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 15150853698</Handynummer>
@@ -829,6 +979,8 @@
     <id>1939</id>
     <Nick>Sese</Nick>
     <Name>Sebastian Meyer</Name>
+    <Vorname>Sebastian</Vorname>
+    <Nachname>Meyer</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -840,6 +992,8 @@
     <id>1947</id>
     <Nick>Marc Ickler</Nick>
     <Name>Marc Kevin Ickler</Name>
+    <Vorname>Marc</Vorname>
+    <Nachname>Ickler</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -851,6 +1005,8 @@
     <id>1958</id>
     <Nick>kerstano</Nick>
     <Name>Johannes Kerstan</Name>
+    <Vorname>Johannes</Vorname>
+    <Nachname>Kerstan</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1762629470</Handynummer>
@@ -862,6 +1018,8 @@
     <id>1955</id>
     <Nick>MelinaASun</Nick>
     <Name>Katharina Melisande Albrecht</Name>
+    <Vorname>Katharina</Vorname>
+    <Nachname>Albrecht</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -873,6 +1031,8 @@
     <id>1949</id>
     <Nick>Pfanferno</Nick>
     <Name>Arman Pour Tak Dost</Name>
+    <Vorname>Arman</Vorname>
+    <Nachname>Pour Tak Dost</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -884,6 +1044,8 @@
     <id>1956</id>
     <Nick>Amelie</Nick>
     <Name>Amelie Birli</Name>
+    <Vorname>Amelie</Vorname>
+    <Nachname>Birli</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 15227432882</Handynummer>
@@ -895,6 +1057,8 @@
     <id>1953</id>
     <Nick>nico schroedter</Nick>
     <Name>nico Johannes Schroedter</Name>
+    <Vorname>nico</Vorname>
+    <Nachname>Schroedter</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15736922123</Handynummer>
@@ -906,6 +1070,8 @@
     <id>1952</id>
     <Nick>linusaltan</Nick>
     <Name>Linus Altan</Name>
+    <Vorname>Linus</Vorname>
+    <Nachname>Altan</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15778308043</Handynummer>
@@ -917,6 +1083,8 @@
     <id>1944</id>
     <Nick>Lukas Schlotter</Nick>
     <Name>Lukas Schlotter</Name>
+    <Vorname>Lukas</Vorname>
+    <Nachname>Schlotter</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15737379465</Handynummer>
@@ -928,6 +1096,8 @@
     <id>1948</id>
     <Nick>Leroy Schmidt</Nick>
     <Name>Leroy Schmidt</Name>
+    <Vorname>Leroy</Vorname>
+    <Nachname>Schmidt</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -939,6 +1109,8 @@
     <id>1512</id>
     <Nick>MaxiHerzog</Nick>
     <Name>Maximilian Herzog</Name>
+    <Vorname>Maximilian</Vorname>
+    <Nachname>Herzog</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 17698335443</Handynummer>
@@ -950,6 +1122,8 @@
     <id>1561</id>
     <Nick>Olexiy</Nick>
     <Name>Olexiy Davydov</Name>
+    <Vorname>Olexiy</Vorname>
+    <Nachname>Davydov</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 17657486016</Handynummer>
@@ -961,6 +1135,8 @@
     <id>1957</id>
     <Nick>Drajon296</Nick>
     <Name>Jan Henrik Thomm</Name>
+    <Vorname>Jan</Vorname>
+    <Nachname>Thomm</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15202191466</Handynummer>
@@ -972,6 +1148,8 @@
     <id>1967</id>
     <Nick>Brodi</Nick>
     <Name>Ferdinand Christoph Rießle</Name>
+    <Vorname>Ferdinand</Vorname>
+    <Nachname>Rießle</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -983,6 +1161,8 @@
     <id>1970</id>
     <Nick>Laura Bracht</Nick>
     <Name>Laura Bracht</Name>
+    <Vorname>Laura</Vorname>
+    <Nachname>Bracht</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 15161008223</Handynummer>
@@ -994,6 +1174,8 @@
     <id>1973</id>
     <Nick>Felix Chr</Nick>
     <Name>Felix Bekir Christensen</Name>
+    <Vorname>Felix</Vorname>
+    <Nachname>Christensen</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1005,6 +1187,8 @@
     <id>1974</id>
     <Nick>julian</Nick>
     <Name>Julian David Münster</Name>
+    <Vorname>Julian</Vorname>
+    <Nachname>Münster</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 17680818522</Handynummer>
@@ -1016,6 +1200,8 @@
     <id>1980</id>
     <Nick>Connor</Nick>
     <Name>Connor Hennemann</Name>
+    <Vorname>Connor</Vorname>
+    <Nachname>Hennemann</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1027,6 +1213,8 @@
     <id>1978</id>
     <Nick>Guschin</Nick>
     <Name>Viktor Guschin</Name>
+    <Vorname>Viktor</Vorname>
+    <Nachname>Guschin</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 17672257011</Handynummer>
@@ -1038,6 +1226,8 @@
     <id>1983</id>
     <Nick>Engert</Nick>
     <Name>Anabelle Engert</Name>
+    <Vorname>Anabelle</Vorname>
+    <Nachname>Engert</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1049,6 +1239,8 @@
     <id>1927</id>
     <Nick>klhlubek</Nick>
     <Name>Kamil Viktor Hlubek</Name>
+    <Vorname>Kamil</Vorname>
+    <Nachname>Hlubek</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1060,6 +1252,8 @@
     <id>1994</id>
     <Nick>r_bellm</Nick>
     <Name>Raphael Dominicus Bellm</Name>
+    <Vorname>Raphael</Vorname>
+    <Nachname>Bellm</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1071,6 +1265,8 @@
     <id>1992</id>
     <Nick>Eren Yildirim</Nick>
     <Name>Eren Can Yildirim</Name>
+    <Vorname>Eren</Vorname>
+    <Nachname>Yildirim</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1082,6 +1278,8 @@
     <id>1888</id>
     <Nick>Maurice</Nick>
     <Name>Maurice Zeuner</Name>
+    <Vorname>Maurice</Vorname>
+    <Nachname>Zeuner</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1093,6 +1291,8 @@
     <id>1990</id>
     <Nick>HansO</Nick>
     <Name>Hans Christian Olischläger</Name>
+    <Vorname>Hans</Vorname>
+    <Nachname>Olischläger</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15155255002</Handynummer>
@@ -1104,6 +1304,8 @@
     <id>1987</id>
     <Nick>Markus</Nick>
     <Name>Markus Schulz</Name>
+    <Vorname>Markus</Vorname>
+    <Nachname>Schulz</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 15756343725</Handynummer>
@@ -1115,6 +1317,8 @@
     <id>1986</id>
     <Nick>laszlohinz</Nick>
     <Name>Laszlo Hinz</Name>
+    <Vorname>Laszlo</Vorname>
+    <Nachname>Hinz</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1126,6 +1330,8 @@
     <id>1868</id>
     <Nick>nwiekilsass</Nick>
     <Name>Niklas Weiß</Name>
+    <Vorname>Niklas</Vorname>
+    <Nachname>Weiß</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1137,6 +1343,8 @@
     <id>735</id>
     <Nick>Aaron Wild</Nick>
     <Name>Aaron Wild</Name>
+    <Vorname>Aaron</Vorname>
+    <Nachname>Wild</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1148,6 +1356,8 @@
     <id>2180</id>
     <Nick>Arne Wolf</Nick>
     <Name>Arne Wolf</Name>
+    <Vorname>Arne</Vorname>
+    <Nachname>Wolf</Nachname>
     <Rollen>Betreuer</Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1159,6 +1369,8 @@
     <id>1999</id>
     <Nick>Lara2016</Nick>
     <Name>Lara Ahrens</Name>
+    <Vorname>Lara</Vorname>
+    <Nachname>Ahrens</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer>+49 1629146909</Handynummer>
@@ -1170,6 +1382,8 @@
     <id>1989</id>
     <Nick>noah köstner</Nick>
     <Name>Noah Köstner</Name>
+    <Vorname>Noah</Vorname>
+    <Nachname>Köstner</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1181,6 +1395,8 @@
     <id>1954</id>
     <Nick>Linda17</Nick>
     <Name>Linda Homa Sebzevari</Name>
+    <Vorname>Linda</Vorname>
+    <Nachname>Sebzevari</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1192,6 +1408,8 @@
     <id>2005</id>
     <Nick>Grisha</Nick>
     <Name>Grigory Kornilov</Name>
+    <Vorname>Grigory</Vorname>
+    <Nachname>Kornilov</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 1724651113</Handynummer>
@@ -1203,6 +1421,8 @@
     <id>2010</id>
     <Nick>Christian Linß</Nick>
     <Name>Christian Linß</Name>
+    <Vorname>Christian</Vorname>
+    <Nachname>Linß</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer>+49 17622743659</Handynummer>
@@ -1214,6 +1434,8 @@
     <id>2016</id>
     <Nick>m.ernst</Nick>
     <Name>Mathis Ernst</Name>
+    <Vorname>Mathis</Vorname>
+    <Nachname>Ernst</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1225,6 +1447,8 @@
     <id>2024</id>
     <Nick>Florian Dolzmann</Nick>
     <Name>Florian Dolzmann</Name>
+    <Vorname>Florian</Vorname>
+    <Nachname>Dolzmann</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Männlich</Geschlecht>
     <Handynummer></Handynummer>
@@ -1236,6 +1460,8 @@
     <id>2023</id>
     <Nick>ClaraBecker</Nick>
     <Name>Clara Becker</Name>
+    <Vorname>Clara</Vorname>
+    <Nachname>Becker</Nachname>
     <Rollen></Rollen>
     <Geschlecht>Weiblich</Geschlecht>
     <Handynummer></Handynummer>
