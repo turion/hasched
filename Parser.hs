@@ -71,7 +71,7 @@ parseThemen  raeume = proc node -> do
   beamer <- withDefault (getText <<< getChildren <<< atTag "Beamer") "Nein" -< node
   let b = beamer == "Ja"
   let r  = if raum == Nothing then Nothing else findeRaumById raeume $ read (fromJust raum)
-  returnA -<  Thema (Node (read nid) titel) r b Nothing []  
+  returnA -<  Thema (Node (read nid) titel) r b [] []
 
 parseVoraussetzungen  = proc node -> do
   voraussetzend <- getText <<<  getChildren <<<  atTag "voraussetzend" -< node
