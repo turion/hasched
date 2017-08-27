@@ -10,7 +10,9 @@ leseSeminar dir = do
   zeiteinheiten <- leseZeiteinheiten dir
   -- TODO Zeiteinheiten müssen chronologisch sortiert werden!
   raeume <- leseRaeume dir
-  themen <- sortWith (nid . tnode) <$> leseThemen dir raeume
+  nichtVerfuegbar <- leseNichtVerfuegbar dir
+  let raeume' = map (findeNichtVerfuegbar zeiteinheiten nichtVerfuegbar) raeume
+  themen <- sortWith (nid . tnode) <$> leseThemen dir raeume'
   voraussetzungen <- leseVoraussetzungen dir
   mussStattfinden <- leseMussStattfinden dir
   let themen' = map (findeVoraussetzungen themen voraussetzungen) themen
@@ -20,11 +22,11 @@ leseSeminar dir = do
   betreuerInnen <- leseBetreuerInnen dir
   let schuelerInnen' = map (fuegeThemenwahlenHinzuS themen themenwahlen) schuelerInnen
   let betreuerInnen' = map (fuegeThemenwahlenHinzuB themen themenwahlen) betreuerInnen
-  return $ Seminar (Node 0 "seminar") schuelerInnen' betreuerInnen' themen'' zeiteinheiten raeume
+  return $ Seminar (Node 0 "seminar") schuelerInnen' betreuerInnen' themen'' zeiteinheiten raeume'
 
 leseZeiteinheiten dir = runX $ parseXML (dir ++ "zeiteinheiten.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseZeiteinheiten
 
-leseRaeume dir = runX $ parseXML (dir ++ "räume.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseRaeume
+leseRaeume dir = runX $ parseXML (dir ++ "räume.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseRaeume 
 
 leseThemen dir raeume = runX $ parseXML (dir ++ "themenauswahl.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseThemen raeume
 
@@ -39,6 +41,8 @@ leseThemenwahlen dir = runX $ parseXML (dir ++ "themenwahlen.xml") >>> atTag "no
 leseMussStattfinden dir = runX $ parseXML (dir ++ "muss-stattfinden-an.xml") >>> atTag "nodes" >>> atTag "node" >>> parseMussStattfinden
 
 leseVerpasst dir = runX $ parseXML (dir ++ "verpassen.xml") >>> atTag "users" >>> atTag "user"  >>> parseVerpasst
+
+leseNichtVerfuegbar dir = runX $ parseXML (dir ++ "raum-nicht-verfügbar.xml") >>> atTag "nodes" >>> atTag "nodes"  >>> parseNichtVerfuegbar
 
 
 parseXML file = readDocument [ withValidate no
@@ -62,8 +66,7 @@ parseRaeume = proc node -> do
   beamer <- getText <<< getChildren <<< atTag "Beamer" -< node
   rgr <- getText <<< getChildren <<< atTag "Raumgr-e" -< node
   let b = if beamer == "Ja" then True else False
-  returnA -< Raum (Node (read nid) titel) (read rgr) b
-
+  returnA -< Raum (Node (read nid) titel) (read rgr) b []
 
 parseThemen  raeume = proc node -> do
   nid <- getText <<<  getChildren <<<  atTag "id" -< node
@@ -113,6 +116,11 @@ parseMussStattfinden = proc node -> do
   zid <- getText <<< getChildren <<< atTag "zid" -< node
   tid <- getText <<< getChildren <<< atTag "tid" -< node
   returnA -< (read tid, read zid) :: (Integer, Integer)
+  
+parseNichtVerfuegbar = proc node -> do
+  zid <- getText <<< getChildren <<< atTag "zid" -< node
+  rid <- getText <<< getChildren <<< atTag "id" -< node
+  returnA -< (read rid, read zid) :: (Integer, Integer)
 
 findeRaumById raeume rid =
   if (length rs == 1) then Just (head rs) else Nothing
@@ -136,6 +144,10 @@ findeThemenwahlen themen themenwahlen uid = [Themenwahl (findeThemaById themen t
 fuegeThemenwahlenHinzuS themen themenwahlen schuelerIn = SchuelerIn (sPerson schuelerIn) (findeThemenwahlen themen themenwahlen (uid (sPerson schuelerIn)))
 
 fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = BetreuerIn (bPerson betreuerIn) (findeThemenwahlen themen themenwahlen (uid (bPerson betreuerIn)))
+
+findeNichtVerfuegbar :: [Zeiteinheit] -> [(Integer, Integer)] -> Raum -> Raum
+findeNichtVerfuegbar zeiteinheiten nichtVerfuegbar raum =raum {nichtVerfuegbar = liste}
+  where liste = map (findeZeiteinheitById zeiteinheiten) [zid | (rid',zid) <- nichtVerfuegbar , rid'==( nid (rnode raum))] 
 
 
 findeMussStattfinden zeiteinheiten mussStattfinden thema=Thema (tnode thema) (raum thema) (tbeamer thema) stattfinden (voraussetzungen thema)

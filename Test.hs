@@ -26,7 +26,7 @@ testseminar = Seminar
   ]
   testthemen
   testzeiteinheiten
-  [ Raum (Node 200 "Raum") 100 False ]
+  [ Raum (Node 200 "Raum") 100 False [] ]
 
 main :: IO ()
 main = do
