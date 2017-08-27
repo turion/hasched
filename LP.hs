@@ -32,13 +32,18 @@ testLP seminar
 optimum :: LPSeminarFun
 optimum seminar = do
   setDirection Max
-  setObjective $ linCombination $
+  setObjective $ gesamtspass seminar
+
+gesamtspass seminar = linCombination $
     [ ( praeferenz themenwahl
       , var $ LokalBelegung (GlobalBelegung (gewaehltesThema themenwahl) zeiteinheit) schuelerIn)
       | schuelerIn <- schuelerInnen seminar
       , themenwahl <- themenwahlen schuelerIn
       , zeiteinheit <- zeiteinheiten seminar
     ]
+
+-- TODO
+minimalspass = undefined
 
 -- | Globale Zwangsbedingungen werden hier definiert
 global :: LPSeminarFun
