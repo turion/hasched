@@ -29,11 +29,8 @@ library
     , hxt >= 9.3.1.16 && < 9.4
     , hxt-curl >= 9.1.1.1 && < 10
     , mtl >=2.2 && <2.3
-<<<<<<< HEAD
     , containers >= 0.5.7 && <= 0.5.8
-=======
     , HaTeX >= 3.17 && < 3.18
->>>>>>> 94b8e051311e197023c173e28cd2a1e84d1819ce
   default-language:    Haskell2010
 
 executable hasched
@@ -67,7 +64,7 @@ executable testparser
     , glpk-hs >=0.5 && <0.6
     , mtl >=2.2 && <2.3
   default-language:    Haskell2010
-  
+
 executable testLatex
   main-is: TestLatex.hs
   build-depends:
