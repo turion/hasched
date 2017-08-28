@@ -173,3 +173,8 @@ data GlobalStundenplan = GlobalStundenplan
   , raumBelegungen     :: [ RaumBelegung ]
   , version            :: String
   }
+  
+data LokalStundenplan =LokalStundenplan
+  { globalStundenplan :: GlobalStundenplan
+  , lokaleBelebungen :: [ LokalBelegung ] 
+  }

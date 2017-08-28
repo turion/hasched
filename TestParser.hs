@@ -4,6 +4,6 @@ import GHC.Exts (sortWith)
 
 main = do
   seminar <- leseSeminar "jena/" 
-  let z= zeiteinheiten seminar
-  print z
+  let s= schuelerInnen seminar
+  print (head s)
   
