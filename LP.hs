@@ -54,7 +54,7 @@ global seminar = do
   forM_ (moeglicheBetreuerBelegungen seminar) $ \bb -> do
     setVarKind (var bb) BinVar
     varLF bb `leq` varLF (bGlobalBelegung bb)
-  -- BetreuerInnen können zu einer Zeit höchstens an einem Ort sein
+  -- BetreuerInnen können zu einer Zeit höchstens ein Thema halten sein
   sequence_ $ do
     betreuerIn <- betreuerInnen seminar
     zeiteinheit <- zeiteinheiten seminar
@@ -64,6 +64,7 @@ global seminar = do
       ] `leqTo` 1
   ausnahmeMussStattfindenAn seminar
   -- TODO Raumzuordnungen
+  -- TODO Bedingungen für Nuklearexkursion
 
 ausnahmeMussStattfindenAn :: LPSeminarFun
 ausnahmeMussStattfindenAn seminar = sequence_ $ do
@@ -86,6 +87,14 @@ raumPlanung seminar = do
       [ varLF $ RaumBelegung gb raum
         | raum <- raeume seminar
       ]
+  -- In einem Raum kann zu einer Zeit höchstens ein Thema stattfinden
+  sequence_ $ do
+    raum <- raeume seminar
+    zeiteinheit <- zeiteinheiten seminar
+    return $ add
+      [ varLF $ RaumBelegung (GlobalBelegung thema zeiteinheit) raum
+        | thema <- themen seminar
+      ] `leqTo` 1
   -- TODO Raumgrößen, Raumausnahmen und weitere Ausnahmen
 
 
@@ -113,7 +122,7 @@ lokal seminar = do
       [ varLF $ LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn
         | zeiteinheit <- zeiteinheiten seminar
       ] `leqTo` 1
-  --voraussetzungenErzwingen seminar
+  voraussetzungenErzwingen seminar
 
 voraussetzungenErzwingen :: LPSeminarFun
 voraussetzungenErzwingen seminar = do
