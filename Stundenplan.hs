@@ -1,19 +1,55 @@
 {-# LANGUAGE TypeSynonymInstances  #-}
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 module Stundenplan where
 
 import LPUtils
 
+import Control.Arrow (first)
 import Data.List
 import Data.Maybe (fromMaybe)
 
+newtype Nid = Nid Integer
+  deriving (Ord, Eq, Show, Num)
+
+-- Konstruktor muss bei read umgangen werden
+instance Read Nid where
+  readsPrec prec = map (first Nid) . readsPrec prec
+
+newtype Uid = Uid Integer
+  deriving (Ord, Eq, Show, Num)
+
+instance Read Uid where
+  readsPrec prec = map (first Uid) . readsPrec prec
+
 data Node = Node
-  { nid   :: Integer
+  { nid   :: Nid
   , titel :: String
   }
   deriving (Show, Eq, Ord)
+
+unique :: [a] -> Maybe a
+unique [a] = Just a
+unique _   = Nothing
+
+class ContainsNode a where
+  theNode :: a -> Node
+
+  nodeId :: a -> Nid
+  nodeId = nid . theNode
+
+  findeByNid :: [a] -> Nid -> Maybe a
+  findeByNid as nid = unique $ filter (matchNid nid) as
+
+  findeByNidError :: String -> [a] -> Nid -> a
+  findeByNidError msg as nid = fromMaybe
+    (error $ msg ++ " (" ++ show nid ++ ") nicht gefunden")
+    (findeByNid as nid)
+
+  matchNid :: Nid -> a -> Bool
+  matchNid nid a = nid == nodeId a
 
 data Thema = Thema
   { tnode :: Node
@@ -27,6 +63,9 @@ data Thema = Thema
 instance LPVar Thema String where
   var (Thema (Node nid _) _ _ _ _) = "thema " ++ show nid
 
+instance ContainsNode Thema where
+  theNode = tnode
+
 data ZeiteinheitTyp = Physikeinheit | Exkursion | Anderes
   deriving (Show, Eq, Ord)
 
@@ -36,6 +75,9 @@ data Zeiteinheit = Zeiteinheit
   , zeit :: String
   }
   deriving (Show, Eq, Ord)
+
+instance ContainsNode Zeiteinheit where
+  theNode = znode
 
 instance LPVar Zeiteinheit String where
   var (Zeiteinheit (Node nid _) _ _) = "zeiteinheit " ++ show nid
@@ -58,6 +100,9 @@ data Raum = Raum
 instance LPVar Raum String where
   var (Raum (Node nid _) _  _ _) = "raum " ++ show nid
 
+instance ContainsNode Raum where
+  theNode = rnode
+
 data Themenwahl = Themenwahl
   { gewaehltesThema :: Thema
   , praeferenz      :: Double
@@ -65,7 +110,7 @@ data Themenwahl = Themenwahl
   deriving (Eq, Ord, Show)
 
 data Person = Person
-  { uid      :: Integer
+  { uid      :: Uid
   , vorname  :: String
   , nachname :: String
   , verpasst :: [Zeiteinheit]
