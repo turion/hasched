@@ -8,7 +8,7 @@ import LPUtils
 import Stundenplan
 
 data LPParseError v
-  = InvalidDouble Double
+  = InvalidDouble v Double
   | InexistentVar v
   deriving Show
 
@@ -22,7 +22,7 @@ stupidParse as lpResult = parseList $ assocs lpResult
       rest <- parseList vds
       -- maybe (Left (InexistentVar v)) (return . (: rest)) $ val as v
       return $ maybe rest (: rest) $ val as v
-    parseList ((_, d) : _) = Left $ InvalidDouble d
+    parseList ((v, d) : _) = Left $ InvalidDouble v d
 
 -- TODO Lokal
 parseStundenplan :: Seminar -> String -> Map String Double -> Either (LPParseError String) GlobalStundenplan
