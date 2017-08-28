@@ -2,7 +2,7 @@
 module LP where
 
 import Control.Monad
-import Prelude hiding ((-))
+import Prelude hiding ((-), (+))
 
 import Control.Monad.LPMonad
 import Data.LinearProgram
@@ -32,7 +32,7 @@ testLP seminar
 optimum :: LPSeminarFun
 optimum seminar = do
   setDirection Max
-  setObjective $ gesamtspass seminar
+  setObjective $ gesamtspass seminar + linCombination [(1000, "minimalspaß")]
 
 gesamtspass seminar = linCombination $
     [ ( praeferenz themenwahl
@@ -42,12 +42,20 @@ gesamtspass seminar = linCombination $
       , zeiteinheit <- zeiteinheiten seminar
     ]
 
--- TODO
-minimalspass = undefined
+
+implementiereMinimum :: LPSeminarFun
+implementiereMinimum seminar = forM_ (schuelerInnen seminar) $ \schuelerIn -> do
+    asLinFunc "minimalspaß" `leq` linCombination -- TODO Kann man das mit gesamtspass refactoren?
+      [ ( praeferenz themenwahl
+        , var $ LokalBelegung (GlobalBelegung (gewaehltesThema themenwahl) zeiteinheit) schuelerIn)
+        | themenwahl <- themenwahlen schuelerIn
+        , zeiteinheit <- zeiteinheiten seminar
+      ]
 
 -- | Globale Zwangsbedingungen werden hier definiert
 global :: LPSeminarFun
 global seminar = do
+  implementiereMinimum
   -- Ein Thema kann nur stattfinden, wenn BetreuerInnen dafür eingeteilt werden
   forM_ (moeglicheGlobalBelegungen seminar) $ \gb -> do
     setVarKind (var gb) BinVar
