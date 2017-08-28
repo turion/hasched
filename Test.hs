@@ -45,8 +45,16 @@ main = do
         putStrLn "Default zu Testseminar"
         return testseminar
   seminar <- getSeminar
-  print $ take 5 $ schuelerInnen seminar
-  stundenplan <- glpSolveVars orpheusLPOptionen $ testLP seminar
-  case stundenplan of
+  print seminar
+  -- print $ take 5 $ schuelerInnen seminar
+  lpBerechnung <- glpSolveVars orpheusLPOptionen $ testLP seminar
+  case lpBerechnung of
     (retCode, Nothing)   -> putStrLn $ "Fehlgeschlagen: " ++ show retCode
-    (_, Just (obj, lpResult)) -> print $ parseStundenplan seminar "testversion" lpResult
+    (_, Just (obj, lpResult)) -> do
+      let stundenplan = parseStundenplan seminar "testversion" lpResult
+      writeFile "tempstundenplan.txt" $ show stundenplan
+      putStrLn "(Global, Betreuer, Raum)"
+      print ( length globalBelegung stundenplan
+            , length betreuerBelegung stundenplan
+            , length raumBelegung stundenplan
+            )
