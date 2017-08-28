@@ -176,5 +176,5 @@ data GlobalStundenplan = GlobalStundenplan
   
 data LokalStundenplan =LokalStundenplan
   { globalStundenplan :: GlobalStundenplan
-  , lokaleBelebungen :: [ LokalBelegung ] 
+  , lokaleBelegungen :: [ LokalBelegung ] 
   }
