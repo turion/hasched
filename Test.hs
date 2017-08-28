@@ -7,6 +7,8 @@ import Data.LinearProgram.GLPK
 
 import Text.Read (readMaybe)
 
+import Data.Map (delete)
+
 testthemen :: [ Thema ]
 testthemen = [ Thema (Node 23 "Mondflug") Nothing False [] []
              , Thema (Node 42 "Supernova")  Nothing False [] [testthemen !! 0]
@@ -51,10 +53,13 @@ main = do
   case lpBerechnung of
     (retCode, Nothing)   -> putStrLn $ "Fehlgeschlagen: " ++ show retCode
     (_, Just (obj, lpResult)) -> do
-      let stundenplan = parseStundenplan seminar "testversion" lpResult
-      writeFile "tempstundenplan.txt" $ show stundenplan
-      putStrLn "(Global, Betreuer, Raum)"
-      print ( length globalBelegung stundenplan
-            , length betreuerBelegung stundenplan
-            , length raumBelegung stundenplan
-            )
+      let lpResult' = delete "minimalspaß" lpResult -- TODO Aaaaaah
+      case parseStundenplan seminar "testversion" lpResult' of
+        Left e            -> print e
+        Right stundenplan -> do
+          writeFile "tempstundenplan.txt" $ show stundenplan
+          putStrLn "(Global, Betreuer, Raum)"
+          print ( length $ globalBelegungen stundenplan
+                , length $ betreuerBelegungen stundenplan
+                , length $ raumBelegungen stundenplan
+                )
