@@ -115,12 +115,12 @@ parseVoraussetzungen :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNod
 parseVoraussetzungen  = proc node -> do
   voraussetzend <- textAtTag "voraussetzend" -< node
   voraussetzung <- textAtTag "Voraussetzung" -< node
-  returnA -<  (read voraussetzend, read voraussetzung)
+  returnA -< (read voraussetzend, read voraussetzung)
 
 parseSchuelerInnen :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) SchuelerIn
 parseSchuelerInnen=proc user->do
   uid      <- textAtTag "id"       -< user
-  vorname  <- textAtTag"Vorname"   -< user
+  vorname  <- textAtTag "Vorname"  -< user
   nachname <- textAtTag "Nachname" -< user
   rollen   <- withDefault (textAtTag "Rollen") "" -< user
   if rollen == ""
@@ -177,7 +177,7 @@ findeVoraussetzungen themen voraussetzungen thema = thema { voraussetzungen = li
     liste =
       [ findeThemaById themen voraussetzung
         | (voraussetzend, voraussetzung) <- voraussetzungen
-        , voraussetzend == (nid (tnode thema))
+        , voraussetzend == nodeId thema
       ]
 
 findeThemenwahlen :: [Thema] -> [Themenwahl'] -> Uid -> [Themenwahl]
@@ -188,10 +188,10 @@ findeThemenwahlen themen themenwahlen uid =
   ]
 
 fuegeThemenwahlenHinzuS :: [Thema] -> [Themenwahl'] -> SchuelerIn -> SchuelerIn
-fuegeThemenwahlenHinzuS themen themenwahlen schuelerIn = schuelerIn { themenwahlen = findeThemenwahlen themen themenwahlen (uid (sPerson schuelerIn)) }
+fuegeThemenwahlenHinzuS themen themenwahlen schuelerIn = schuelerIn { themenwahlen = findeThemenwahlen themen themenwahlen $ uid $ sPerson schuelerIn }
 
 fuegeThemenwahlenHinzuB :: [Thema] -> [Themenwahl'] -> BetreuerIn -> BetreuerIn
-fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = betreuerIn { betreuteThemen = findeThemenwahlen themen themenwahlen (uid (bPerson betreuerIn)) }
+fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = betreuerIn { betreuteThemen = findeThemenwahlen themen themenwahlen $ uid $ bPerson betreuerIn }
 
 
 findeVerpassen :: [Zeiteinheit] -> [Verpasst] -> Uid -> [Zeiteinheit]
@@ -222,8 +222,8 @@ findeNichtVerfuegbar zeiteinheiten nichtVerfuegbare raum = raum { nichtVerfuegba
 
 findeMussStattfinden zeiteinheiten mussStattfinden thema = thema { mussStattfindenAn = stattfinden }
   where
-    maybeZid = lookup (nid (tnode thema)) mussStattfinden
+    maybeZid = lookup (nodeId thema) mussStattfinden
     stattfinden = maybe
       []
-      (\zid -> [ z | z <- zeiteinheiten, (nid  (znode z)) == zid])
+      (\zid -> filter (matchNid zid) zeiteinheiten)
       maybeZid
