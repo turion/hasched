@@ -1,10 +1,11 @@
 {-# LANGUAGE OverloadedStrings, FlexibleContexts #-}
 module LatexWriter where
 
-import Text.LaTeX
-import Stundenplan
+import Data.List
 import Control.Monad
+import Text.LaTeX
 import Text.LaTeX.Base.Class
+import Stundenplan
 
 -- By executing 'execLaTeXT' you run the 'LaTeXT' monad and make a 'LaTeX' value as output.
 -- With 'renderFile' you render it to 'Text' and write it in a file.
@@ -25,12 +26,12 @@ thePreamble = do
 
 
 schreibeGlobalenPlan globalerStundenplan = do
-  --let stringList = map (\ze ->mconcat [textbf (zeit ze), newline])  $ zeiteinheiten (seminar globalerStundenplan)
-  --let themen = map schreibeThemenZuZeiteinheit $ zeiteinheiten (seminar globalerStundenplan)
-  --fromString $ mconcat stringList
-  
-  mconcat [textbf "New",newline,  "Test"]
-  
+  let stringList = map zeiteinheitToTex  $ zeiteinheiten (seminar globalerStundenplan)
+  let themen = map schreibeThemenZuZeiteinheit $ zeiteinheiten (seminar globalerStundenplan)
+  let glob=concat $ transpose [stringList,themen]
+  mconcat glob
+
+zeiteinheitToTex ze = mconcat [textbf ( fromString (zeit ze)), newline]
 
 schreibeThemenZuZeiteinheit zeiteinheit=
  fromString "Themen"
