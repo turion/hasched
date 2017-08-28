@@ -177,3 +177,9 @@ data GlobalStundenplan = GlobalStundenplan
   , version            :: String
   }
   deriving Show
+
+data LokalStundenplan = LokalStundenplan
+  { globalStundenplan :: GlobalStundenplan
+  , lokalBelegungen   :: [ LokalBelegung ]
+  }
+  deriving Show

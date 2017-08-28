@@ -8,7 +8,6 @@ import Text.Read (readMaybe)
 import GHC.Exts (sortWith)
 import Data.Tree.NTree.TypeDefs
 
-
 type Voraussetzung = (Integer, Integer)
 type Themenwahl' = (Integer, Integer, Double)
 type Verpasst = (Integer, Integer)
@@ -41,8 +40,8 @@ leseSeminar dir = do
   verpasst <- leseVerpasst dir
   let schuelerInnen' = map (fuegeThemenwahlenHinzuS themen themenwahlen) schuelerInnen
   let betreuerInnen' = map (fuegeThemenwahlenHinzuB themen themenwahlen) betreuerInnen
-  let schuelerInnen''  = map (fuegeVerpassenHinzuS  zeiteinheiten verpasst) schuelerInnen
-  let betreuerInnen''  = map (fuegeVerpassenHinzuB  zeiteinheiten verpasst) betreuerInnen
+  let schuelerInnen''  = map (fuegeVerpassenHinzuS  zeiteinheiten verpasst) schuelerInnen'
+  let betreuerInnen''  = map (fuegeVerpassenHinzuB  zeiteinheiten verpasst) betreuerInnen'
   return $ Seminar (Node 0 "seminar") schuelerInnen'' betreuerInnen'' themen'' zeiteinheiten raeume
 
 leseZeiteinheiten :: String -> IO [Zeiteinheit]
@@ -74,7 +73,6 @@ leseMussStattfinden dir = runX $ parseXML (dir ++ "muss-stattfinden-an.xml") >>>
 
 leseNichtVerfuegbar :: String -> IO [NichtVerfuegbar]
 leseNichtVerfuegbar dir = runX $ parseXML (dir ++ "raum-nicht-verfügbar.xml") >>> atTag "nodes" >>> atTag "nodes"  >>> parseNichtVerfuegbar
-
 
 
 parseZeiteinheiten :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) Zeiteinheit
@@ -163,7 +161,6 @@ parseNichtVerfuegbar = proc node -> do
   zid <- textAtTag "zid" -< node
   rid <- textAtTag "id"  -< node
   returnA -< (read rid, read zid)
-
 
 
 findeRaumById :: [Raum] -> Integer -> Maybe Raum
