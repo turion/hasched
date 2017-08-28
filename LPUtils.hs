@@ -13,6 +13,15 @@ class Ord v => LPVar a v where
   val :: [a] -> v -> Maybe a
   val as v = lookup v $ zip (var <$> as) as
 
+class LPVal b where
+  fromDouble :: Double -> Maybe b
+
+instance LPVal Bool where
+  -- TODO Disclaimer: I have no idea how rounding will play here
+  fromDouble 0 = Just False
+  fromDouble 1 = Just True
+  fromDouble _ = Nothing
+
 instance (Monoid v, LPVar a v, LPVar b v) => LPVar (a, b) v where
   var (a, b) = var a `mappend` var b
 

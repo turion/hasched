@@ -19,6 +19,7 @@ library
   exposed-modules:
     LPUtils
     LP
+    LPRead
     Stundenplan
     Parser
     LatexWriter
@@ -28,6 +29,7 @@ library
     , hxt >= 9.3.1.16 && < 9.4
     , hxt-curl >= 9.1.1.1 && < 10
     , mtl >=2.2 && <2.3
+    , containers >= 0.5.6 && <= 0.5.8
     , HaTeX >= 3.17 && < 3.18
   default-language:    Haskell2010
 
@@ -50,6 +52,7 @@ executable test
     , hxt >= 9.3.1.16 && < 9.4
     , glpk-hs >=0.5 && <0.6
     , mtl >=2.2 && <2.3
+    , containers >= 0.5.6 && <= 0.5.8
   default-language:    Haskell2010
 
 executable testparser
@@ -61,7 +64,7 @@ executable testparser
     , glpk-hs >=0.5 && <0.6
     , mtl >=2.2 && <2.3
   default-language:    Haskell2010
-  
+
 executable testLatex
   main-is: TestLatex.hs
   build-depends:
