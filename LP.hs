@@ -101,7 +101,7 @@ raumPlanung seminar = do
   themaMussRaumHaben seminar
   -- TODO Raumgrößen, Raumausnahmen und weitere Ausnahmen
   -- In einem Raum kann zu einer Zeit höchstens ein Thema stattfinden
-  raumNichtDoppeltbelegen seminar
+  raumNichtDoppeltBelegen seminar
 
 raumNichtUnnoetigBelegen :: LPSeminarFun
 raumNichtUnnoetigBelegen seminar =
