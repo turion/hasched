@@ -123,6 +123,8 @@ data BetreuerBelegung = BetreuerBelegung
   { bGlobalBelegung :: GlobalBelegung
   , bBetreuerIn     :: BetreuerIn
   }
+  deriving (Eq, Ord, Show)
+
 
 moeglicheBetreuerBelegungen :: Seminar -> [ BetreuerBelegung ]
 moeglicheBetreuerBelegungen seminar
@@ -139,6 +141,7 @@ data RaumBelegung = RaumBelegung
   { rGlobalBelegung :: GlobalBelegung
   , rRaum           :: Raum
   }
+  deriving (Eq, Ord, Show)
 
 instance LPVar RaumBelegung String where
   var (RaumBelegung rGlobalBelegung rRaum) = "raumbelegung " ++ var rGlobalBelegung ++ " " ++ var rRaum
@@ -173,3 +176,4 @@ data GlobalStundenplan = GlobalStundenplan
   , raumBelegungen     :: [ RaumBelegung ]
   , version            :: String
   }
+  deriving Show

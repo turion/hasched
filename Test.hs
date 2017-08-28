@@ -1,5 +1,6 @@
 import Stundenplan
 import LP
+import LPRead
 import Parser (leseSeminar)
 
 import Data.LinearProgram.GLPK
@@ -45,4 +46,6 @@ main = do
         return testseminar
   seminar <- getSeminar
   stundenplan <- glpSolveVars orpheusLPOptionen $ testLP seminar
-  print stundenplan
+  case stundenplan of
+    (retCode, Nothing)   -> putStrLn $ "Fehlgeschlagen: " ++ show retCode
+    (_, Just (obj, lpResult)) -> print $ parseStundenplan seminar "testversion" lpResult
