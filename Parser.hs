@@ -10,11 +10,21 @@ import Data.Tree.NTree.TypeDefs
 type Voraussetzung = (Integer, Integer)
 type Themenwahl' = (Integer, Integer, Double)
 type Verpasst = (Integer, Integer)
+type MussStattfinden = (Integer, Integer)
+type NichtVerfuegbar=(Integer, Integer)
+
+parseXML :: String ->  IOStateArrow s b XmlTree
+parseXML file = readDocument [ withValidate no
+                             , withRemoveWS yes  -- throw away formating WS
+                             ] file
+
+atTag tag = deep (isElem >>> hasName tag)
+
+textAtTag str = atTag str >>> getChildren >>> getText
 
 leseSeminar :: String -> IO(Seminar)
 leseSeminar dir = do
-  zeiteinheiten <- leseZeiteinheiten dir
-  -- TODO Zeiteinheiten müssen chronologisch sortiert werden!
+  zeiteinheiten <- sortWith (zeit) <$> leseZeiteinheiten dir
   raeume <- leseRaeume dir
   nichtVerfuegbar <- leseNichtVerfuegbar dir
   let raeume' = map (findeNichtVerfuegbar zeiteinheiten nichtVerfuegbar) raeume
@@ -57,45 +67,38 @@ leseThemenwahlen dir = runX $ parseXML (dir ++ "themenwahlen.xml") >>> atTag "no
 leseVerpasst :: String -> IO([Verpasst]) 
 leseVerpasst dir = runX $ parseXML (dir ++ "verpassen.xml") >>> atTag "users" >>> atTag "user"  >>> parseVerpasst
 
+leseMussStattfinden :: String -> IO([MussStattfinden])
 leseMussStattfinden dir = runX $ parseXML (dir ++ "muss-stattfinden-an.xml") >>> atTag "nodes" >>> atTag "node" >>> parseMussStattfinden
 
+leseNichtVerfuegbar :: String -> IO([NichtVerfuegbar])
 leseNichtVerfuegbar dir = runX $ parseXML (dir ++ "raum-nicht-verfügbar.xml") >>> atTag "nodes" >>> atTag "nodes"  >>> parseNichtVerfuegbar
-
-parseXML :: String ->  IOStateArrow s b XmlTree
-parseXML file = readDocument [ withValidate no
-                             , withRemoveWS yes  -- throw away formating WS
-                             ] file
-
-atTag tag = deep (isElem >>> hasName tag)
-
-textAtTag = atTag >>> getChildren <<< getText
 
 
 parseZeiteinheiten :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) Zeiteinheit
 parseZeiteinheiten = proc node -> do
-  nid <- getText <<<  getChildren <<<  atTag "id" -< node
-  titel <- getText <<< getChildren <<< atTag "Titel" -< node
-  pe <- withDefault (getText <<< getChildren <<< atTag "Physikeinheit") "Nein" -< node
-  exk <- withDefault (getText <<< getChildren <<< atTag "Exkursion") "Nein" -< node
-  zeit <- getText <<<  getChildren <<<  atTag "Zeit" -< node
+  nid   <- textAtTag "id"    -< node
+  titel <- textAtTag "Titel" -< node
+  pe    <- withDefault (textAtTag "Physikeinheit") "Nein" -< node
+  exk   <- withDefault (textAtTag "Exkursion") "Nein"     -< node
+  zeit  <- textAtTag "Zeit"  -< node
   let typ=if pe=="Ja" then Physikeinheit else (if exk=="Ja" then Exkursion else Anderes)
   returnA -< Zeiteinheit (Node (read nid) titel) typ zeit
 
 parseRaeume :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) Raum
 parseRaeume = proc node -> do
-  nid <- textAtTag "id" -< node
-  titel <- textAtTag "Name" -< node
-  beamer <- textAtTag "Beamer" -< node
-  rgr <- textAtTag "Raumgr-e" -< node
+  nid    <- textAtTag "id"       -< node
+  titel  <- textAtTag "Name"     -< node
+  beamer <- textAtTag "Beamer"   -< node
+  rgr    <- textAtTag "Raumgr-e" -< node
   let b = if beamer == "Ja" then True else False
   returnA -< Raum (Node (read nid) titel) (read rgr) b []
 
 
 parseThemen :: [Raum] -> IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) Thema  
 parseThemen  raeume = proc node -> do
-  nid <- textAtTag "id" -< node
-  titel <- textAtTag "Thema" -< node
-  raum  <- withDefault  ( arr Just <<< textAtTag "Raum") Nothing -< node
+  nid    <- textAtTag "id"    -< node
+  titel  <- textAtTag "Thema" -< node
+  raum   <- withDefault  ( arr Just <<< textAtTag "Raum") Nothing -< node
   beamer <- withDefault (textAtTag "Beamer") "Nein" -< node
   let b = beamer == "Ja"
   let r  = if raum == Nothing then Nothing else findeRaumById raeume $ read (fromJust raum)
@@ -105,49 +108,51 @@ parseVoraussetzungen :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNod
 parseVoraussetzungen  = proc node -> do
   voraussetzend <- textAtTag "voraussetzend" -< node
   voraussetzung <- textAtTag "Voraussetzung" -< node
-  returnA -<  (read voraussetzend, read voraussetzung)
+  returnA -<  (read voraussetzend, read voraussetzung)    
 
 parseSchuelerInnen :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) SchuelerIn
 parseSchuelerInnen=proc user->do
-  uid <- getText <<< getChildren <<<atTag "id" -< user
-  vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
-  nachname <- getText <<< getChildren <<<atTag "Nachname" -< user
-  rollen<- withDefault (getText <<< getChildren <<<atTag "Rollen") "" -< user
+  uid      <- textAtTag "id"       -< user
+  vorname  <- textAtTag"Vorname"   -< user
+  nachname <- textAtTag "Nachname" -< user
+  rollen   <- withDefault (textAtTag "Rollen") "" -< user
   if rollen == "" 
     then returnA -< SchuelerIn (Person (read uid) vorname nachname []) [] 
     else zeroArrow -< ()
 
 parseBetreuerInnen :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) BetreuerIn
 parseBetreuerInnen=proc user->do
-  uid <- getText <<< getChildren <<<atTag "id" -< user
-  vorname <- getText <<< getChildren <<<atTag "Vorname" -< user
-  nachname <- getText <<< getChildren <<<atTag "Nachname" -< user
-  rollen<- withDefault (getText <<< getChildren <<<atTag "Rollen") "" -< user
+  uid      <- textAtTag "id"       -< user
+  vorname  <- textAtTag "Vorname"  -< user
+  nachname <- textAtTag "Nachname" -< user
+  rollen   <- withDefault (textAtTag "Rollen") "" -< user
   if rollen/="" 
     then returnA -< BetreuerIn (Person (read uid) vorname nachname []) [] 
     else zeroArrow -< ()
   
 parseVerpasst :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) Verpasst
 parseVerpasst = proc user->do
-  teilnehmerid <- getText <<< getChildren <<< atTag "Benutzer" -< user
-  zeiteinheitid <- getText <<< getChildren <<< atTag "Zeiteinheit" -< user
+  teilnehmerid  <- textAtTag "Benutzer"    -< user
+  zeiteinheitid <- textAtTag "Zeiteinheit" -< user
   returnA -<  (read (teilnehmerid :: String), read zeiteinheitid) :: (Integer, Integer)
 
 parseThemenwahlen :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) Themenwahl'
 parseThemenwahlen = proc node -> do
-  themaid <- textAtTag "Thema" -< node
+  themaid      <- textAtTag "Thema"    -< node
   teilnehmerid <- textAtTag "Benutzer" -< node
-  bewertung <- textAtTag "Wahl" -< node
+  bewertung    <- textAtTag "Wahl"     -< node
   returnA -< (read themaid, read teilnehmerid, read bewertung) :: (Integer, Integer, Double)
   
+parseMussStattfinden :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) MussStattfinden
 parseMussStattfinden = proc node -> do
   zid <- textAtTag "zid" -< node
   tid <- textAtTag "tid" -< node
   returnA -< (read tid, read zid) :: (Integer, Integer)
   
+parseNichtVerfuegbar :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) NichtVerfuegbar
 parseNichtVerfuegbar = proc node -> do
-  zid <- getText <<< getChildren <<< atTag "zid" -< node
-  rid <- getText <<< getChildren <<< atTag "id" -< node
+  zid <- textAtTag "zid" -< node
+  rid <- textAtTag "id" -< node
   returnA -< (read rid, read zid) :: (Integer, Integer)
 
 
@@ -169,21 +174,35 @@ findeZeiteinheitById zeiteinheiten zid =
 findeVoraussetzungen :: [Thema] -> [Voraussetzung] -> Thema -> Thema
 findeVoraussetzungen themen voraussetzungen thema = 
   Thema (tnode thema) (raum thema) (tbeamer thema) [] liste
-  where idlist = [voraussetzung | (voraussetzend, voraussetzung) <- voraussetzungen, voraussetzend == (nid (tnode thema))] 
-        liste = map (findeThemaById themen) idlist
+  where 
+    idlist = [ voraussetzung | 
+                   (voraussetzend, voraussetzung) <- voraussetzungen,
+                   voraussetzend == (nid (tnode thema))
+                 ] 
+    liste = map (findeThemaById themen) idlist
        
 findeThemenwahlen :: [Thema] -> [Themenwahl'] -> Integer -> [Themenwahl] 
-findeThemenwahlen themen themenwahlen uid = [Themenwahl (findeThemaById themen tid) wahl| (tid, uid', wahl)<- themenwahlen, uid'==uid]
+findeThemenwahlen themen themenwahlen uid =
+  [
+    Themenwahl (findeThemaById themen tid) wahl|
+    (tid, uid', wahl)<- themenwahlen,
+    uid'==uid
+  ]
 
 fuegeThemenwahlenHinzuS :: [Thema] -> [Themenwahl'] -> SchuelerIn -> SchuelerIn
-fuegeThemenwahlenHinzuS themen themenwahlen schuelerIn = SchuelerIn (sPerson schuelerIn) (findeThemenwahlen themen themenwahlen (uid (sPerson schuelerIn)))
+fuegeThemenwahlenHinzuS themen themenwahlen schuelerIn = schuelerIn {themenwahlen=findeThemenwahlen themen themenwahlen (uid (sPerson schuelerIn))}
 
 fuegeThemenwahlenHinzuB :: [Thema] -> [Themenwahl'] -> BetreuerIn -> BetreuerIn
-fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = BetreuerIn (bPerson betreuerIn) (findeThemenwahlen themen themenwahlen (uid (bPerson betreuerIn)))
+fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = betreuerIn {betreuteThemen= findeThemenwahlen themen themenwahlen (uid (bPerson betreuerIn))}
 
 
 findeVerpassen :: [Zeiteinheit] -> [Verpasst] -> Integer -> [Zeiteinheit]
-findeVerpassen zeiteinheiten verpassen uid = [(findeZeiteinheitById zeiteinheiten zid) | (zid, uid')<- verpassen, uid'==uid]
+findeVerpassen zeiteinheiten verpassen uid =
+  [
+    (findeZeiteinheitById zeiteinheiten zid) |
+    (zid, uid')<- verpassen,
+    uid'==uid
+  ]
 
 fuegeVerpassenHinzuS :: [Zeiteinheit] -> [Verpasst] -> SchuelerIn -> SchuelerIn
 fuegeVerpassenHinzuS zeiteinheiten verpassen schuelerIn = schuelerIn {sPerson = (sPerson schuelerIn) {verpasst = verpassteEinheiten}} 
