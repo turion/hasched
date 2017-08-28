@@ -44,5 +44,7 @@ main = do
         putStrLn "Default zu Testseminar"
         return testseminar
   seminar <- getSeminar
+  print $ take 5 $ schuelerInnen seminar
   stundenplan <- glpSolveVars orpheusLPOptionen $ testLP seminar
-  print stundenplan
+--  print stundenplan
+  return ()

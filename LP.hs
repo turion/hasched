@@ -44,26 +44,30 @@ optimum seminar = do
 global :: LPSeminarFun
 global seminar = do
   -- Ein Thema kann nur stattfinden, wenn BetreuerInnen dafür eingeteilt werden
+  themaNurMitBetreuer seminar
+  -- BetreuerInnen werden nur eingeteilt, wenn das Thema stattfindet
+  betreuerNurFallsThemaStattfindet seminar  
+  -- BetreuerInnen können zu einer Zeit höchstens an einem Ort sein
+  betreurKoennenSichNichtSpalten seminar
+  -- TODO Raumzuordnungen
+
+  ausnahmeMussStattfindenAn seminar
+
+
+themaNurMitBetreuer :: LPSeminarFun
+themaNurMitBetreuer seminar = 
   forM_ (moeglicheGlobalBelegungen seminar) $ \gb -> do
     setVarKind (var gb) BinVar
     varLF gb `leq` add
       [ varLF $ BetreuerBelegung gb betreuerIn
         | betreuerIn <- betreuerInnen seminar
       ]
-  -- BetreuerInnen werden nur eingeteilt, wenn das Thema stattfindet
+
+betreuerNurFallsThemaStattfindet :: LPSeminarFun
+betreuerNurFallsThemaStattfindet seminar  = 
   forM_ (moeglicheBetreuerBelegungen seminar) $ \bb -> do
     setVarKind (var bb) BinVar
     varLF bb `leq` varLF (bGlobalBelegung bb)
-  -- BetreuerInnen können zu einer Zeit höchstens an einem Ort sein
-  sequence_ $ do
-    betreuerIn <- betreuerInnen seminar
-    zeiteinheit <- zeiteinheiten seminar
-    return $ add
-      [ varLF $ BetreuerBelegung (GlobalBelegung thema zeiteinheit) betreuerIn
-        | thema <- themen seminar
-      ] `leqTo` 1
-  ausnahmeMussStattfindenAn seminar
-  -- TODO Raumzuordnungen
 
 ausnahmeMussStattfindenAn :: LPSeminarFun
 ausnahmeMussStattfindenAn seminar = sequence_ $ do
@@ -71,13 +75,33 @@ ausnahmeMussStattfindenAn seminar = sequence_ $ do
   zeiteinheit <- mussStattfindenAn thema
   return $ varLF (GlobalBelegung thema zeiteinheit) `equalTo` 1
 
+betreurKoennenSichNichtSpalten :: LPSeminarFun
+betreurKoennenSichNichtSpalten seminar =
+  sequence_ $ do
+    betreuerIn <- betreuerInnen seminar
+    zeiteinheit <- zeiteinheiten seminar
+    return $ add
+      [ varLF $ BetreuerBelegung (GlobalBelegung thema zeiteinheit) betreuerIn
+        | thema <- themen seminar
+      ] `leqTo` 1
+
+ 
 raumPlanung :: LPSeminarFun
 raumPlanung seminar = do
   -- Ein Raum wird nur belegt, wenn dort etwas stattfindet
-  forM_ (moeglicheRaumBelegungen seminar) $ \rb -> do
+  raumNichtUnnoetigBelegen seminar
+  -- Für jedes Thema muss ein Raum gebucht sein
+  themaMussRaumHaben seminar
+  -- TODO Raumgrößen, Raumausnahmen und weitere Ausnahmen
+
+raumNichtUnnoetigBelegen :: LPSeminarFun
+raumNichtUnnoetigBelegen seminar =
+ forM_ (moeglicheRaumBelegungen seminar) $ \rb -> do
     setVarKind (var rb) BinVar
     varLF rb `leq` varLF (rGlobalBelegung rb)
-  -- Für jedes Thema muss ein Raum gebucht sein
+
+themaMussRaumHaben :: LPSeminarFun 
+themaMussRaumHaben seminar =
   sequence_ $ do
     thema <- themen seminar
     zeiteinheit <- zeiteinheiten seminar
@@ -86,26 +110,37 @@ raumPlanung seminar = do
       [ varLF $ RaumBelegung gb raum
         | raum <- raeume seminar
       ]
-  -- TODO Raumgrößen, Raumausnahmen und weitere Ausnahmen
-
 
 -- Lokale (SchülerInnen betreffende) Zwangsbedingungen
 lokal :: LPSeminarFun
 lokal seminar = do
   -- SchülerInnen werden nur eingeteilt, wenn das Thema dann stattfindet
+  schuelerInnenNichtUnnoetigEinteilen seminar --TODO: Diese Bedingung ist zu stark!!   -- SchülerInnen können zu einer Zeit höchstens an einem Ort sein
+  schuelerInnenKoenneSichNichtSpalten seminar 
+  -- Vorraussetzungen fuer ein gewaehltes thema muss der/die SchuelerIn schon belegt haben oder er kennt sie schon
+  voraussetzungenErzwingen seminar
+    -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
+  -- Jedes Thema wird höchstens einmal belegt
+  themenNichtDoppeltBelegen seminar
+
+schuelerInnenNichtUnnoetigEinteilen :: LPSeminarFun
+schuelerInnenNichtUnnoetigEinteilen seminar = 
   forM_ (moeglicheLokalBelegungen seminar) $ \lb -> do
     setVarKind (var lb) BinVar
     varLF lb `leq` varLF (lGlobalBelegung lb)
-  -- SchülerInnen können zu einer Zeit höchstens an einem Ort sein
-  sequence_ $ do
+
+schuelerInnenKoenneSichNichtSpalten :: LPSeminarFun
+schuelerInnenKoenneSichNichtSpalten seminar =
+ sequence_ $ do
     schuelerIn <- schuelerInnen seminar
     zeiteinheit <- zeiteinheiten seminar
     return $ add
       [ varLF $ LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn
         | thema <- themen seminar
       ] `leqTo` 1
-    -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
-  -- Jedes Thema wird höchstens einmal belegt
+
+themenNichtDoppeltBelegen :: LPSeminarFun
+themenNichtDoppeltBelegen seminar = 
   sequence_ $ do
     schuelerIn <- schuelerInnen seminar
     thema <- themen seminar
@@ -113,7 +148,6 @@ lokal seminar = do
       [ varLF $ LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn
         | zeiteinheit <- zeiteinheiten seminar
       ] `leqTo` 1
-  --voraussetzungenErzwingen seminar
 
 voraussetzungenErzwingen :: LPSeminarFun
 voraussetzungenErzwingen seminar = do
