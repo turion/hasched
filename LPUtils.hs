@@ -7,7 +7,11 @@ import Data.LinearProgram.Common
 import Control.Monad.State.Class
 
 class Ord v => LPVar a v where
+  -- Creates the variable name
   var :: a -> v
+  -- Recovers the value from a list of possible values
+  val :: [a] -> v -> Maybe a
+  val as v = lookup v $ zip (var <$> as) as
 
 instance (Monoid v, LPVar a v, LPVar b v) => LPVar (a, b) v where
   var (a, b) = var a `mappend` var b

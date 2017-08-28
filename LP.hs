@@ -32,13 +32,18 @@ testLP seminar
 optimum :: LPSeminarFun
 optimum seminar = do
   setDirection Max
-  setObjective $ linCombination $
+  setObjective $ gesamtspass seminar
+
+gesamtspass seminar = linCombination $
     [ ( praeferenz themenwahl
       , var $ LokalBelegung (GlobalBelegung (gewaehltesThema themenwahl) zeiteinheit) schuelerIn)
       | schuelerIn <- schuelerInnen seminar
       , themenwahl <- themenwahlen schuelerIn
       , zeiteinheit <- zeiteinheiten seminar
     ]
+
+-- TODO
+minimalspass = undefined
 
 -- | Globale Zwangsbedingungen werden hier definiert
 global :: LPSeminarFun
@@ -52,6 +57,8 @@ global seminar = do
   -- TODO Raumzuordnungen
 
   ausnahmeMussStattfindenAn seminar
+
+  -- TODO Bedingungen für Nuklearexkursion
 
 
 themaNurMitBetreuer :: LPSeminarFun
@@ -93,6 +100,8 @@ raumPlanung seminar = do
   -- Für jedes Thema muss ein Raum gebucht sein
   themaMussRaumHaben seminar
   -- TODO Raumgrößen, Raumausnahmen und weitere Ausnahmen
+  -- In einem Raum kann zu einer Zeit höchstens ein Thema stattfinden
+  raumNichtDoppeltbelegen seminar
 
 raumNichtUnnoetigBelegen :: LPSeminarFun
 raumNichtUnnoetigBelegen seminar =
@@ -110,6 +119,16 @@ themaMussRaumHaben seminar =
       [ varLF $ RaumBelegung gb raum
         | raum <- raeume seminar
       ]
+
+raumNichtDoppeltBelegen :: LPSeminarFun
+raumNichtDoppeltBelegen seminar =
+ sequence_ $ do
+    raum <- raeume seminar
+    zeiteinheit <- zeiteinheiten seminar
+    return $ add
+      [ varLF $ RaumBelegung (GlobalBelegung thema zeiteinheit) raum
+        | thema <- themen seminar
+      ] `leqTo` 1
 
 -- Lokale (SchülerInnen betreffende) Zwangsbedingungen
 lokal :: LPSeminarFun
