@@ -29,7 +29,7 @@ instance LPVar Thema String where
 
 data ZeiteinheitTyp = Physikeinheit | Exkursion | Anderes
   deriving (Show, Eq, Ord)
-    
+
 data Zeiteinheit = Zeiteinheit
   { znode :: Node
   , zTyp :: ZeiteinheitTyp
@@ -116,7 +116,7 @@ moeglicheGlobalBelegungen (Seminar _ _ _ themen zeiteinheiten raeume)
     ]
 
 instance LPVar GlobalBelegung String where
-  var (GlobalBelegung gbZeiteinheit gbThema) = intercalate " " [var gbZeiteinheit, var gbThema]
+  var (GlobalBelegung gbZeiteinheit gbThema) = "globalbelegung " ++ intercalate " " [var gbZeiteinheit, var gbThema]
 
 
 data BetreuerBelegung = BetreuerBelegung
@@ -132,7 +132,7 @@ moeglicheBetreuerBelegungen seminar
     ]
 
 instance LPVar BetreuerBelegung String where
-  var (BetreuerBelegung bGlobalBelegung bBetreuerIn) = var bGlobalBelegung ++ " " ++ var bBetreuerIn
+  var (BetreuerBelegung bGlobalBelegung bBetreuerIn) = "betreuerbelegung " ++ var bGlobalBelegung ++ " " ++ var bBetreuerIn
 
 
 data RaumBelegung = RaumBelegung
@@ -141,7 +141,7 @@ data RaumBelegung = RaumBelegung
   }
 
 instance LPVar RaumBelegung String where
-  var (RaumBelegung rGlobalBelegung rRaum) = var rGlobalBelegung ++ " " ++ var rRaum
+  var (RaumBelegung rGlobalBelegung rRaum) = "raumbelegung " ++ var rGlobalBelegung ++ " " ++ var rRaum
 
 moeglicheRaumBelegungen :: Seminar -> [ RaumBelegung ]
 moeglicheRaumBelegungen seminar
@@ -157,7 +157,7 @@ data LokalBelegung = LokalBelegung
   deriving (Eq, Ord, Show)
 
 instance LPVar LokalBelegung String where
-  var (LokalBelegung lGlobalBelegung lSchuelerIn) = var lGlobalBelegung ++ " " ++ var lSchuelerIn
+  var (LokalBelegung lGlobalBelegung lSchuelerIn) = "lokalbelegung " ++ var lGlobalBelegung ++ " " ++ var lSchuelerIn
 
 moeglicheLokalBelegungen :: Seminar -> [ LokalBelegung ]
 moeglicheLokalBelegungen seminar
