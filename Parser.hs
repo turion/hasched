@@ -8,11 +8,11 @@ import Text.Read (readMaybe)
 import GHC.Exts (sortWith)
 import Data.Tree.NTree.TypeDefs
 
-type Voraussetzung = (Integer, Integer)
-type Themenwahl' = (Integer, Integer, Double)
-type Verpasst = (Integer, Integer)
-type MussStattfinden = (Integer, Integer)
-type NichtVerfuegbar = (Integer, Integer)
+type Voraussetzung = (Nid, Nid)
+type Themenwahl' = (Uid, Nid, Double)
+type Verpasst = (Uid, Nid)
+type MussStattfinden = (Nid, Nid)
+type NichtVerfuegbar = (Nid, Nid)
 
 parseXML :: String ->  IOStateArrow s b XmlTree
 parseXML file = readDocument [ withValidate no
@@ -108,7 +108,7 @@ parseThemen  raeume = proc node -> do
     raum = do
       raumId <- mraumId
       raumIdInt <- readMaybe raumId
-      findeRaumById raeume raumIdInt
+      findeByNid raeume raumIdInt
   returnA -<  Thema (Node (read nid) titel) raum b [] []
 
 parseVoraussetzungen :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) Voraussetzung
@@ -162,21 +162,14 @@ parseNichtVerfuegbar = proc node -> do
   rid <- textAtTag "id"  -< node
   returnA -< (read rid, read zid)
 
+findeRaumById :: [Raum] -> Nid -> Raum
+findeRaumById = findeByNidError "Raum"
 
-findeRaumById :: [Raum] -> Integer -> Maybe Raum
-findeRaumById raeume rid =
-  if (length rs == 1) then Just (head rs) else Nothing
-  where rs = [ r | r <- raeume, (nid  (rnode r)) == rid]
+findeThemaById :: [Thema] -> Nid -> Thema
+findeThemaById = findeByNidError "Thema"
 
-findeThemaById :: [Thema] -> Integer -> Thema
-findeThemaById themen tid =
-  head ts
-  where ts = [ t | t <- themen, (nid  (tnode t)) == tid]
-
-findeZeiteinheitById :: [Zeiteinheit] -> Integer -> Zeiteinheit
-findeZeiteinheitById zeiteinheiten zid =
-  head zs
-  where zs = [ z | z <- zeiteinheiten, (nid  (znode z)) == zid]
+findeZeiteinheitById :: [Zeiteinheit] -> Nid -> Zeiteinheit
+findeZeiteinheitById = findeByNidError "Zeiteinheit"
 
 findeVoraussetzungen :: [Thema] -> [Voraussetzung] -> Thema -> Thema
 findeVoraussetzungen themen voraussetzungen thema = thema { voraussetzungen = liste }
@@ -187,11 +180,11 @@ findeVoraussetzungen themen voraussetzungen thema = thema { voraussetzungen = li
         , voraussetzend == (nid (tnode thema))
       ]
 
-findeThemenwahlen :: [Thema] -> [Themenwahl'] -> Integer -> [Themenwahl]
+findeThemenwahlen :: [Thema] -> [Themenwahl'] -> Uid -> [Themenwahl]
 findeThemenwahlen themen themenwahlen uid =
   [ Themenwahl (findeThemaById themen tid) wahl
-    | (tid, uid', wahl) <- themenwahlen
-    , uid'==uid
+    | (uid', tid, wahl) <- themenwahlen
+    , uid' == uid
   ]
 
 fuegeThemenwahlenHinzuS :: [Thema] -> [Themenwahl'] -> SchuelerIn -> SchuelerIn
@@ -201,11 +194,11 @@ fuegeThemenwahlenHinzuB :: [Thema] -> [Themenwahl'] -> BetreuerIn -> BetreuerIn
 fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = betreuerIn { betreuteThemen = findeThemenwahlen themen themenwahlen (uid (bPerson betreuerIn)) }
 
 
-findeVerpassen :: [Zeiteinheit] -> [Verpasst] -> Integer -> [Zeiteinheit]
+findeVerpassen :: [Zeiteinheit] -> [Verpasst] -> Uid -> [Zeiteinheit]
 findeVerpassen zeiteinheiten verpassen uid =
-  [ (findeZeiteinheitById zeiteinheiten zid)
-    | (zid, uid') <- verpassen
-    , uid'==uid
+  [ findeZeiteinheitById zeiteinheiten zid
+    | (uid', zid) <- verpassen
+    , uid' == uid
   ]
 
 fuegeVerpassenHinzuS :: [Zeiteinheit] -> [Verpasst] -> SchuelerIn -> SchuelerIn
@@ -214,16 +207,16 @@ fuegeVerpassenHinzuS zeiteinheiten verpassen schuelerIn = schuelerIn { sPerson =
 
 fuegeVerpassenHinzuB :: [Zeiteinheit] -> [Verpasst] -> BetreuerIn -> BetreuerIn
 fuegeVerpassenHinzuB zeiteinheiten verpassen betreuerIn = betreuerIn { bPerson = (bPerson betreuerIn) { verpasst = verpassteEinheiten } }
- where verpassteEinheiten = findeVerpassen zeiteinheiten verpassen $ uid $ bPerson betreuerIn
+  where verpassteEinheiten = findeVerpassen zeiteinheiten verpassen $ uid $ bPerson betreuerIn
 
 
-findeNichtVerfuegbar :: [Zeiteinheit] -> [(Integer, Integer)] -> Raum -> Raum
+findeNichtVerfuegbar :: [Zeiteinheit] -> [NichtVerfuegbar] -> Raum -> Raum
 findeNichtVerfuegbar zeiteinheiten nichtVerfuegbare raum = raum { nichtVerfuegbar = liste }
   where
     liste =
       [ findeZeiteinheitById zeiteinheiten zid
         | (rid', zid) <- nichtVerfuegbare
-        , rid' == nid (rnode raum)
+        , rid' == nodeId raum
       ]
 
 
