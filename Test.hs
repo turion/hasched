@@ -16,8 +16,8 @@ testthemen = [ Thema (Node 23 "Mondflug") Nothing False [] []
              ]
 
 testzeiteinheiten :: [ Zeiteinheit ]
-testzeiteinheiten = [ Zeiteinheit (Node 100 "Z0") Physikeinheit "dann"
-                    , Zeiteinheit (Node 101 "Z1") Physikeinheit "und wann"
+testzeiteinheiten = [ Zeiteinheit (Node 100 "Z0") Physikeinheit "2016-01-01 10:00:00"
+                    , Zeiteinheit (Node 101 "Z1") Physikeinheit "2016-01-01 11:00:00"
                     ]
 
 testseminar :: Seminar
@@ -60,8 +60,8 @@ main = do
         Right stundenplan -> do
           writeFile "tempstundenplan.txt" $ show stundenplan
           putStrLn "(Global, Betreuer, Raum)"
-          print ( length $ globalBelegungen stundenplan
-                , length $ betreuerBelegungen stundenplan
-                , length $ raumBelegungen stundenplan
+          print ( length $ globalBelegungen $ globalStundenplan stundenplan
+                , length $ betreuerBelegungen $ globalStundenplan stundenplan
+                , length $ raumBelegungen $ globalStundenplan stundenplan
                 )
-          makeLatex (LokalStundenplan stundenplan [])
+          makeLatex stundenplan

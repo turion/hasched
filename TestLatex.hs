@@ -2,8 +2,8 @@ import LatexWriter
 import Stundenplan
 
 main=do
-  glob <- readFile "tempstundenplan.txt"
-  makeLatex $ LokalStundenplan (read glob) []
+  file <- readFile "tempstundenplan.txt"
+  makeLatex $ read file
     
 testthemen :: [ Thema ]
 testthemen = [ Thema (Node 23 "Mondflug") Nothing False [] []

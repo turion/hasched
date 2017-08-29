@@ -6,7 +6,7 @@ import Control.Monad
 import Data.List.Split
 import Data.Time (fromGregorian) 
 import Data.Time.Calendar.WeekDate (toWeekDate)
-import GHC.Exts (sortWith)
+import GHC.Exts (sortWith, groupWith)
 import Text.LaTeX
 import Text.LaTeX.Base.Class
 import Text.LaTeX.Base.Parser
@@ -114,8 +114,15 @@ schreibeLokalenPlan lokalerStundenplan = do
  
 personToTex p = (center.large.textbf.fromString) ("Stundenplan von "++(vorname p)++" "++(nachname p))
   
-schreibePlanSchueler lokalerStundenplan schueler=
-  mconcat [personToTex (sPerson schueler) ,newpage]
+schreibePlanSchueler lokalerStundenplan schueler= do
+  let tage = groupWith (ztag.zeiteinheitZuZeitspanne) $ zeiteinheiten $ seminar $ globalStundenplan $ lokalerStundenplan
+  mconcat $
+    personToTex (sPerson schueler) :
+    map (schreibeTag lokalerStundenplan) tage ++
+    [newpage]
+    
   
-
+schreibeTag lokalerStundenplan einheiten=do
+  let uberschrift = (large.textbf.fromString.ztag.zeiteinheitZuZeitspanne.head) einheiten
+  mconcat [uberschrift, lnbk]
 

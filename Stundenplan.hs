@@ -12,17 +12,23 @@ import Data.List
 import Data.Maybe (fromMaybe)
 
 newtype Nid = Nid Integer
-  deriving (Ord, Eq, Show, Num, Read)
+  deriving (Ord, Eq, Num)
 
 -- Konstruktor muss bei read umgangen werden
---instance Read Nid where
-  --readsPrec prec = map (first Nid) . readsPrec prec
+instance Read Nid where
+  readsPrec prec = map (first Nid) . readsPrec prec
+  
+instance Show Nid where
+  show (Nid i) = show i
 
 newtype Uid = Uid Integer
-  deriving (Ord, Eq, Show, Num, Read)
+  deriving (Ord, Eq, Num)
 
---instance Read Uid where
-  --readsPrec prec = map (first Uid) . readsPrec prec
+instance Read Uid where
+  readsPrec prec = map (first Uid) . readsPrec prec
+  
+instance Show Uid where
+  show (Uid i) = show i
 
 data Node = Node
   { nid   :: Nid
