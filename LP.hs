@@ -67,6 +67,8 @@ global seminar = do
   ausnahmeMussStattfindenAn seminar
 
   -- TODO Bedingungen für Nuklearexkursion
+  
+  raumPlanung seminar
 
 
 themaNurMitBetreuer :: LPSeminarFun

@@ -2,7 +2,8 @@ import LatexWriter
 import Stundenplan
 
 main=do
-    makeLatex lokal
+  glob <- readFile "tempstundenplan.txt"
+  makeLatex $ LokalStundenplan (read glob) []
     
 testthemen :: [ Thema ]
 testthemen = [ Thema (Node 23 "Mondflug") Nothing False [] []
@@ -16,7 +17,7 @@ testzeiteinheiten = [ Zeiteinheit (Node 100 "Z0") Physikeinheit "dann"
                     
 betreuer=BetreuerIn (Person 200000 "Testbetreuer" "Nachname" []) [Themenwahl thema 100 | thema <- testthemen]
 
-testraum=Raum (Node 200 "Raum") 100 False []
+testraum=Raum (Node 200 "Testraum") 100 False []
 
 testseminar :: Seminar
 testseminar = Seminar

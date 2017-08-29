@@ -12,23 +12,23 @@ import Data.List
 import Data.Maybe (fromMaybe)
 
 newtype Nid = Nid Integer
-  deriving (Ord, Eq, Show, Num)
+  deriving (Ord, Eq, Show, Num, Read)
 
 -- Konstruktor muss bei read umgangen werden
-instance Read Nid where
-  readsPrec prec = map (first Nid) . readsPrec prec
+--instance Read Nid where
+  --readsPrec prec = map (first Nid) . readsPrec prec
 
 newtype Uid = Uid Integer
-  deriving (Ord, Eq, Show, Num)
+  deriving (Ord, Eq, Show, Num, Read)
 
-instance Read Uid where
-  readsPrec prec = map (first Uid) . readsPrec prec
+--instance Read Uid where
+  --readsPrec prec = map (first Uid) . readsPrec prec
 
 data Node = Node
   { nid   :: Nid
   , titel :: String
   }
-  deriving (Show, Eq, Ord)
+  deriving (Show, Eq, Ord, Read)
 
 unique :: [a] -> Maybe a
 unique [a] = Just a
@@ -50,6 +50,9 @@ class ContainsNode a where
 
   matchNid :: Nid -> a -> Bool
   matchNid nid a = nid == nodeId a
+  
+  --titel :: a->String
+  --titel = ntitel. theNode
 
 data Thema = Thema
   { tnode :: Node
@@ -58,7 +61,7 @@ data Thema = Thema
   , mussStattfindenAn :: [ Zeiteinheit ]
   , voraussetzungen :: [ Thema ]
   }
-  deriving (Show, Eq, Ord)
+  deriving (Show, Eq, Ord, Read)
 
 instance LPVar Thema String where
   var (Thema (Node nid _) _ _ _ _) = "thema " ++ show nid
@@ -67,14 +70,14 @@ instance ContainsNode Thema where
   theNode = tnode
 
 data ZeiteinheitTyp = Physikeinheit | Exkursion | Anderes
-  deriving (Show, Eq, Ord)
+  deriving (Show, Eq, Ord, Read)
 
 data Zeiteinheit = Zeiteinheit
   { znode :: Node
   , zTyp :: ZeiteinheitTyp
   , zeit :: String
   }
-  deriving (Show, Eq, Ord)
+  deriving (Show, Eq, Ord, Read)
 
 instance ContainsNode Zeiteinheit where
   theNode = znode
@@ -95,7 +98,7 @@ data Raum = Raum
   , rbeamer :: Bool
   , nichtVerfuegbar :: [ Zeiteinheit ]
   }
-  deriving (Show, Eq, Ord)
+  deriving (Show, Eq, Ord, Read)
 
 instance LPVar Raum String where
   var (Raum (Node nid _) _  _ _) = "raum " ++ show nid
@@ -107,7 +110,7 @@ data Themenwahl = Themenwahl
   { gewaehltesThema :: Thema
   , praeferenz      :: Double
   }
-  deriving (Eq, Ord, Show)
+  deriving (Eq, Ord, Show, Read)
 
 data Person = Person
   { uid      :: Uid
@@ -115,13 +118,13 @@ data Person = Person
   , nachname :: String
   , verpasst :: [Zeiteinheit]
   }
-  deriving (Eq, Ord, Show)
+  deriving (Eq, Ord, Show, Read)
 
 data SchuelerIn = SchuelerIn
   { sPerson      :: Person
   , themenwahlen :: [ Themenwahl ]
   }
-  deriving (Eq, Ord, Show)
+  deriving (Eq, Ord, Show, Read)
 
 instance LPVar SchuelerIn String where
   var (SchuelerIn (Person uid _ _ _) _) = "schuelerin " ++ show uid
@@ -130,7 +133,7 @@ data BetreuerIn = BetreuerIn
   { bPerson        :: Person
   , betreuteThemen :: [ Themenwahl ]
   }
-  deriving (Eq, Ord, Show)
+  deriving (Eq, Ord, Show, Read)
 
 instance LPVar BetreuerIn String where
   var (BetreuerIn (Person uid _ _ _) _) = "betreuerin " ++ show uid
@@ -143,13 +146,13 @@ data Seminar = Seminar
   , zeiteinheiten :: [ Zeiteinheit ]
   , raeume        :: [ Raum ]
   }
-  deriving(Show)
+  deriving(Show, Read)
 
 data GlobalBelegung = GlobalBelegung
   { gbThema       :: Thema
   , gbZeiteinheit :: Zeiteinheit
   }
-  deriving (Eq, Ord, Show)
+  deriving (Eq, Ord, Show, Read)
 
 
 -- TODO ReaderT Seminar?
@@ -168,7 +171,7 @@ data BetreuerBelegung = BetreuerBelegung
   { bGlobalBelegung :: GlobalBelegung
   , bBetreuerIn     :: BetreuerIn
   }
-  deriving (Eq, Ord, Show)
+  deriving (Eq, Ord, Show, Read)
 
 
 moeglicheBetreuerBelegungen :: Seminar -> [ BetreuerBelegung ]
@@ -186,7 +189,7 @@ data RaumBelegung = RaumBelegung
   { rGlobalBelegung :: GlobalBelegung
   , rRaum           :: Raum
   }
-  deriving (Eq, Ord, Show)
+  deriving (Eq, Ord, Show, Read)
 
 instance LPVar RaumBelegung String where
   var (RaumBelegung rGlobalBelegung rRaum) = "raumbelegung " ++ var rGlobalBelegung ++ " " ++ var rRaum
@@ -202,7 +205,7 @@ data LokalBelegung = LokalBelegung
   { lGlobalBelegung :: GlobalBelegung
   , lSchuelerIn     :: SchuelerIn
   }
-  deriving (Eq, Ord, Show)
+  deriving (Eq, Ord, Show, Read)
 
 instance LPVar LokalBelegung String where
   var (LokalBelegung lGlobalBelegung lSchuelerIn) = "lokalbelegung " ++ var lGlobalBelegung ++ " " ++ var lSchuelerIn
@@ -221,10 +224,10 @@ data GlobalStundenplan = GlobalStundenplan
   , raumBelegungen     :: [ RaumBelegung ]
   , version            :: String
   }
-  deriving Show
+  deriving (Show, Read)
 
 data LokalStundenplan = LokalStundenplan
   { globalStundenplan :: GlobalStundenplan
   , lokalBelegungen   :: [ LokalBelegung ]
   }
-  deriving Show
+  deriving (Show, Read)

@@ -40,9 +40,9 @@ leseSeminar dir = do
   verpasst <- leseVerpasst dir
   let schuelerInnen' = map (fuegeThemenwahlenHinzuS themen themenwahlen) schuelerInnen
   let betreuerInnen' = map (fuegeThemenwahlenHinzuB themen themenwahlen) betreuerInnen
-  let schuelerInnen''  = map (fuegeVerpassenHinzuS  zeiteinheiten verpasst) schuelerInnen'
-  let betreuerInnen''  = map (fuegeVerpassenHinzuB  zeiteinheiten verpasst) betreuerInnen'
-  return $ Seminar (Node 0 "seminar") schuelerInnen'' betreuerInnen'' themen'' zeiteinheiten raeume
+  --let schuelerInnen''  = map (fuegeVerpassenHinzuS  zeiteinheiten verpasst) schuelerInnen'
+  --let betreuerInnen''  = map (fuegeVerpassenHinzuB  zeiteinheiten verpasst) betreuerInnen'
+  return $ Seminar (Node 0 "seminar") schuelerInnen' betreuerInnen' themen'' zeiteinheiten raeume
 
 leseZeiteinheiten :: String -> IO [Zeiteinheit]
 leseZeiteinheiten dir = runX $ parseXML (dir ++ "zeiteinheiten.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseZeiteinheiten

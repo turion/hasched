@@ -2,6 +2,7 @@ import Stundenplan
 import LP
 import LPRead
 import Parser (leseSeminar)
+import LatexWriter (makeLatex)
 
 import Data.LinearProgram.GLPK
 
@@ -22,7 +23,7 @@ testzeiteinheiten = [ Zeiteinheit (Node 100 "Z0") Physikeinheit "dann"
 testseminar :: Seminar
 testseminar = Seminar
   (Node 0 "Testseminar")
-  [ SchuelerIn (Person 100000 "Testperson" "Nachname" []) [Themenwahl (testthemen !! 0) 2]
+  [ SchuelerIn (Person 100000 "Testperson" "Nachname" []) [Themenwahl (testthemen !! 0) 2,Themenwahl (testthemen !! 1) 5]
   , SchuelerIn (Person 100001 "Testperson1" "Nachname" []) [Themenwahl (testthemen !! 0) 2]
   ]
   [ BetreuerIn (Person 200000 "Testbetreuer" "Nachname" []) [Themenwahl thema 100 | thema <- testthemen]
@@ -47,9 +48,9 @@ main = do
         putStrLn "Default zu Testseminar"
         return testseminar
   seminar <- getSeminar
-  print seminar
-  -- print $ take 5 $ schuelerInnen seminar
+  --print $ raeume seminar
   lpBerechnung <- glpSolveVars orpheusLPOptionen $ testLP seminar
+  print lpBerechnung
   case lpBerechnung of
     (retCode, Nothing)   -> putStrLn $ "Fehlgeschlagen: " ++ show retCode
     (_, Just (obj, lpResult)) -> do
@@ -63,3 +64,4 @@ main = do
                 , length $ betreuerBelegungen stundenplan
                 , length $ raumBelegungen stundenplan
                 )
+          makeLatex (LokalStundenplan stundenplan [])
