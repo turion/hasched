@@ -12,7 +12,7 @@ import Data.Map (delete)
 
 testthemen :: [ Thema ]
 testthemen = [ Thema (Node 23 "Mondflug") Nothing False [] []
-             , Thema (Node 42 "Supernova")  Nothing False [] [testthemen !! 0]
+             , Thema (Node 42 "Supernova")  Nothing False [] []
              ]
 
 testzeiteinheiten :: [ Zeiteinheit ]
@@ -48,9 +48,9 @@ main = do
         putStrLn "Default zu Testseminar"
         return testseminar
   seminar <- getSeminar
-  --print $ raeume seminar
+  print $ head $ schuelerInnen seminar
   lpBerechnung <- glpSolveVars orpheusLPOptionen $ testLP seminar
-  print lpBerechnung
+  --print lpBerechnung
   case lpBerechnung of
     (retCode, Nothing)   -> putStrLn $ "Fehlgeschlagen: " ++ show retCode
     (_, Just (obj, lpResult)) -> do

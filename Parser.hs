@@ -148,7 +148,7 @@ parseThemenwahlen = proc node -> do
   themaid      <- textAtTag "Thema"    -< node
   teilnehmerid <- textAtTag "Benutzer" -< node
   bewertung    <- textAtTag "Wahl"     -< node
-  returnA -< (read themaid, read teilnehmerid, read bewertung)
+  returnA -< (read teilnehmerid, read themaid, read bewertung)
 
 parseMussStattfinden :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) MussStattfinden
 parseMussStattfinden = proc node -> do

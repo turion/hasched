@@ -32,7 +32,7 @@ testLP seminar
 optimum :: LPSeminarFun
 optimum seminar = do
   setDirection Max
-  setObjective $ gesamtspass seminar + linCombination [(1000, "minimalspaß")]
+  setObjective $ gesamtspass seminar  -- + linCombination [(1000, "minimalspaß")]
 
 gesamtspass seminar = linCombination $
     [ ( praeferenz themenwahl
@@ -55,7 +55,7 @@ implementiereMinimum seminar = forM_ (schuelerInnen seminar) $ \schuelerIn -> do
 -- | Globale Zwangsbedingungen werden hier definiert
 global :: LPSeminarFun
 global seminar = do
-  implementiereMinimum seminar
+  --implementiereMinimum seminar
   -- Ein Thema kann nur stattfinden, wenn BetreuerInnen dafür eingeteilt werden
   themaNurMitBetreuer seminar
   -- BetreuerInnen werden nur eingeteilt, wenn das Thema stattfindet
@@ -64,7 +64,7 @@ global seminar = do
   betreurKoennenSichNichtSpalten seminar
   -- TODO Raumzuordnungen
 
-  ausnahmeMussStattfindenAn seminar
+  --ausnahmeMussStattfindenAn seminar
 
   -- TODO Bedingungen für Nuklearexkursion
   
@@ -147,7 +147,7 @@ lokal seminar = do
   schuelerInnenNichtUnnoetigEinteilen seminar --TODO: Diese Bedingung ist zu stark!!   -- SchülerInnen können zu einer Zeit höchstens an einem Ort sein
   schuelerInnenKoenneSichNichtSpalten seminar 
   -- Vorraussetzungen fuer ein gewaehltes thema muss der/die SchuelerIn schon belegt haben oder er kennt sie schon
-  voraussetzungenErzwingen seminar
+  --voraussetzungenErzwingen seminar
     -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
   -- Jedes Thema wird höchstens einmal belegt
   themenNichtDoppeltBelegen seminar
