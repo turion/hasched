@@ -27,6 +27,7 @@ testLP seminar
     optimum seminar
     global seminar
     lokal seminar
+    setzeVariablentypen seminar
 
 -- | Der optimale Stundenplan wird hier definiert
 optimum :: LPSeminarFun
@@ -59,9 +60,9 @@ global seminar = do
   -- Ein Thema kann nur stattfinden, wenn BetreuerInnen dafür eingeteilt werden
   themaNurMitBetreuer seminar
   -- BetreuerInnen werden nur eingeteilt, wenn das Thema stattfindet
-  betreuerNurFallsThemaStattfindet seminar  
+  --betreuerNurFallsThemaStattfindet seminar  
   -- BetreuerInnen können zu einer Zeit höchstens an einem Ort sein
-  betreurKoennenSichNichtSpalten seminar
+  --betreurKoennenSichNichtSpalten seminar
   -- TODO Raumzuordnungen
 
   --ausnahmeMussStattfindenAn seminar
@@ -70,11 +71,20 @@ global seminar = do
   
   raumPlanung seminar
 
+setzeVariablentypen :: LPSeminarFun
+setzeVariablentypen seminar = do
+  forM_ (moeglicheGlobalBelegungen seminar) $ \gb -> do
+    setVarKind (var gb) BinVar
+  forM_ (moeglicheBetreuerBelegungen seminar) $ \bb -> do
+    setVarKind (var bb) BinVar
+  forM_ (moeglicheRaumBelegungen seminar) $ \rb -> do
+    setVarKind (var rb) BinVar
+  forM_ (moeglicheLokalBelegungen seminar) $ \lb -> do
+    setVarKind (var lb) BinVar
 
 themaNurMitBetreuer :: LPSeminarFun
 themaNurMitBetreuer seminar = 
   forM_ (moeglicheGlobalBelegungen seminar) $ \gb -> do
-    setVarKind (var gb) BinVar
     varLF gb `leq` add
       [ varLF $ BetreuerBelegung gb betreuerIn
         | betreuerIn <- betreuerInnen seminar
@@ -83,7 +93,6 @@ themaNurMitBetreuer seminar =
 betreuerNurFallsThemaStattfindet :: LPSeminarFun
 betreuerNurFallsThemaStattfindet seminar  = 
   forM_ (moeglicheBetreuerBelegungen seminar) $ \bb -> do
-    setVarKind (var bb) BinVar
     varLF bb `leq` varLF (bGlobalBelegung bb)
 
 ausnahmeMussStattfindenAn :: LPSeminarFun
@@ -111,12 +120,11 @@ raumPlanung seminar = do
   themaMussRaumHaben seminar
   -- TODO Raumgrößen, Raumausnahmen und weitere Ausnahmen
   -- In einem Raum kann zu einer Zeit höchstens ein Thema stattfinden
-  raumNichtDoppeltBelegen seminar
+  --raumNichtDoppeltBelegen seminar
 
 raumNichtUnnoetigBelegen :: LPSeminarFun
 raumNichtUnnoetigBelegen seminar =
  forM_ (moeglicheRaumBelegungen seminar) $ \rb -> do
-    setVarKind (var rb) BinVar
     varLF rb `leq` varLF (rGlobalBelegung rb)
 
 themaMussRaumHaben :: LPSeminarFun 
@@ -145,17 +153,16 @@ lokal :: LPSeminarFun
 lokal seminar = do
   -- SchülerInnen werden nur eingeteilt, wenn das Thema dann stattfindet
   schuelerInnenNichtUnnoetigEinteilen seminar --TODO: Diese Bedingung ist zu stark!!   -- SchülerInnen können zu einer Zeit höchstens an einem Ort sein
-  schuelerInnenKoenneSichNichtSpalten seminar 
+  --schuelerInnenKoenneSichNichtSpalten seminar 
   -- Vorraussetzungen fuer ein gewaehltes thema muss der/die SchuelerIn schon belegt haben oder er kennt sie schon
   --voraussetzungenErzwingen seminar
     -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
   -- Jedes Thema wird höchstens einmal belegt
-  themenNichtDoppeltBelegen seminar
+  --themenNichtDoppeltBelegen seminar
 
 schuelerInnenNichtUnnoetigEinteilen :: LPSeminarFun
 schuelerInnenNichtUnnoetigEinteilen seminar = 
   forM_ (moeglicheLokalBelegungen seminar) $ \lb -> do
-    setVarKind (var lb) BinVar
     varLF lb `leq` varLF (lGlobalBelegung lb)
 
 schuelerInnenKoenneSichNichtSpalten :: LPSeminarFun

@@ -48,7 +48,6 @@ main = do
         putStrLn "Default zu Testseminar"
         return testseminar
   seminar <- getSeminar
-  print $ head $ schuelerInnen seminar
   lpBerechnung <- glpSolveVars orpheusLPOptionen $ testLP seminar
   --print lpBerechnung
   case lpBerechnung of
