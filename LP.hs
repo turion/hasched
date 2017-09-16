@@ -2,11 +2,12 @@
 module LP where
 
 import Control.Monad
-import Prelude hiding ((-), (+))
+import Prelude hiding ((-))
 
 import Control.Monad.LPMonad
-import Data.LinearProgram
+import Data.LinearProgram hiding ((+),(*),(/))
 import Data.LinearProgram.GLPK.Solver
+import Data.Maybe
 
 import Stundenplan
 import LPUtils
@@ -24,9 +25,9 @@ type LPSeminarFun = Seminar -> LPM String Double ()
 testLP :: Seminar -> LP String Double
 testLP seminar
   = execLPM $ do
-    optimum seminar
+    optimumGlobal seminar
     global seminar
-    lokal seminar
+    --lokal seminar
     setzeVariablentypen seminar
 
 -- | Der optimale Stundenplan wird hier definiert
@@ -40,9 +41,29 @@ gesamtspass seminar = linCombination $
       , var $ LokalBelegung (GlobalBelegung (gewaehltesThema themenwahl) zeiteinheit) schuelerIn)
       | schuelerIn <- schuelerInnen seminar
       , themenwahl <- themenwahlen schuelerIn
-      , zeiteinheit <- zeiteinheiten seminar
+      , zeiteinheit <- physikeinheiten seminar
     ]
+    
+optimumGlobal :: LPSeminarFun
+optimumGlobal seminar = do
+  setDirection Max
+  --setObjective $ hauefigkeitenGlobal seminar
+  setObjective $ linCombination []
+   
+hauefigkeitenGlobal seminar = linCombination $
+  [( summierePraeferenz seminar thema
+   , var $ GlobalBelegung thema zeiteinheit)
+   | thema <- themen seminar
+   , zeiteinheit <- physikeinheiten seminar
+  ]
 
+summierePraeferenz :: Seminar -> Thema -> Double
+summierePraeferenz seminar thema =
+  let tw = concat $ map themenwahlen $ schuelerInnen seminar
+  in sum [preaf | (Themenwahl t preaf) <- tw, (nid (tnode t))==(nid (tnode thema))]
+  
+gesamtPraeferenz :: Seminar -> Double
+gesamtPraeferenz seminar = sum [summierePraeferenz seminar thema | thema <- themen seminar]
 
 implementiereMinimum :: LPSeminarFun
 implementiereMinimum seminar = forM_ (schuelerInnen seminar) $ \schuelerIn -> do
@@ -50,7 +71,7 @@ implementiereMinimum seminar = forM_ (schuelerInnen seminar) $ \schuelerIn -> do
       [ ( praeferenz themenwahl
         , var $ LokalBelegung (GlobalBelegung (gewaehltesThema themenwahl) zeiteinheit) schuelerIn)
         | themenwahl <- themenwahlen schuelerIn
-        , zeiteinheit <- zeiteinheiten seminar
+        , zeiteinheit <- physikeinheiten seminar
       ]
 
 -- | Globale Zwangsbedingungen werden hier definiert
@@ -60,12 +81,18 @@ global seminar = do
   -- Ein Thema kann nur stattfinden, wenn BetreuerInnen dafür eingeteilt werden
   themaNurMitBetreuer seminar
   -- BetreuerInnen werden nur eingeteilt, wenn das Thema stattfindet
-  --betreuerNurFallsThemaStattfindet seminar  
+  betreuerNurFallsThemaStattfindet seminar  
   -- BetreuerInnen können zu einer Zeit höchstens an einem Ort sein
-  --betreurKoennenSichNichtSpalten seminar
+  betreurKoennenSichNichtSpalten seminar
   -- TODO Raumzuordnungen
+  
+  jedesThemaSoOftWieGewuenscht seminar
+  
+  themaBetreuerPlanung 4 seminar
 
-  --ausnahmeMussStattfindenAn seminar
+  ausnahmeMussStattfindenAn seminar
+  
+  ausnahmeMussStattfindenIn seminar
 
   -- TODO Bedingungen für Nuklearexkursion
   
@@ -79,8 +106,12 @@ setzeVariablentypen seminar = do
     setVarKind (var bb) BinVar
   forM_ (moeglicheRaumBelegungen seminar) $ \rb -> do
     setVarKind (var rb) BinVar
-  forM_ (moeglicheLokalBelegungen seminar) $ \lb -> do
-    setVarKind (var lb) BinVar
+  sequence_ $ do
+    betr <- betreuerInnen seminar
+    thema <- themen seminar
+    return $ setVarKind (var (BetreuerThemenZuordnung betr thema)) BinVar
+  --forM_ (moeglicheLokalBelegungen seminar) $ \lb -> do
+    --setVarKind (var lb) BinVar
 
 themaNurMitBetreuer :: LPSeminarFun
 themaNurMitBetreuer seminar = 
@@ -101,16 +132,74 @@ ausnahmeMussStattfindenAn seminar = sequence_ $ do
   zeiteinheit <- mussStattfindenAn thema
   return $ varLF (GlobalBelegung thema zeiteinheit) `equalTo` 1
 
+ausnahmeMussStattfindenIn :: LPSeminarFun
+ausnahmeMussStattfindenIn seminar = sequence_ $ do
+  thema <- themenMitRaum seminar
+  zeiteinheit <- physikeinheiten seminar
+  return $ (varLF (RaumBelegung (GlobalBelegung thema zeiteinheit) (fromJust (raum thema)))) `geq` (varLF (GlobalBelegung thema zeiteinheit))
+  
+themenMitRaum :: Seminar -> [Thema]
+themenMitRaum seminar = filter (\t->(raum t)/=Nothing) $ themen seminar
+
 betreurKoennenSichNichtSpalten :: LPSeminarFun
 betreurKoennenSichNichtSpalten seminar =
   sequence_ $ do
     betreuerIn <- betreuerInnen seminar
-    zeiteinheit <- zeiteinheiten seminar
+    zeiteinheit <- physikeinheiten seminar
     return $ add
       [ varLF $ BetreuerBelegung (GlobalBelegung thema zeiteinheit) betreuerIn
         | thema <- themen seminar
       ] `leqTo` 1
 
+jedesThemaMindestensEinMal :: LPSeminarFun
+jedesThemaMindestensEinMal seminar =
+  sequence_ $ do
+    thema <- themen seminar
+    return $ add
+      [varLF $ GlobalBelegung thema zeiteinheit | zeiteinheit <- physikeinheiten seminar] `geqTo` 1
+      
+jedesThemaSoOftWieGewuenscht :: LPSeminarFun
+jedesThemaSoOftWieGewuenscht seminar =
+  forM_ (themen seminar) $ \thema -> do
+    let preafCount = summierePraeferenz seminar thema
+    let hauef =fromIntegral $ round $ preafCount/(gesamtPraeferenz seminar)*10*10
+    let themenzahl = add [varLF $ GlobalBelegung thema zeiteinheit | zeiteinheit <- physikeinheiten seminar] 
+    themenzahl `geqTo` (hauef -1)
+    themenzahl `leqTo` (hauef + 1)
+    --themenzahl `geqTo` 1
+    --themenzahl `leqTo` 3
+    
+zeigeHauef :: Seminar -> [String]
+zeigeHauef seminar = map (\t -> (titel (tnode t))++": "++ show (berechneHauefigkeit seminar t)++"\n") (themen seminar)
+
+berechneHauefigkeit :: Seminar -> Thema -> Double
+berechneHauefigkeit seminar thema =
+  let preafCount = summierePraeferenz seminar thema
+  in preafCount/(gesamtPraeferenz seminar)*7*10
+
+themaBetreuerPlanung :: Int -> LPSeminarFun
+themaBetreuerPlanung n seminar = do
+  themaNurWennBetreuerZugeordnet seminar
+  proThemaNurEinBetreuer seminar
+  proBetreuerMaximalNThemen 4 seminar
+    
+themaNurWennBetreuerZugeordnet :: LPSeminarFun
+themaNurWennBetreuerZugeordnet seminar = 
+  sequence_ $ do
+    thema <- themen seminar
+    betreuerIn <- betreuerInnen seminar
+    zeiteinheit <- zeiteinheiten seminar
+    return $ (varLF (BetreuerBelegung (GlobalBelegung thema zeiteinheit) betreuerIn )) `leq` (varLF (BetreuerThemenZuordnung betreuerIn thema))
+    
+proThemaNurEinBetreuer :: LPSeminarFun
+proThemaNurEinBetreuer seminar =
+  forM_ (themen seminar) $ \thema -> do
+    add [ varLF $ BetreuerThemenZuordnung betreuerIn thema | betreuerIn <- betreuerInnen seminar] `equalTo` 1
+  
+proBetreuerMaximalNThemen :: Double -> LPSeminarFun
+proBetreuerMaximalNThemen n seminar =
+   forM_ (betreuerInnen seminar) $ \betreuerIn -> do
+    add [varLF $ BetreuerThemenZuordnung betreuerIn thema | thema <- themen seminar] `leqTo` n
  
 raumPlanung :: LPSeminarFun
 raumPlanung seminar = do
@@ -120,7 +209,7 @@ raumPlanung seminar = do
   themaMussRaumHaben seminar
   -- TODO Raumgrößen, Raumausnahmen und weitere Ausnahmen
   -- In einem Raum kann zu einer Zeit höchstens ein Thema stattfinden
-  --raumNichtDoppeltBelegen seminar
+  raumNichtDoppeltBelegen seminar
 
 raumNichtUnnoetigBelegen :: LPSeminarFun
 raumNichtUnnoetigBelegen seminar =
@@ -131,7 +220,7 @@ themaMussRaumHaben :: LPSeminarFun
 themaMussRaumHaben seminar =
   sequence_ $ do
     thema <- themen seminar
-    zeiteinheit <- zeiteinheiten seminar
+    zeiteinheit <- physikeinheiten seminar
     let gb = GlobalBelegung thema zeiteinheit
     return $ varLF gb `leq` add
       [ varLF $ RaumBelegung gb raum
@@ -142,7 +231,7 @@ raumNichtDoppeltBelegen :: LPSeminarFun
 raumNichtDoppeltBelegen seminar =
  sequence_ $ do
     raum <- raeume seminar
-    zeiteinheit <- zeiteinheiten seminar
+    zeiteinheit <- physikeinheiten seminar
     return $ add
       [ varLF $ RaumBelegung (GlobalBelegung thema zeiteinheit) raum
         | thema <- themen seminar
@@ -153,12 +242,12 @@ lokal :: LPSeminarFun
 lokal seminar = do
   -- SchülerInnen werden nur eingeteilt, wenn das Thema dann stattfindet
   schuelerInnenNichtUnnoetigEinteilen seminar --TODO: Diese Bedingung ist zu stark!!   -- SchülerInnen können zu einer Zeit höchstens an einem Ort sein
-  --schuelerInnenKoenneSichNichtSpalten seminar 
+  schuelerInnenKoenneSichNichtSpalten seminar 
   -- Vorraussetzungen fuer ein gewaehltes thema muss der/die SchuelerIn schon belegt haben oder er kennt sie schon
   --voraussetzungenErzwingen seminar
     -- TODO Eigentlich wollen wir hier sowas wie "trace moeglicheGlobalBelegungen themen"
   -- Jedes Thema wird höchstens einmal belegt
-  --themenNichtDoppeltBelegen seminar
+  themenNichtDoppeltBelegen seminar
 
 schuelerInnenNichtUnnoetigEinteilen :: LPSeminarFun
 schuelerInnenNichtUnnoetigEinteilen seminar = 
@@ -169,7 +258,7 @@ schuelerInnenKoenneSichNichtSpalten :: LPSeminarFun
 schuelerInnenKoenneSichNichtSpalten seminar =
  sequence_ $ do
     schuelerIn <- schuelerInnen seminar
-    zeiteinheit <- zeiteinheiten seminar
+    zeiteinheit <- physikeinheiten seminar
     return $ add
       [ varLF $ LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn
         | thema <- themen seminar
@@ -182,7 +271,7 @@ themenNichtDoppeltBelegen seminar =
     thema <- themen seminar
     return $ add
       [ varLF $ LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn
-        | zeiteinheit <- zeiteinheiten seminar
+        | zeiteinheit <- physikeinheiten seminar
       ] `leqTo` 1
 
 voraussetzungenErzwingen :: LPSeminarFun
@@ -193,13 +282,13 @@ voraussetzungenErzwingen seminar = do
   sequence_ $ do
     schuelerIn <- schuelerInnen seminar
     thema <- themen seminar
-    zeiteinheit <- zeiteinheiten seminar
+    zeiteinheit <- physikeinheiten seminar
     let varKompetent = var ("kompetent", LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn)
     return $ do
       setVarKind varKompetent BinVar
       (asLinFunc varKompetent - add
           [ varLF (GlobalBelegung thema vorher)
-            | vorher <- vorherigeZeiteinheiten zeiteinheit $ zeiteinheiten seminar
+            | vorher <- vorherigeZeiteinheiten zeiteinheit $ physikeinheiten seminar
           ])
         `leqTo` if thema `elem`
           [ gewaehltesThema wahl
@@ -212,7 +301,7 @@ voraussetzungenErzwingen seminar = do
   sequence_ $ do
     schuelerIn <- schuelerInnen seminar
     thema <- themen seminar
-    zeiteinheit <- zeiteinheiten seminar
+    zeiteinheit <- physikeinheiten seminar
     voraussetzung <- voraussetzungen thema
     return $
       varLF (LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn)

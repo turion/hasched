@@ -153,6 +153,9 @@ data Seminar = Seminar
   , raeume        :: [ Raum ]
   }
   deriving(Show, Read)
+  
+physikeinheiten :: Seminar -> [ Zeiteinheit ]
+physikeinheiten seminar = filter (\ze -> (zTyp ze)==Physikeinheit) $ zeiteinheiten seminar
 
 data GlobalBelegung = GlobalBelegung
   { gbThema       :: Thema
@@ -222,6 +225,14 @@ moeglicheLokalBelegungen seminar
       | gb <- moeglicheGlobalBelegungen seminar
       , s  <- schuelerInnen seminar
     ]
+    
+data BetreuerThemenZuordnung = BetreuerThemenZuordnung
+  {  zugeordneterBetreuerIn :: BetreuerIn
+  ,  zugeordnetesThema :: Thema
+  }
+  
+instance LPVar BetreuerThemenZuordnung String where
+   var (BetreuerThemenZuordnung betr thema) = "betreuerThemenZuordung "++ var betr ++ " " ++ var thema
 
 data GlobalStundenplan = GlobalStundenplan
   { seminar            :: Seminar
