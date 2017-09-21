@@ -34,6 +34,10 @@ unique :: [a] -> Maybe a
 unique [a] = Just a
 unique _   = Nothing
 
+maybeFail :: b -> Maybe a -> Either b a
+maybeFail _ (Just a) = Right a
+maybeFail b Nothing  = Left b
+
 class ContainsNode a where
   theNode :: a -> Node
 
@@ -48,6 +52,10 @@ class ContainsNode a where
     (error $ msg ++ " (" ++ show nid ++ ") nicht gefunden")
     (findeByNid as nid)
 
+  findeByNidEither :: String -> [a] -> Nid -> Either String a
+  findeByNidEither msg as nid = maybeFail
+    (msg ++ " (" ++ show nid ++ ") nicht gefunden")
+    (findeByNid as nid)
   matchNid :: Nid -> a -> Bool
   matchNid nid a = nid == nodeId a
 

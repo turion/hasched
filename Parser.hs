@@ -7,6 +7,7 @@ import Data.Maybe
 import Text.Read (readMaybe)
 import GHC.Exts (sortWith)
 import Data.Tree.NTree.TypeDefs
+import Control.Monad.Writer
 
 type Voraussetzung = (Nid, Nid)
 type Themenwahl' = (Uid, Nid, Double)
@@ -22,6 +23,11 @@ parseXML file = readDocument [ withValidate no
 atTag tag = deep (isElem >>> hasName tag)
 
 textAtTag str = atTag str >>> getChildren >>> getText
+
+warnList :: [Either w a] -> Writer [w] [a]
+warnList [] = return []
+warnList (Left w : as) = tell w >> warnList as
+warnList (Right a : as) = (a :) <$> warnList as
 
 leseSeminar :: String -> IO Seminar
 leseSeminar dir = do
@@ -162,27 +168,27 @@ parseNichtVerfuegbar = proc node -> do
   rid <- textAtTag "id"  -< node
   returnA -< (read rid, read zid)
 
-findeRaumById :: [Raum] -> Nid -> Raum
-findeRaumById = findeByNidError "Raum"
+findeRaumById :: [Raum] -> Nid -> Either String Raum
+findeRaumById = findeByNidEither "Raum"
 
-findeThemaById :: [Thema] -> Nid -> Thema
-findeThemaById = findeByNidError "Thema"
+findeThemaById :: [Thema] -> Nid -> Either String Thema
+findeThemaById = findeByNidEither "Thema"
 
-findeZeiteinheitById :: [Zeiteinheit] -> Nid -> Zeiteinheit
-findeZeiteinheitById = findeByNidError "Zeiteinheit"
+findeZeiteinheitById :: [Zeiteinheit] -> Nid -> Either String Zeiteinheit
+findeZeiteinheitById = findeByNidEither "Zeiteinheit"
 
-findeVoraussetzungen :: [Thema] -> [Voraussetzung] -> Thema -> Thema
-findeVoraussetzungen themen voraussetzungen thema = thema { voraussetzungen = liste }
-  where
-    liste =
-      [ findeThemaById themen voraussetzung
-        | (voraussetzend, voraussetzung) <- voraussetzungen
-        , voraussetzend == nodeId thema
-      ]
+findeVoraussetzungen :: [Thema] -> [Voraussetzung] -> Thema -> Writer [String] Thema
+findeVoraussetzungen themen voraussetzungen thema = do
+  liste <- warnList
+    [ findeThemaById themen voraussetzung
+      | (voraussetzend, voraussetzung) <- voraussetzungen
+      , voraussetzend == nodeId thema
+    ]
+  return $ thema { voraussetzungen = liste }
 
-findeThemenwahlen :: [Thema] -> [Themenwahl'] -> Uid -> [Themenwahl]
-findeThemenwahlen themen themenwahlen uid =
-  [ Themenwahl (findeThemaById themen tid) wahl
+findeThemenwahlen :: [Thema] -> [Themenwahl'] -> Uid -> Writer [String] [Themenwahl]
+findeThemenwahlen themen themenwahlen uid = warnList
+  [ (`Themenwahl` wahl) <$> (findeThemaById themen tid)
     | (uid', tid, wahl) <- themenwahlen
     , uid' == uid
   ]
@@ -194,8 +200,8 @@ fuegeThemenwahlenHinzuB :: [Thema] -> [Themenwahl'] -> BetreuerIn -> BetreuerIn
 fuegeThemenwahlenHinzuB themen themenwahlen betreuerIn = betreuerIn { betreuteThemen = findeThemenwahlen themen themenwahlen $ uid $ bPerson betreuerIn }
 
 
-findeVerpassen :: [Zeiteinheit] -> [Verpasst] -> Uid -> [Zeiteinheit]
-findeVerpassen zeiteinheiten verpassen uid =
+findeVerpassen :: [Zeiteinheit] -> [Verpasst] -> Uid -> Writer [String] [Zeiteinheit]
+findeVerpassen zeiteinheiten verpassen uid = warnList
   [ findeZeiteinheitById zeiteinheiten zid
     | (uid', zid) <- verpassen
     , uid' == uid
@@ -210,14 +216,14 @@ fuegeVerpassenHinzuB zeiteinheiten verpassen betreuerIn = betreuerIn { bPerson =
   where verpassteEinheiten = findeVerpassen zeiteinheiten verpassen $ uid $ bPerson betreuerIn
 
 
-findeNichtVerfuegbar :: [Zeiteinheit] -> [NichtVerfuegbar] -> Raum -> Raum
-findeNichtVerfuegbar zeiteinheiten nichtVerfuegbare raum = raum { nichtVerfuegbar = liste }
-  where
-    liste =
-      [ findeZeiteinheitById zeiteinheiten zid
-        | (rid', zid) <- nichtVerfuegbare
-        , rid' == nodeId raum
-      ]
+findeNichtVerfuegbar :: [Zeiteinheit] -> [NichtVerfuegbar] -> Raum -> Writer [String] Raum
+findeNichtVerfuegbar zeiteinheiten nichtVerfuegbare raum = do
+  liste <- warnList
+    [ findeZeiteinheitById zeiteinheiten zid
+      | (rid', zid) <- nichtVerfuegbare
+      , rid' == nodeId raum
+    ]
+  return $ raum { nichtVerfuegbar = liste }
 
 
 findeMussStattfinden zeiteinheiten mussStattfinden thema = thema { mussStattfindenAn = stattfinden }
