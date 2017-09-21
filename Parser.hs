@@ -7,6 +7,7 @@ import Data.Maybe
 import Text.Read (readMaybe)
 import GHC.Exts (sortWith)
 import Data.Tree.NTree.TypeDefs
+import Data.List.Split
 
 type Voraussetzung = (Nid, Nid)
 type Themenwahl' = (Uid, Nid, Double)
@@ -72,7 +73,7 @@ leseMussStattfinden :: String -> IO [MussStattfinden]
 leseMussStattfinden dir = runX $ parseXML (dir ++ "muss-stattfinden-an.xml") >>> atTag "nodes" >>> atTag "node" >>> parseMussStattfinden
 
 leseNichtVerfuegbar :: String -> IO [NichtVerfuegbar]
-leseNichtVerfuegbar dir = runX $ parseXML (dir ++ "raum-nicht-verfügbar.xml") >>> atTag "nodes" >>> atTag "nodes"  >>> parseNichtVerfuegbar
+leseNichtVerfuegbar dir = runX $ parseXML (dir ++ "raum-nicht-verfügbar.xml") >>> atTag "nodes" >>> atTag "node"  >>> parseNichtVerfuegbar
 
 
 parseZeiteinheiten :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) Zeiteinheit
@@ -82,10 +83,11 @@ parseZeiteinheiten = proc node -> do
   pe    <- withDefault (textAtTag "Physikeinheit") "Nein" -< node
   exk   <- withDefault (textAtTag "Exkursion") "Nein"     -< node
   zeit  <- textAtTag "Zeit"  -< node
+  ort   <- withDefault (textAtTag "Ort") "" -< node
   let typ | pe  == "Ja" = Physikeinheit
           | exk == "Ja" = Exkursion
           | otherwise   = Anderes
-  returnA -< Zeiteinheit (Node (read nid) titel) typ zeit
+  returnA -< Zeiteinheit (Node (read nid) titel) typ zeit ort
 
 parseRaeume :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) Raum
 parseRaeume = proc node -> do
@@ -227,3 +229,53 @@ findeMussStattfinden zeiteinheiten mussStattfinden thema = thema { mussStattfind
       []
       (\zid -> filter (matchNid zid) zeiteinheiten)
       maybeZid
+      
+      
+      
+      
+leseGlobalenPlan :: Seminar -> String -> IO GlobalStundenplan
+leseGlobalenPlan seminar file = do
+  xml <- leseXML file
+  return $ GlobalStundenplan seminar (map (votragZuGlobalBelegung seminar) xml) (map (vortragZuBetreuerBelegung seminar) xml) (map (vortragZuRaumBelegung seminar) xml) "V2.0"
+  
+  
+votragZuGlobalBelegung :: Seminar -> (Int,String,String,String) -> GlobalBelegung
+votragZuGlobalBelegung seminar (ze,thema,_,_)=GlobalBelegung (findeThemaByName seminar thema) (findeZeiteinheitByNo seminar ze)
+
+vortragZuBetreuerBelegung :: Seminar -> (Int,String,String,String) -> BetreuerBelegung
+vortragZuBetreuerBelegung seminar (ze,thema,betreuer,raum) = BetreuerBelegung (votragZuGlobalBelegung seminar (ze,thema,betreuer,raum)) (findeBetreuerByName seminar betreuer)
+
+vortragZuRaumBelegung :: Seminar -> (Int,String,String,String) -> RaumBelegung
+vortragZuRaumBelegung seminar (ze,thema,betreuer,raum) = RaumBelegung (votragZuGlobalBelegung seminar (ze,thema,betreuer,raum)) (findeRaumByName seminar raum)
+
+findeZeiteinheitByNo :: Seminar -> Int -> Zeiteinheit
+findeZeiteinheitByNo seminar ze = (filter (\ze -> (zTyp ze)==Physikeinheit) (zeiteinheiten seminar)) !! (ze-1)
+
+findeThemaByName :: Seminar -> String -> Thema
+findeThemaByName seminar name =
+  let filt = filter (\t -> (titel (tnode t))==name) (themen seminar)
+  in if (length filt)==1 then head filt else error ("Fehler bei "++name)
+  
+findeBetreuerByName :: Seminar -> String -> BetreuerIn
+findeBetreuerByName seminar name =
+  let nachname' = last $ splitOn " " name
+      filt = filter (\b -> (nachname (bPerson b))==nachname') (betreuerInnen seminar)
+  in if (length filt)==1 then head filt else error ("Fehler bei "++nachname') 
+
+findeRaumByName :: Seminar -> String -> Raum
+findeRaumByName seminar name =
+  let filt = filter (\r -> (titel (rnode r))==name) (raeume seminar)
+  in if (length filt)==1 then head filt else error ("Fehler bei "++name)
+
+leseXML :: String -> IO [(Int,String,String,String)]
+leseXML file =runX $ parseXML file >>> atTag "einheiten" >>> atTag "vortrag" >>> parseVortrag
+
+  
+parseVortrag :: IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) (Int,String,String,String)
+parseVortrag = proc vortrag -> do
+  einheit <- textAtTag "einheit" -< vortrag
+  thema <- textAtTag "thema" -< vortrag
+  betreuer <- textAtTag "betreuer" -< vortrag
+  raum <- textAtTag "raum" -< vortrag
+  returnA -< (read einheit, thema,betreuer,raum)
+

@@ -1,0 +1,527 @@
+<einheiten>
+        <vortrag>
+            <einheit>1</einheit>
+            <thema>Spezielle Funktionen und Vektorrechnung</thema>
+            <betreuer>Lilith Diringer</betreuer>
+            <raum>MW 0234</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>1</einheit>
+            <thema>Einführung ins Differenzieren</thema>
+            <betreuer>Ilja Göthel</betreuer>
+            <raum>MW 1050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>1</einheit>
+            <thema>Experimentieren und Auswerten</thema>
+            <betreuer>Ann-Kathrin Raab</betreuer>
+            <raum>MW 0250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>1</einheit>
+            <thema>Spezielle Relativitätstheorie</thema>
+            <betreuer>Johannes Rothe</betreuer>
+            <raum>MW 2050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>1</einheit>
+            <thema>Thermodynamik 1</thema>
+            <betreuer>Maximilian Marienhagen</betreuer>
+            <raum>MW 1250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>1</einheit>
+            <thema>Quanten- und Atomphysik I</thema>
+            <betreuer>Ismail Achmed-Zade</betreuer>
+            <raum>CH 22210</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>1</einheit>
+            <thema>Elektrische Schaltungen</thema>
+            <betreuer>Christopher Pfeiffer</betreuer>
+            <raum>CH 22209</raum>
+        </vortrag>
+
+        <vortrag>
+            <einheit>2</einheit>
+            <thema>Experimentieren und Auswerten</thema>
+            <betreuer>Ann-Kathrin Raab</betreuer>
+            <raum>MW 0250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>2</einheit>
+            <thema>Näherungsmethoden</thema>
+            <betreuer>Ilja Göthel</betreuer>
+            <raum>MW 0234</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>2</einheit>
+            <thema>Einführung ins Integrieren</thema>
+            <betreuer>Johannes Rothe</betreuer>
+            <raum>MW 1050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>2</einheit>
+            <thema>Klassische Mechanik</thema>
+            <betreuer>Maximilian Marienhagen</betreuer>
+            <raum>MW 1250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>2</einheit>
+            <thema>Himmelsmechanik</thema>
+            <betreuer>Lars Dehlwes</betreuer>
+            <raum>MW 2050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>2</einheit>
+            <thema>Geometrische Optik</thema>
+            <betreuer>Christopher Pfeiffer</betreuer>
+            <raum>CH 22209</raum>
+        </vortrag>
+
+        <vortrag>
+            <einheit>3</einheit>
+            <thema>Spezielle Funktionen und Vektorrechnung</thema>
+            <betreuer>Lilith Diringer</betreuer>
+            <raum>MW 0234</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>3</einheit>
+            <thema>Einführung ins Differenzieren</thema>
+            <betreuer>Ann-Kathrin Raab</betreuer>
+            <raum>MW 0250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>3</einheit>
+            <thema>Rotationsbewegungen</thema>
+            <betreuer>Vincent Grande</betreuer>
+            <raum>MW 1050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>3</einheit>
+            <thema>Elektrodynamik 1</thema>
+            <betreuer>Maximilian Keitel</betreuer>
+            <raum>MW 1250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>3</einheit>
+            <thema>Aufgabenseminar Wärmelehre</thema>
+            <betreuer>Maximilian Marienhagen</betreuer>
+            <raum>MW 2050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>3</einheit>
+            <thema>Kernphysik</thema>
+            <betreuer>Samuel Moll</betreuer>
+            <raum>CH 22209</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>3</einheit>
+            <thema>Experiment Magnetismus</thema>
+            <betreuer>Lars Dehlwes</betreuer>
+            <raum>Praktikum Magnetismus</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>3</einheit>
+            <thema>Experiment spezifische Elektronenladung</thema>
+            <betreuer>Felix Wechsler</betreuer>
+            <raum>Praktikum spezifische Elektronenladung</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>3</einheit>
+            <thema>Experiment Oszilloskop</thema>
+            <betreuer>Christopher Pfeiffer</betreuer>
+            <raum>Praktikum Oszilloskop</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>3</einheit>
+            <thema>Experiment Brückenschaltung</thema>
+            <betreuer>Martin Großhauser</betreuer>
+            <raum>Praktikum Brückenschaltung</raum>
+        </vortrag>
+
+        <vortrag>
+            <einheit>4</einheit>
+            <thema>Gewöhnliche Differentialgleichungen</thema>
+            <betreuer>Maximilian Keitel</betreuer>
+            <raum>MW 0234</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>4</einheit>
+            <thema>Experimentieren und Auswerten</thema>
+            <betreuer>Ann-Kathrin Raab</betreuer>
+            <raum>MW 0250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>4</einheit>
+            <thema>Komplexe Wechselstromrechnung</thema>
+            <betreuer>Vincent Grande</betreuer>
+            <raum>MW 1050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>4</einheit>
+            <thema>Spezielle Relativitätstheorie</thema>
+            <betreuer>Johannes Rothe</betreuer>
+            <raum>MW 1250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>4</einheit>
+            <thema>Harmonische Schwingungen</thema>
+            <betreuer>Ilja Göthel</betreuer>
+            <raum>MW 2050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>4</einheit>
+            <thema>Kernphysik</thema>
+            <betreuer>Samuel Moll</betreuer>
+            <raum>CH 22209</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>4</einheit>
+            <thema>Experiment Magnetismus</thema>
+            <betreuer>Lars Dehlwes</betreuer>
+            <raum>Praktikum Magnetismus</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>4</einheit>
+            <thema>Experiment spezifische Elektronenladung</thema>
+            <betreuer>Felix Wechsler</betreuer>
+            <raum>Praktikum spezifische Elektronenladung</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>4</einheit>
+            <thema>Experiment Oszilloskop</thema>
+            <betreuer>Christopher Pfeiffer</betreuer>
+            <raum>Praktikum Oszilloskop</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>4</einheit>
+            <thema>Experiment Brückenschaltung</thema>
+            <betreuer>Martin Großhauser</betreuer>
+            <raum>Praktikum Brückenschaltung</raum>
+        </vortrag>
+
+        <vortrag>
+            <einheit>5</einheit>
+            <thema>Einführung ins Integrieren</thema>
+            <betreuer>Felix Wechsler</betreuer>
+            <raum>MW 2050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>5</einheit>
+            <thema>Experimentieren und Auswerten</thema>
+            <betreuer>Ann-Kathrin Raab</betreuer>
+            <raum>MW 0250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>5</einheit>
+            <thema>Thermodynamik 2 - Statistische Physik</thema>
+            <betreuer>Vitaly Andreev</betreuer>
+            <raum>MW 1050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>5</einheit>
+            <thema>Elektrodynamik 1</thema>
+            <betreuer>Maximilian Keitel</betreuer>
+            <raum>MW 1250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>5</einheit>
+            <thema>Aufgabenseminar klassische Mechanik</thema>
+            <betreuer>Maximilian Marienhagen</betreuer>
+            <raum>MW 0234</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>5</einheit>
+            <thema>Harmonische Schwingungen</thema>
+            <betreuer>Ilja Göthel</betreuer>
+            <raum>CH 22210</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>5</einheit>
+            <thema>Experiment Brennstoffzelle</thema>
+            <betreuer>Vincent Grande</betreuer>
+            <raum>Praktikum Brennstoffzelle</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>5</einheit>
+            <thema>Experiment Millikan-Versuch</thema>
+            <betreuer>Samuel Moll</betreuer>
+            <raum>Praktikum Millikan-Versuch</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>5</einheit>
+            <thema>Experiment Pohlsches Rad</thema>
+            <betreuer>Eugen Dizer</betreuer>
+            <raum>Praktikum Pohlsches Rad</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>5</einheit>
+            <thema>Experiment Optische Abbildungen</thema>
+            <betreuer>Lilith Diringer</betreuer>
+            <raum>Praktikum Optische Abbildungen</raum>
+        </vortrag>
+
+        <vortrag>
+            <einheit>6</einheit>
+            <thema>Spezielle Relativitätstheorie</thema>
+            <betreuer>Johannes Rothe</betreuer>
+            <raum>MW 0250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>6</einheit>
+            <thema>Klassische Mechanik</thema>
+            <betreuer>Maximilian Marienhagen</betreuer>
+            <raum>MW 1050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>6</einheit>
+            <thema>Geometrische Optik</thema>
+            <betreuer>Christopher Pfeiffer</betreuer>
+            <raum>MW 0234</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>6</einheit>
+            <thema>Elektrodynamik 2</thema>
+            <betreuer>Maximilian Keitel</betreuer>
+            <raum>MW 1250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>6</einheit>
+            <thema>Quanten- und Atomphysik I</thema>
+            <betreuer>Vitaly Andreev</betreuer>
+            <raum>MW 2050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>6</einheit>
+            <thema>Himmelsmechanik</thema>
+            <betreuer>Lars Dehlwes</betreuer>
+            <raum>CH 22209</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>6</einheit>
+            <thema>Experiment Brennstoffzelle</thema>
+            <betreuer>Vincent Grande</betreuer>
+            <raum>Praktikum Brennstoffzelle</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>6</einheit>
+            <thema>Experiment Millikan-Versuch</thema>
+            <betreuer>Samuel Moll</betreuer>
+            <raum>Praktikum Millikan-Versuch</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>6</einheit>
+            <thema>Experiment Pohlsches Rad</thema>
+            <betreuer>Eugen Dizer</betreuer>
+            <raum>Praktikum Pohlsches Rad</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>6</einheit>
+            <thema>Experiment Optische Abbildungen</thema>
+            <betreuer>Lilith Diringer</betreuer>
+            <raum>Praktikum Optische Abbildungen</raum>
+        </vortrag>
+
+        <vortrag>
+            <einheit>7</einheit>
+            <thema>Bestimmung des Brechungskoeffizienten von Wasser</thema>
+            <betreuer>Lilith Diringer</betreuer>
+            <raum>MW 0234</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>7</einheit>
+            <thema>Gravitationsbeschleunigung</thema>
+            <betreuer>Ann-Kathrin Raab</betreuer>
+            <raum>MW 1050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>7</einheit>
+            <thema>Rotationsbewegungen</thema>
+            <betreuer>Vincent Grande</betreuer>
+            <raum>MW 0250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>7</einheit>
+            <thema>Thermodynamik 1</thema>
+            <betreuer>Maximilian Marienhagen</betreuer>
+            <raum>MW 1250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>7</einheit>
+            <thema>Elektrodynamik 2</thema>
+            <betreuer>Maximilian Keitel</betreuer>
+            <raum>MW 2050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>7</einheit>
+            <thema>Harmonische Schwingungen</thema>
+            <betreuer>Ilja Göthel</betreuer>
+            <raum>CH 22209</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>7</einheit>
+            <thema>Elektrische Schaltungen</thema>
+            <betreuer>Felix Wechsler</betreuer>
+            <raum>CH 27401</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>7</einheit>
+            <thema>Relativistische Teilchenphysik</thema>
+            <betreuer>Lars Dehlwes</betreuer>
+            <raum>CH 22210</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>7</einheit>
+            <thema>Quanten- und Atomphysik I</thema>
+            <betreuer>Vitaly Andreev</betreuer>
+            <raum>CH 27402</raum>
+        </vortrag>
+
+        <vortrag>
+            <einheit>8</einheit>
+            <thema>Bestimmung des Brechungskoeffizienten von Plexiglas</thema>
+            <betreuer>Lilith Diringer</betreuer>
+            <raum>MW 0234</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>8</einheit>
+            <thema>Komplexe Wechselstromrechnung</thema>
+            <betreuer>Vincent Grande</betreuer>
+            <raum>MW 0250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>8</einheit>
+            <thema>Elektrische Blackboxen</thema>
+            <betreuer>Eugen Dizer</betreuer>
+            <raum>MW 1050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>8</einheit>
+            <thema>Gewöhnliche Differentialgleichungen</thema>
+            <betreuer>Maximilian Keitel</betreuer>
+            <raum>MW 1250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>8</einheit>
+            <thema>Aufgabenseminar klassische Mechanik</thema>
+            <betreuer>Maximilian Marienhagen</betreuer>
+            <raum>MW 2050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>8</einheit>
+            <thema>Himmelsmechanik</thema>
+            <betreuer>Lars Dehlwes</betreuer>
+            <raum>CH 22209</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>8</einheit>
+            <thema>Wellenoptik</thema>
+            <betreuer>Christopher Pfeiffer</betreuer>
+            <raum>CH 22210</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>8</einheit>
+            <thema>Quanten- und Atomphysik II</thema>
+            <betreuer>Vitaly Andreev</betreuer>
+            <raum>CH 27402</raum>
+        </vortrag>
+
+        <vortrag>
+            <einheit>9</einheit>
+            <thema>Gravitationsbeschleunigung</thema>
+            <betreuer>Ann-Kathrin Raab</betreuer>
+            <raum>MW 1050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>9</einheit>
+            <thema>Aufgabenseminar Elektrodynamik</thema>
+            <betreuer>Maximilian Keitel</betreuer>
+            <raum>MW 0234</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>9</einheit>
+            <thema>Aufgabenseminar Wärmelehre</thema>
+            <betreuer>Maximilian Marienhagen</betreuer>
+            <raum>CH 22209</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>9</einheit>
+            <thema>Theoretische Mechanik</thema>
+            <betreuer>Eugen Dizer</betreuer>
+            <raum>CH 22210</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>9</einheit>
+            <thema>Wellenoptik</thema>
+            <betreuer>Christopher Pfeiffer</betreuer>
+            <raum>MW 2050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>9</einheit>
+            <thema>Thermodynamik 2 - Statistische Physik</thema>
+            <betreuer>Vitaly Andreev</betreuer>
+            <raum>MW 1250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>9</einheit>
+            <thema>Elektronik</thema>
+            <betreuer>Martin Großhauser</betreuer>
+            <raum>CH 27402</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>9</einheit>
+            <thema>Spezielle Relativitätstheorie</thema>
+            <betreuer>Johannes Rothe</betreuer>
+            <raum>MW 0250</raum>
+        </vortrag>
+        
+        <vortrag>
+            <einheit>10</einheit>
+            <thema>Bestimmung des Brechungskoeffizienten von Plexiglas</thema>
+            <betreuer>Lilith Diringer</betreuer>
+            <raum>MW 0234</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>10</einheit>
+            <thema>Rotationsbewegungen</thema>
+            <betreuer>Vincent Grande</betreuer>
+            <raum>CH 27402</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>10</einheit>
+            <thema>Elektrische Blackboxen</thema>
+            <betreuer>Eugen Dizer</betreuer>
+            <raum>MW 1050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>10</einheit>
+            <thema>Elektrodynamik 2</thema>
+            <betreuer>Maximilian Keitel</betreuer>
+            <raum>MW 2050</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>10</einheit>
+            <thema>Relativistische Teilchenphysik</thema>
+            <betreuer>Lars Dehlwes</betreuer>
+            <raum>CH 22210</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>10</einheit>
+            <thema>Aufgabenseminar Quanten- und Atomphysik und Struktur der Materie</thema>
+            <betreuer>Vitaly Andreev</betreuer>
+            <raum>MW 1250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>10</einheit>
+            <thema>Wellenoptik</thema>
+            <betreuer>Christopher Pfeiffer</betreuer>
+            <raum>MW 0250</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>10</einheit>
+            <thema>Aufgabenseminar klassische Mechanik</thema>
+            <betreuer>Maximilian Marienhagen</betreuer>
+            <raum>CH 22209</raum>
+        </vortrag>
+</einheiten>

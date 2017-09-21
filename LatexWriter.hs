@@ -32,6 +32,10 @@ zeiteinheitZuZeitspanne ze =
   in if (length zeiten)==1
        then Zeitspanne (datumZuTag datumString) (take 5 beginnString) Nothing
        else Zeitspanne (datumZuTag datumString) (take 5 beginnString) (Just (((take 5).last.(splitOn " ")) (zeiten !! 1)))
+       
+zeitspanneZuZeitstring :: Zeitspanne -> String
+zeitspanneZuZeitstring (Zeitspanne _ b Nothing) = b
+zeitspanneZuZeitstring (Zeitspanne _ b (Just e)) = b ++ " - " ++ e
   
 datumZuTag :: String -> String
 datumZuTag datum =
@@ -58,6 +62,9 @@ thePreamble :: LaTeXT_ IO
 thePreamble = do
   documentclass [a4paper] article
   usepackage [] "fullpage"
+  usepackage ["german", "ngerman"] "babel"
+  usepackage ["utf8"] "inputenc"
+  
 
 schreibeGlobalenPlan :: GlobalStundenplan -> LaTeXT_ IO 
 schreibeGlobalenPlan globalerStundenplan = do
@@ -131,7 +138,7 @@ schreibePlanSchueler lokalerStundenplan schueler= do
 schreibeTag :: LokalStundenplan -> SchuelerIn -> [Zeiteinheit] -> LaTeXT_ IO  
 schreibeTag lokalerStundenplan schueler einheiten=do
   let uberschrift = (large.textbf.fromString.ztag.zeiteinheitZuZeitspanne.head) einheiten
-  let tab = mconcat $ [raw "\\begin{tabular} {|p{3cm} p{6cm} p{6cm|} }",
+  let tab = mconcat $ [raw "\\begin{tabular} {|p{3cm} p{6cm} p{6cm}| }",
                        hline] ++
                       (map (schreibeThema lokalerStundenplan schueler) einheiten) ++
                       [raw "\\end{tabular}"]
@@ -141,7 +148,9 @@ schreibeThema :: LokalStundenplan -> SchuelerIn -> Zeiteinheit -> LaTeXT_ IO
 schreibeThema (LokalStundenplan globalerPlan lokaleBelegungen) schueler zeiteinheit=
   if (zTyp zeiteinheit) == Physikeinheit
     then schreibePhysikeinheit (LokalStundenplan globalerPlan lokaleBelegungen) schueler zeiteinheit
-    else mconcat ["Noch"&"Nichts"&"hier",lnbk,hline]
+    else 
+      let zeitstring = zeitspanneZuZeitstring (zeiteinheitZuZeitspanne zeiteinheit) 
+      in mconcat [((textbf.fromString) zeitstring)&((textbf.fromString.titel.znode) zeiteinheit)&((textbf.fromString.ort) zeiteinheit),lnbk,hline]
       
 schreibePhysikeinheit :: LokalStundenplan -> SchuelerIn -> Zeiteinheit -> LaTeXT_ IO
 schreibePhysikeinheit (LokalStundenplan globalerPlan lokaleBelegungen) schueler zeiteinheit=do
@@ -155,4 +164,8 @@ schreibePhysikeinheit' globalerPlan zeiteinheit lokaleBelegung=do
   let thema = gbThema $ lGlobalBelegung $ head lokaleBelegung
   let betreuer = findeBetreuer globalerPlan zeiteinheit thema
   let raum = findeRaum globalerPlan zeiteinheit thema
-  mconcat[((textbf.fromString.titel.tnode) thema) & ((textbf.fromString.personZuName.bPerson) betreuer) & ((textbf.fromString.titel.rnode) raum), lnbk, hline]
+  let zeitstring = zeitspanneZuZeitstring (zeiteinheitZuZeitspanne zeiteinheit)
+  mconcat[((textbf.fromString) zeitstring) & ((textbf.fromString.titel.tnode) thema) & ((textbf.fromString.titel.rnode) raum),
+          lnbk, 
+          ""& (fromString ( "Betreuer: "++ ((personZuName.bPerson) betreuer))) & "" 
+          , lnbk, hline]

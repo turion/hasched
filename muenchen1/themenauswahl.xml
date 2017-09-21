@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<nodes>
+  <node>
+    <Thema>Spezielle Funktionen und Vektorrechnung</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag richtet sich an jüngere Teilnehmer denen noch Wissen in der Mathematik der Unterstufe fehlt.  Es werden für die IPhO notwendige Themen behandelt wie:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;spezielle Funktionen (sin, cos, tan, arcsin, arccos, arctan, sinh, cosh, tanh, arsinh, arcosh, artanh, exp, log)&lt;/li&gt;
+&lt;li&gt;Kurvendiskussion ohne Differentialrechnung&lt;/li&gt;
+&lt;li&gt;Partialbruchzerlegung für gebrochenrationale Funktionen&lt;/li&gt;
+&lt;li&gt;Vektorbegriff, Vektorrechnung (Addition, skalare Multiplikation, Skalarprodukt, Kreuzprodukt) &lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>285</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>6</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Einführung ins Differenzieren</Thema>
+    <Beschreibung>&lt;p&gt;Einführungsvortrag zum Differenzieren in einer Dimension (partielles Differenzieren).&lt;br /&gt;
+Inhalt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt; Das Konzept des Grenzwerts &lt;/li&gt;
+&lt;li&gt; Differentialquotient als Definition der eindimensionalen/partiellen Ableitung &lt;/li&gt;
+&lt;li&gt; Linearität der Ableitung, Produktregel, Kettenregel &lt;/li&gt;
+&lt;li&gt; Optional: Satz über die inverse Funktion (Umkehrregel) &lt;/li&gt;
+&lt;li&gt; Viele Beispiele zum Ableiten &lt;/li&gt;
+&lt;li&gt; Ableitungen in der Physik, Umgang mit infinitessimalen Größen &lt;/li&gt;
+&lt;li&gt; höhere Ableitungen &lt;/li&gt;
+&lt;li&gt; Kurvendiskussion mit Ableitungen und Beispielen &lt;/li&gt;
+&lt;li&gt; Extremalprobleme mit Beispiel &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Die Anwendung wird im Mittelpunkt stehen (weniger die exakte Herleitung) - dazu dienen Beispielaufgaben zu Ableitungen spezieller Funktionen, Kurvendiskussion und auch Physikaufgaben, die damit gelöst werden können.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>180</id>
+    <Beamer></Beamer>
+    <Raum></Raum>
+    <Bereich>6</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Näherungsmethoden</Thema>
+    <Beschreibung>&lt;p&gt;Wir lernen die taylorsche Reihenentwicklung anzuwenden, die in vielen Situationen in der Physik anzutreffen ist. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Die Taylorsche Reihenentwicklung&lt;/li&gt;
+&lt;li&gt;Häufig verwendete Näherungen und Vereinfachungen&lt;/li&gt;
+&lt;li&gt;Restgliedformel zur Fehlerabschätzung&lt;/li&gt;
+&lt;li&gt;Besprechen wann das Restgliedvernachlässigbar ist&lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>182</id>
+    <Beamer></Beamer>
+    <Raum></Raum>
+    <Bereich>6</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Experimentieren und Auswerten</Thema>
+    <Beschreibung>&lt;p&gt;Achtung! Voraussetzung für alle, die am Samstag experimentieren wollen.&lt;/p&gt;
+&lt;p&gt;Dieser Vortrag führt in die wichtigsten Techniken zur Auswertung experimenteller Daten ein und gibt praktische Ratschläge für das Auswahlverfahren. Es geht um die Grundlagen des experimentellen Arbeitens und der Auswertung, insbesondere der Fehlerrechnung.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gültige Ziffern&lt;/li&gt;
+&lt;li&gt;Fehlerquellen, Fehlerarten&lt;/li&gt;
+&lt;li&gt;Fehlerfortpflanzung&lt;/li&gt;
+&lt;li&gt;korrektes Runden von Messwerten&lt;/li&gt;
+&lt;li&gt;Mittelwert, Varianz&lt;/li&gt;
+&lt;li&gt;Standardabweichung der Verteilung, Standardabweichung des Mittelwerts&lt;/li&gt;
+&lt;li&gt;graphische Auswertung&lt;/li&gt;
+&lt;li&gt;Verwendung logarithmischer Achsen&lt;/li&gt;
+&lt;li&gt;Linearisieren von Zusammenhängen&lt;/li&gt;
+&lt;li&gt;Ausgleichsgeraden und Fehlergeraden&lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>184</id>
+    <Beamer>Ja</Beamer>
+    <Raum></Raum>
+    <Bereich>6</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Einführung ins Integrieren</Thema>
+    <Beschreibung>&lt;p&gt;Einführungsvortrag zum eindimensionalen Integrieren. Vermittelte Themen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Umkehrung der Differentiation, Stammfunktionen, unbestimmtes Integral&lt;/li&gt;
+&lt;li&gt;Linearität des unbestimmten Integrals&lt;/li&gt;
+&lt;li&gt;Umkehrung der Produktregel, Partielles Integrieren&lt;/li&gt;
+&lt;li&gt;Substitution mit vielfältigen Beispielen&lt;/li&gt;
+&lt;li&gt;Begriff des bestimmten Integrals, Riemannsche Summen &lt;/li&gt;
+&lt;li&gt;Hauptsatz der Integral- und Differentialrechnung &lt;/li&gt;
+&lt;li&gt;Integrale in der Physik als Summe von infinitessimalen Größen/Änderungen mit Beispiel &lt;/li&gt;
+&lt;li&gt;Beispielrechnungen mit Bezug zur Physik, eventuell einfache Wegintegrale &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Da dies ein Einführungsvortrag ist, geht es vor Allem um die Anwendung und gerade bei den fortgeschrittenen Themen nicht um die mathematischen Beweise.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>181</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>6</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Gewöhliche Differentialgleichungen</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag stellt einige grundlegende, in der Physik wichtige Typen von Differentialgleichungen (DGL) und Methoden zu deren Lösung vor. Außerdem wird kurz darauf eingegangen wo die jeweilige DGL in der Physik normalerweise auftritt.&lt;/p&gt;
+&lt;p&gt;Inhalt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;homogene DGL 1.Ordnung, Trennung der Variablen &lt;/li&gt;
+&lt;li&gt;lineare inhomogene DGL 1.Ordnung, Variation der Konstanten&lt;/li&gt;
+&lt;li&gt;Lade- und Entladekurven von Kondensator und Spule&lt;/li&gt;
+&lt;li&gt;Die (gedämpfte) Schwinungsgleichung, Exponentialansatz&lt;/li&gt;
+&lt;li&gt;Der getriebener Oszillator, Resonanz &lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>200</id>
+    <Beamer></Beamer>
+    <Raum></Raum>
+    <Bereich>6</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Aufgabenseminar klassische Mechanik</Thema>
+    <Beschreibung>&lt;p&gt;Aufgaben aus verschiedensten Gebieten der klassischen Mechanik&lt;/p&gt;
+</Beschreibung>
+    <Typ>Aufgabenseminar</Typ>
+    <id>189</id>
+    <Beamer></Beamer>
+    <Raum></Raum>
+    <Bereich>7</Bereich>
+    <L-nge></L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Harmonische Schwingungen</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Einführungsvortrag wollen wir ein einfaches (Feder-)Pendel verstehen, Intuition dafür entwickeln, wie oft solche Systeme in anderen Gebieten der Physik vorkommen und lernen die zugehörigen mathematischen Zusammenhänge dort zu erkennen.&lt;br /&gt;
+Geplant ist ein anschaulicher Vortrag mit Übungsaufgaben (bei denen der Zusammenhang zur harmonischen Schwingung teilweise überrascht). Wem es zu langsam ist, kann auch nur Aufgaben machen.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Aufgabenseminar</Typ>
+    <id>166</id>
+    <Beamer></Beamer>
+    <Raum></Raum>
+    <Bereich>7</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Gravitationsbeschleunigung</Thema>
+    <Beschreibung>&lt;p&gt;Wie bestimmt man die Gravitationsbeschleunigung gut? Einfach nur einen Körper fallen zu lassen und die Fallzeit zu messen, ist viel zu ungenau. Aber mit erstaunlich einfachen Hilfsmitteln (Dose, Lineal, Knete, Stoppuhr) kann anhand von Schwingungen auf verschiedenen Wegen die Gravitationsbeschleunigung sehr genau bestimmt werden.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>214</id>
+    <Beamer>Nein</Beamer>
+    <Raum>1266</Raum>
+    <Bereich>7</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Klassische Mechanik</Thema>
+    <Beschreibung>&lt;p&gt;Eine Einführung zu den Grundlagen der klassischen Mechanik. Es wird nichts vorausgesetzt, da sich der Vortrag tendentiell an weniger forgeschrittenen Teilnehmern orientiert. Wir wollen lernen, Dinge besser anzuwenden, die man theoretisch schon aus der Schule kennt oder noch lernt - denn oft scheitert es in Aufgaben nicht daran, dass man etwas nie gehört hat. Vermittelte Themen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Newtons Axiome (inkl. F=ma)&lt;/li&gt;
+&lt;li&gt;Eventuell Vektornotation&lt;/li&gt;
+&lt;li&gt;Energieerhaltung&lt;/li&gt;
+&lt;li&gt;Impuls, Impulserhaltung&lt;/li&gt;
+&lt;li&gt;Stöße als Anwendung von Impuls- und Energieerhaltung&lt;/li&gt;
+&lt;li&gt;Gravitation in der Newtonschen Mechanik&lt;/li&gt;
+&lt;li&gt;Würfe im homogenen Gravitationsfeld&lt;/li&gt;
+&lt;li&gt;Reibung&lt;/li&gt;
+&lt;li&gt;Kräfteanalyse&lt;/li&gt;
+&lt;li&gt;Inertialsysteme, Wechsel des Bezugssystems, Grundlegende Scheinkräfte&lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>216</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>7</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Rotationsbewegungen</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag befasst sich inhaltlich ausschließlich mit Rotationsbewegungen. Vermittelte Themen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einführung der Größen wie Winkelgeschwindigkeit, Winkelbeschleunigung, Drehmoment, Drehimpuls, Trägheitsmoment(*)&lt;/li&gt;
+&lt;li&gt;Satz von Steiner&lt;/li&gt;
+&lt;li&gt;Diskussion von Scheinkräften&lt;/li&gt;
+&lt;li&gt;Bewegungsgleichungen des Starren Körpers um feste Achsen&lt;/li&gt;
+&lt;li&gt;Erhaltungssätze wie Drehimpulssatz und Energieerhaltnungssatz mit Rotationsenergie&lt;/li&gt;
+&lt;li&gt;Beschleunigte Bezugssysteme, sowie Corioliskraft&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(*) - Um Trägheitsmomente ausrechnen zu können ist die Kenntnis der Integralrechnung von Vorteil.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>190</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>7</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Theoretische Mechanik</Thema>
+    <Beschreibung>&lt;p&gt;Hier wird gezeigt, wie man Erhaltungssätze und Symmetrieprinzipien auf manchmal ungeahnte Weise dazu verwenden kann, Mechanikprobleme elegant zu lösen. Die hier vorgeführten Prinzipien können einen das Lösen von Aufgaben zur Mechanik unter Zwangsbedingungen deutlich vereinfachen. Die Themen finden sich im Physikstudium wieder, sind aber für die IPhO kaum relevant. Vermittelte Inhalte:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Freiheitsgrade und verallgemeinerte Koordinaten&lt;/li&gt;
+&lt;li&gt;Beschreibung von mechanischen Systemen unter Zwangsbedingungen&lt;/li&gt;
+&lt;li&gt;Symmetrien und erhaltene Größen&lt;/li&gt;
+&lt;li&gt;Wenn noch Zeit ist: Lagrange-Formalismus&lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>197</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>7</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Himmelsmechanik</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Vortrag geht es um die Anwendung der klassischen Mechanik auf das Zweikörperproblem im 1/r-Potential. Es werden spezielle Parameter der Bahnen bestimmt, die von den Keplerschen Gesetze erlaubt werden. Am Ende kann es noch einen Ausblick auf spezielle Lösungen des Dreikörperproblems geben.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Zweikörperproblem&lt;/li&gt;
+&lt;li&gt;Himmelskörperbahnen: Ellipsen, Hyperbeln und Parabeln&lt;/li&gt;
+&lt;li&gt;Keplersche Gesetze, sowie Gültigkeit dieser&lt;/li&gt;
+&lt;li&gt;Ausblick auf spezielle Fälle des 3 Körper Problems, z.B. Swing-by Manöver, Einfangradius&lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>168</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>7</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Aufgabenseminar Elektrodynamik</Thema>
+    <Beschreibung>&lt;p&gt;Es können verschiedene Aufgaben zu den Themen der Vorträge Elektrodynamik 1 und 2 gelöst und diskutiert werden.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Aufgabenseminar</Typ>
+    <id>198</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>8</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot>2</Maximalangebot>
+  </node>
+  <node>
+    <Thema>Elektrische Blackboxen</Thema>
+    <Beschreibung>&lt;p&gt;Blackboxexperimente sind bei Olympiaden häufig anzutreffen. Wir möchten bei verschiedenen elektrischen Blackboxen herausfinden, was für elektronische Bauteile (Widerstände, Kondensatoren, Spulen) zwischen deren Anschlüssen befindet und nach welchem Schaltplan sie verbunden sind - natürlich ohne Schraubenzieher, aber mit Spannungsquellen und Oszilloskopen. Kenntnisse in Wechselstromrechnung und dem Verhalten verschiedener Bauteile bei Gleich- und Wechselspannung sind nützlich. Grundlagen zur Bedienung von Oszilloskopen gibt es z.B. hier: &lt;a href="http://www.orpheus-verein.de/sites/default/files/OSZ.pdf"&gt;http://www.orpheus-verein.de/sites/default/files/OSZ.pdf&lt;/a&gt;&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>213</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>8</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot>0</Maximalangebot>
+  </node>
+  <node>
+    <Thema>Elektrodynamik 1</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag ist eine Einführung in die Elektrodynamik. Es werden elektro- und magnetostatische Probleme im Vakuum behandelt. Themen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;elektrische Ladung, elektrisches Potential und elektrisches Feld für Ladungspunkte und Ladungsverteilungen (Coulombsches Gesetz)&lt;/li&gt;
+&lt;li&gt;Gaußscher Satz mit Beispielen (Punktladung, Plattenkondensator)&lt;/li&gt;
+&lt;li&gt;Strom und Stromdichte&lt;/li&gt;
+&lt;li&gt;Amperescher Satz mit Beispielen&lt;/li&gt;
+&lt;li&gt;Lorentzkraft elektromagnetischer Felder auf (bewegte) Ladungen&lt;/li&gt;
+&lt;li&gt;elektrische und magnetische Dipole in EM-Feldern&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Für ein besseres Verständnis des Themas empfehlen wir auch das zugehörige Aufgabenseminar Elektrodynamik zu besuchen, weil die hier behandelten Themen dort gleich angewendet werden können.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>186</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>8</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Komplexe Wechselstromrechnung</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag beschreibt die Rechnungen in Wechselstromkreisen. Themen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Wechselstromkreise&lt;/li&gt;
+&lt;li&gt;kurze Wiederholung komplexe Zahlen, insb Polardarstellung&lt;/li&gt;
+&lt;li&gt;komplexe Induktivität- und Kapazität&lt;/li&gt;
+&lt;li&gt;Scheinwiderstand, Blindwiderstand, Realwiderstand&lt;/li&gt;
+&lt;li&gt;Leistung und Arbeit in Wechselstromkreisen&lt;/li&gt;
+&lt;li&gt;sowie einige Beispielrechnungen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vorkenntnisse im Umgang mit komplexen Zahlen (z.B. aus dem Einführungsvortrag Mathe) sind für das Verständnis hilfreich.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>183</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>8</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Elektrische Schaltungen</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Vortrag geht es um elektrische Schaltungen, häufigen Bauteilen. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Widerstandsnetzwerke&lt;/li&gt;
+&lt;li&gt;reale Bauteile, Ersatzschaltbilder, Strom-/Spannungsrichtige Messung&lt;/li&gt;
+&lt;li&gt;Lade- und Entladekurven von Spule und Kondensator&lt;/li&gt;
+&lt;li&gt;Blackboxen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In diesem Vortrag wird nur Gleichstrom behandelt, für die Berechnung von Wechselstromschaltungen ist zusätzlich der Vortrag zur Komplexen Wechselstromrechnung gedacht.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>1243</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>8</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Elektronik</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag behandelt die physikalischen Grundlagen der Halbleiter und die Anwendung von Halbleiterbauelementen in Schaltungen. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Halbleiter, Bändermodell, Dotierung&lt;/li&gt;
+&lt;li&gt;Dioden, Diodenströme, Sperrschichten&lt;/li&gt;
+&lt;li&gt;LED, Photodiode, Transistoren (npn)&lt;/li&gt;
+&lt;li&gt;Anwendung in Schaltkreisen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Die Elektronischen Bauelemente sind in der Praxis extrem wichtig, aber für die IPhO kaum relevant. &lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>284</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>8</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Elektrodynamik 2</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag setzt den ersten Vortrag fort, und setzt Schwerpunkte auf fortgeschrittenere Themen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Maxwell-Gleichungen,&lt;/li&gt;
+&lt;li&gt;elektrische und magnetische Felder in Medien, Stetigkeitsbedingungen an Übergängen mit Anwendungsbeispielen&lt;/li&gt;
+&lt;li&gt;Polarisation/Magnetisierung, Spiegelladungsprinzip&lt;/li&gt;
+&lt;li&gt;Gesetz von Biot-Savart&lt;/li&gt;
+&lt;li&gt;Induktion, Lenzsche Regel, Selbstinduktion, Magnetfeld und Induktivität von Spulen&lt;/li&gt;
+&lt;li&gt;EM-Wellen, Energiedichte des Feldes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Voraussetzung für das Verständnis sind die Inhalte des Vortrages Elektrodynamik 1&lt;/p&gt;
+&lt;p&gt;Auch hier wird ein Besuch des zugehörigen Aufgabenseminars empfohlen. &lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>187</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>8</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Aufgabenseminar Wärmelehre</Thema>
+    <Beschreibung>&lt;p&gt;Hier werden Aufgaben behandelt, die mit den Vorträgen Thermodynamik 1 und (weniger) Thermodynamik 2 in Verbindung stehen. &lt;/p&gt;
+&lt;p&gt;Also in erster Linie zum Verhalten von Gasen, aber auch Strahlung, Wärmeleitung, etc. &lt;/p&gt;
+&lt;p&gt;Die Schwierigkeit geht von leicht bis schwer, wobei die schwereren Aufgaben eher nicht an die fortgeschritteneren (eher abstrakten) Themen aus "Thermodynamik 2" anknüpfen, sondern olympiaderelevanter sind. &lt;/p&gt;
+</Beschreibung>
+    <Typ>Aufgabenseminar</Typ>
+    <id>1256</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>9</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Thermodynamik 1</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag behandelt die phänomenologische Thermodynamik bzw die Wärmelehre. Diese geht von makroskopischen Größen (Volumen, Temperatur, Druck) aus und beschreibt damit das Verhalten von Körpern. Inhalt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Wärmekapazität&lt;/li&gt;
+&lt;li&gt;Wärmeleitung mit Beispiel&lt;/li&gt;
+&lt;li&gt;Wärmeausdehnungen&lt;/li&gt;
+&lt;li&gt;Wärmestrahlung von schwarzen Körpern, Strahlungsgleichgewichte&lt;/li&gt;
+&lt;li&gt;Ideale Gasgleichung&lt;/li&gt;
+&lt;li&gt;Zustandsänderungen von Gasen: isotherm, isobar, isochor&lt;/li&gt;
+&lt;li&gt;Reversibilität, Entropie, adiabatische Zustandsänderungen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Für ein besseres Verständnis des Themas empfehlen wir auch das zugehörige Aufgabenseminar Thermodynamik zu besuchen, weil die hier behandelten Themen dort gleich angewendet werden können.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>167</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>9</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Thermodynamik 2 - Statistische Physik</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Vortrag werden Themen behandelt, die in der Uni behandelt werden, aber für die IPhO nicht relevant (zu upgespaced :)) sind. Es wird einen Ausblick darauf geben, wie man aus der mikroskopischen Mechanik eines Stoffes die Grundgleichungen der Thermodynamik herleitet. Themen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Boltzmann-Statistik, kinetische Gastheorie, Maxwell- Boltzmann-Verteilung&lt;/li&gt;
+&lt;li&gt;Mikrokanonische Zustandssumme, statistische Definition von Entropie und Temperatur&lt;/li&gt;
+&lt;li&gt;Thermodynamisch Potentiale, Legendre-Transformationen&lt;/li&gt;
+&lt;li&gt;Kanonische/Großkanonische Zustandssumme&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ein vertieftes Verständnis von Integral- und Differentialrechnung wird vorausgesetzt.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>257</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>9</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Aufgabenseminar Quanten- und Atomphysik und Struktur der Materie</Thema>
+    <Beschreibung>&lt;p&gt;Anhand verschiedener Aufgaben zu den Themen der Vorträge "Quanten- und Atomphysik" sowie "Struktur der Materie" können deren Inhalte angewandt und diskutiert werden.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Aufgabenseminar</Typ>
+    <id>199</id>
+    <Beamer></Beamer>
+    <Raum></Raum>
+    <Bereich>10</Bereich>
+    <L-nge></L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Spezielle Relativitätstheorie</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag führt in die Prinzipien der speziellen Relativitätstheorie ein und vermittelt das nötige Wissen über spezielle Relativitätstheorie in der IPhO.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Das Relativitätsprinzip und die Konstanz der Lichtgeschwindigkeit&lt;/li&gt;
+&lt;li&gt;Lorentztransformationen von Zeit und Ort&lt;/li&gt;
+&lt;li&gt;Spezialfälle: Relativistische Geschwindigkeitaddition, Zeitdilatation und Längenkontraktion&lt;/li&gt;
+&lt;li&gt;Ruhemasse, relativistischer Impuls und Energie&lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>170</id>
+    <Beamer></Beamer>
+    <Raum></Raum>
+    <Bereich>10</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Kernphysik</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Vortrag geht es um Kernphysik, das heißt dem Aufbau und Verhalten von Atomkernen. Themen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Aufbau von Atomkernen&lt;/li&gt;
+&lt;li&gt;Bedeutung der Protonenzahl, Neutronenzahl, Nuklid, Isotope&lt;/li&gt;
+&lt;li&gt;Isotopenkarte und Stabilitätsbereiche&lt;/li&gt;
+&lt;li&gt;Alphazerfall, Betazerfall, Elektroneneinfang, Gammastrahlung, Zerfallsreihen&lt;/li&gt;
+&lt;li&gt;Kernspaltung und Kernfusion&lt;/li&gt;
+&lt;li&gt;Aktivität, Halbwertszeit&lt;/li&gt;
+&lt;li&gt;Massendefekt der Atomkerne, Bindungsenergie, Bedeutung von Fe56&lt;/li&gt;
+&lt;li&gt;Energiebilanz bei Kernreaktionen, Q-Wert&lt;/li&gt;
+&lt;li&gt;Tröpfchenmodell der Atomkerne&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Grundkenntnis über Atom- und Quantenphysik und spezieller Relativitätstheorie sind für das Einordnen ins große Ganze vorteilhaft, allerdings nicht direkt für den Vortrag notwendig.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>171</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>10</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Quanten- und Atomphysik I</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag führt in die Anfänge der Quanten- und Atomphysik ein. Das Ziel ist das erste heuristische Verständnis quantenphysikalischer Phänomene. Es wird die historische Entstehung der Quantenmechanik hervorgehoben: Phänomene, die nicht durch die klassische Physik (Newton'sche Mechanik, Maxwell'sche Elektrodynamik) erklärt werden konnten. Dies beinhaltet folgende Themen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einleitung: Schwarzkörperstrahlung (u.a. UV-Katastrophe, Plancksches Strahlungsgesetz), Photoeffekt (äußerer photoelektrischer Effekt)&lt;/li&gt;
+&lt;li&gt;diskrete Energiestufen von Atomen (u.a. Bohr'sches Atommodell, Frank-Hertz-Versuch)&lt;/li&gt;
+&lt;li&gt;Wasserstoffspektrum, anderes Mehrniveausystem: Laser&lt;/li&gt;
+&lt;li&gt;Compton-Effekt (ohne Herleitung, die gibts in "Relativistische Teilchenphysik")&lt;/li&gt;
+&lt;li&gt;Beugung von Elektronen und Neutronen, Welle-Teilchen-Dualismus (de-Broglie Wellenlänge), Unschärferelation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Es werden keine besonderen Voraussetzungen benötigt. Grundlagenkenntnisse der Thermodynamik und speziellen Relativitätstheorie sind zwar von Vorteil, jedoch nicht zwingend nötig.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>169</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>10</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Quanten- und Atomphysik II</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag zielt auf eine theoretische Formulierung der Quantenmechanik ab, als Ergänzung zur phänomenologischen Herangehensweise des ersten Vortrages. Die Themen sind für die IPhO kaum relevant:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Detailliertere Betrachtung des Welle-Teilchen-Dualismus&lt;/li&gt;
+&lt;li&gt;Wellenfunktion, Eigenzustände von Operatoren, Basistransformationen, allgemeine Unschärfebeziehungen &lt;/li&gt;
+&lt;li&gt;Schrödingergleichung, Lösung für den Potentialtopf, Tunneleffekt - Modell für spontanen Kernzerfall&lt;/li&gt;
+&lt;li&gt;Ausblick in die Quanten- und Atomphysik nach der Schrödingergleichung vom Jahr 1926&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Grundlagen-Kenntnisse von spezieller Relativitätstheorie, Fourier-Transformation, Differential- und Integralrechnung sind für das Verständnis des Vortrags von Vorteil. Hinweis: die meisten Inhalte dieses Vortrags sind nicht IPhO-relevant&lt;/p&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>252</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>10</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot>1</Maximalangebot>
+  </node>
+  <node>
+    <Thema>Relativistische Teilchenphysik</Thema>
+    <Beschreibung>&lt;p&gt;Einführung in die relativistische Teilchenphysik. Inhalt sind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Energie-Impuls-Vierervektor&lt;/li&gt;
+&lt;li&gt;Lorentztransformation&lt;/li&gt;
+&lt;li&gt;Relativistische Koeffizienten: beta, gamma, beta gamma&lt;/li&gt;
+&lt;li&gt;Invariante Masse&lt;/li&gt;
+&lt;li&gt;Schwerpunktsystem&lt;/li&gt;
+&lt;li&gt;Relativistischer Stoß&lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>331</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>10</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Bestimmung des Brechungskoeffizienten von Plexiglas </Thema>
+    <Beschreibung>&lt;p&gt;Gegeben ein kleiner Plexiglasquader, einige Nadeln und keine Lichtquelle, wie kann man seinen Brechungskoeffizienten bestimmen? Die offensichtlichste Variante ist bei weitem nicht die genaueste! Wir werden mehrere Weisen ausprobieren und ihre Vor- und Nachteile subjektiv einschätzen und (objektiv) berechnen, indem wir den Fehler bestimmen. Vielleicht fällt dir ja auch eine trickreiche neue Variante ein?&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>654</id>
+    <Beamer>Nein</Beamer>
+    <Raum>1268</Raum>
+    <Bereich>11</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Bestimmung des Brechungskoeffizienten von Wasser</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Experiment geht es um die genaue Bestimmung des Brechungskoeffizienten von Wasser mithilfe eines Flüssigkeitskeils. Dieser Teil stammt original aus der 3. Runde der IPhO 2008 und ist ein typisches Beispiel, wie man aus unerwarteten Materialien (ein Spiegel, zwei Objektträger aus Glas, ein Stativ, Lineale) geschickt ein sehr genaues Experiment durchgeführt werden kann.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>332</id>
+    <Beamer>Nein</Beamer>
+    <Raum>1265</Raum>
+    <Bereich>11</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Geometrische Optik</Thema>
+    <Beschreibung>&lt;p&gt;Die geometrische Optik findet auf Skalen statt die größer als die Lichtwellenlänge sind. Hier knüpfen wir an das in der Unterstufe vermittelte Wissen zur Optik an und vertiefen dieses deutlich:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Näherung zur Wellenoptik&lt;/li&gt;
+&lt;li&gt;Achsennahe Strahlen, Kleinwinkelnäherung&lt;/li&gt;
+&lt;li&gt;Brechungsgesetz&lt;/li&gt;
+&lt;li&gt;Optische Abbildungen&lt;/li&gt;
+&lt;li&gt;Spiegel, Linsen, Linsensystem und Linsenspiegelsysteme&lt;/li&gt;
+&lt;li&gt;Bilder (reell, virtuell) bei Abbildung durch Linsen- und Spiegelsysteme&lt;/li&gt;
+&lt;li&gt;Definition und Berechnung von Bildweite, Gegenstandsweite, Brennweite sowie Vergrößerung&lt;/li&gt;
+&lt;li&gt;Herleitung der Linsenmacherformel&lt;/li&gt;
+&lt;li&gt;Zusammengesetzte optische Geräte wie Lupe, Teleskop und Mikroskop&lt;/li&gt;
+&lt;li&gt;Rechnungen zur Schärfentiefe&lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>188</id>
+    <Beamer></Beamer>
+    <Raum></Raum>
+    <Bereich>11</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Wellenoptik</Thema>
+    <Beschreibung>&lt;p&gt;Dieser Vortrag befasst sich mit den Phänomenen der Optik auf kleinen Skalen.  Es wird das Modell der elektromagnetischen Wellen für die Optik nutzbar gemacht.  Dazu werden folgende Inhalte vermittelt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt; Huygensches Prinzip &lt;/li&gt;
+&lt;li&gt; Fermatsches Prinzip &lt;/li&gt;
+&lt;li&gt; Reflexion und Brechung im Wellenmodell &lt;/li&gt;
+&lt;li&gt; Dispersion und Dispersionsrelationen &lt;/li&gt;
+&lt;li&gt; Beugung und Interferenz &lt;/li&gt;
+&lt;li&gt; Interferenz an dünnen Schichten (Newtonsche Ringe, ...) &lt;/li&gt;
+&lt;li&gt; Beugung an Spalt und Gitter &lt;/li&gt;
+&lt;li&gt; Bragg-Reflexion &lt;/li&gt;
+&lt;li&gt; Auflösungsvermögen &lt;/li&gt;
+&lt;li&gt; Polarisation &lt;/li&gt;
+&lt;li&gt; Amplitude und Intesität von Lichtwellen &lt;/li&gt;
+&lt;/ul&gt;
+</Beschreibung>
+    <Typ>Vortrag</Typ>
+    <id>185</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>11</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Besichtigung der Forschungsneutronenquelle FRM II</Thema>
+    <Beschreibung>&lt;p&gt;In der Forschungsneutronenquelle FRM II in Garching werden durch Kernspaltung von Uran freie Neutronen erzeugt, welche dann für Wissenschaft, Technik und Medizin genutzt werden. Es wird unter anderem der Kernreaktor in der Neutronenquelle besucht.&lt;/p&gt;
+&lt;p&gt;Aufgrund von Strahlenschutzbestimmungen müssen Teilnehmer an dieser Exkursion &lt;strong&gt;mindestens 16 Jahre alt &lt;/strong&gt;sein.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Andere</Typ>
+    <id>1337</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>315</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Besuch des Deutschen Museums</Thema>
+    <Beschreibung>&lt;p&gt;Das deutsche Museum ist das größte naturwissenschaftliche-technische Museum der Welt. In 35 verschiedenen Ausstellungen ist von Schiffahrt über Amateurfunk bis zu Bergbau alles vertreten. Voraussichtlich werden wir auch an einer Führung teilnehmen.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Andere</Typ>
+    <id>1338</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>315</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>BMW Museum</Thema>
+    <Beschreibung>&lt;p&gt;Im BMW Museum und der BMW Welt kann man verschiedene Automobile, Motoren und technische Innovationen bestaunen.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Andere</Typ>
+    <id>1340</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>315</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Max Planck Institut für Quantenoptik</Thema>
+    <Beschreibung>&lt;p&gt;Am Max Planck Institut für Quantenoptik (MPQ) wird die Wechselwirkung von Licht und Materie experimentell und theoretisch Untersucht. Wir werden mehrere Labore besichtigen und einen Einblick in die Arbeit der Wissenschaftler dort erhalten.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Andere</Typ>
+    <id>1339</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>315</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Sport im Englischen Garten</Thema>
+    <Beschreibung>&lt;p&gt;Die großen Wiesen im Englischen Garten eignen sich gut zum sportlichen Ausgleich. Es bieten sich zum Beispiel Fußball, Frisbee oder American Football an. Zusätzlich kann man den Surfern auf der Eisbachwelle zusehen.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Andere</Typ>
+    <id>1341</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>315</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Experiment Bipolartransistor/Emitterschaltung</Thema>
+    <Beschreibung>&lt;p&gt;Es wird ein Bipolartransistor untersucht und damit eine Emmiterschaltung zur Spannungsverstärung aufgebaut.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>1347</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>1336</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Experiment Brennstoffzelle</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Experiment vermesst ihr die Leckrate sowie die Kennlinie einer Brennstoffzelle in Reihen- und Parallelschaltung und bestimmt deren Wirkungsgrad.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>1343</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>1336</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Experiment Brückenschaltung</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Experiment nutz ihr eine Brückenschaltung, um Widerstände, Induktivitäten und Kapazitäten besonders genau zu bestimmen.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>1342</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>1336</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Experiment Magnetismus</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Experiment vermesst ihr das Magnetfeld einer Spule exakt. Ihr könnt feststellen, wie gut die Näherung eines konstanten Magnetfeldes in der Spule wirklich ist. Außerdem werdet ihr die magnetische Permeabilität eines Füllstoffes messen können.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>1350</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>1336</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Experiment Millikan-Versuch</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Experiment könnt ihr den berühmten Millikan-Versuch durchführen und so die Elementarladung bestimmen.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>1345</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>1336</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Experiment Oszilloskop</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Experiment werden verschiedene Schwingkreise sowie Hoch- und Tiefpässe mit einem Oszilloskop genauer untersucht. Dabei lernt man die genaue Funktion eines Oszilloskops näher kennen. &lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>1346</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>1336</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Experiment Pohlsches Rad</Thema>
+    <Beschreibung>&lt;p&gt;Das Pohlsche Rad eignet sich gut, um ungedämpfte, gedämpfte und erzwungene Schwingungen mit ein und demselben Aufbau zu vermessen.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>1349</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>1336</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Experiment spezifische Elektronenladung</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Experiment könnt ihr mit einem Fadenstrahlrohr die spezifische Ladung eines Elektrons, also das Ladung-Masse-Verhältnis e/m bestimmen.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>1344</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>1336</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+  <node>
+    <Thema>Optische Abbildungen</Thema>
+    <Beschreibung>&lt;p&gt;In diesem Experiment bestimmt ihr die Brennweite von Linsen und Linsensystemen mithilfe der Autokollimations-, der Bessel, und der Abbe-Methode.&lt;/p&gt;
+</Beschreibung>
+    <Typ>Experiment</Typ>
+    <id>1348</id>
+    <Beamer>Nein</Beamer>
+    <Raum></Raum>
+    <Bereich>1336</Bereich>
+    <L-nge>1</L-nge>
+    <Maximalangebot></Maximalangebot>
+  </node>
+</nodes>

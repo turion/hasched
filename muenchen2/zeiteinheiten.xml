@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<nodes>
+  <node>
+    <Titel>Frühstück</Titel>
+    <id>1380</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-08 04:30:00 bis 2017-10-08 06:00:00</Zeit>
+    <Ort>Jugendherberge</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507437000</timestamp>
+  </node>
+  <node>
+    <Titel>Abendessen</Titel>
+    <id>1379</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-07 17:00:00</Zeit>
+    <Ort>Jugendherberge</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507395600</timestamp>
+  </node>
+  <node>
+    <Titel>Vorstellung GYPT</Titel>
+    <id>1378</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-07 16:00:00 bis 2017-10-07 16:20:00</Zeit>
+    <Ort>MW 0250</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507392000</timestamp>
+  </node>
+  <node>
+    <Titel>Frühstück</Titel>
+    <id>1377</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-07 04:30:00 bis 2017-10-07 06:00:00</Zeit>
+    <Ort>Jugendherberge</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507350600</timestamp>
+  </node>
+  <node>
+    <Titel>Erlebnisbericht IPhO</Titel>
+    <id>1376</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-06 16:00:00 bis 2017-10-06 16:20:00</Zeit>
+    <Ort>MW 0250</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507305600</timestamp>
+  </node>
+  <node>
+    <Titel>Abendessen</Titel>
+    <id>1375</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-06 17:00:00</Zeit>
+    <Ort>Jugendherberge</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507309200</timestamp>
+  </node>
+  <node>
+    <Titel>Frühstück</Titel>
+    <id>1374</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-06 04:30:00 bis 2017-10-06 07:00:00</Zeit>
+    <Ort>Jugendherberge</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507264200</timestamp>
+  </node>
+  <node>
+    <Titel>Abendessen</Titel>
+    <id>1373</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-05 17:00:00</Zeit>
+    <Ort>Jugendherberge</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507222800</timestamp>
+  </node>
+  <node>
+    <Titel>Mittagessen</Titel>
+    <id>1334</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-07 10:30:00 bis 2017-10-07 12:00:00</Zeit>
+    <Ort>MW 0250</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507372200</timestamp>
+  </node>
+  <node>
+    <Titel>Verabschiedung</Titel>
+    <id>1333</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-08 10:30:00 bis 2017-10-08 11:00:00</Zeit>
+    <Ort>MW 0250</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507458600</timestamp>
+  </node>
+  <node>
+    <Titel>Individuelle Abreise</Titel>
+    <id>1332</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-08 11:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507460400</timestamp>
+  </node>
+  <node>
+    <Titel>Mittagessen</Titel>
+    <id>1331</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-08 11:00:00 bis 2017-10-08 12:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507460400</timestamp>
+  </node>
+  <node>
+    <Titel>Physikeinheit</Titel>
+    <id>1330</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2017-10-08 08:45:00 bis 2017-10-08 10:15:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507452300</timestamp>
+  </node>
+  <node>
+    <Titel>Physikeinheit</Titel>
+    <id>1329</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2017-10-08 07:00:00 bis 2017-10-08 08:30:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507446000</timestamp>
+  </node>
+  <node>
+    <Titel>Fahrt zur TU</Titel>
+    <id>1328</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-08 06:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507442400</timestamp>
+  </node>
+  <node>
+    <Titel>Fahrt zur Jugendherberge</Titel>
+    <id>1327</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-07 16:30:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507393800</timestamp>
+  </node>
+  <node>
+    <Titel>Physikeinheit</Titel>
+    <id>1326</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2017-10-07 14:15:00 bis 2017-10-07 15:45:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507385700</timestamp>
+  </node>
+  <node>
+    <Titel>Physikeinheit</Titel>
+    <id>1325</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2017-10-07 12:30:00 bis 2017-10-07 14:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507379400</timestamp>
+  </node>
+  <node>
+    <Titel>Physikeinheit</Titel>
+    <id>1323</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2017-10-07 08:45:00 bis 2017-10-07 10:15:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507365900</timestamp>
+  </node>
+  <node>
+    <Titel>Physikeinheit</Titel>
+    <id>1322</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2017-10-07 07:00:00 bis 2017-10-07 08:30:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507359600</timestamp>
+  </node>
+  <node>
+    <Titel>Fahrt zur TU</Titel>
+    <id>1321</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-07 06:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507356000</timestamp>
+  </node>
+  <node>
+    <Titel>Fahrt zur Jugendherberge</Titel>
+    <id>1320</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-06 16:30:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507307400</timestamp>
+  </node>
+  <node>
+    <Titel>Physikeinheit</Titel>
+    <id>1319</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2017-10-06 14:15:00 bis 2017-10-06 15:45:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507299300</timestamp>
+  </node>
+  <node>
+    <Titel>Physikeinheit</Titel>
+    <id>1318</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2017-10-06 12:30:00 bis 2017-10-06 14:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507293000</timestamp>
+  </node>
+  <node>
+    <Titel>Mittagessen</Titel>
+    <id>1317</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-06 11:00:00 bis 2017-10-06 12:00:00</Zeit>
+    <Ort>Mensa Garching</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507287600</timestamp>
+  </node>
+  <node>
+    <Titel>Exkursionen</Titel>
+    <id>1316</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-06 07:00:00 bis 2017-10-06 11:00:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Ja</Exkursion>
+    <timestamp>1507273200</timestamp>
+  </node>
+  <node>
+    <Titel>Fahrt zur Jugendherberge</Titel>
+    <id>1315</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-05 16:30:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507221000</timestamp>
+  </node>
+  <node>
+    <Titel>Physikeinheit</Titel>
+    <id>1313</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2017-10-05 14:45:00 bis 2017-10-05 16:15:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507214700</timestamp>
+  </node>
+  <node>
+    <Titel>Mittagessen</Titel>
+    <id>1312</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-05 10:00:00 bis 2017-10-05 11:30:00</Zeit>
+    <Ort>Mensa Garching</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507197600</timestamp>
+  </node>
+  <node>
+    <Titel>Physikeinheit</Titel>
+    <id>1311</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Ja</Physikeinheit>
+    <Zeit>2017-10-05 13:00:00 bis 2017-10-05 14:30:00</Zeit>
+    <Ort></Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507208400</timestamp>
+  </node>
+  <node>
+    <Titel>Begrüßung</Titel>
+    <id>1310</id>
+    <Beschreibung>&lt;p&gt;Begrüßung, Besprechung des Zeitplans, Ausgabe der individuellen Stundenpläne,...&lt;/p&gt;
+</Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-05 12:00:00</Zeit>
+    <Ort>MW 0250</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507204800</timestamp>
+  </node>
+  <node>
+    <Titel>Anreise zur TU München</Titel>
+    <id>1309</id>
+    <Beschreibung></Beschreibung>
+    <Physikeinheit>Nein</Physikeinheit>
+    <Zeit>2017-10-05 09:30:00 bis 2017-10-05 11:45:00</Zeit>
+    <Ort>Fakultät Maschienenwesen</Ort>
+    <Exkursion>Nein</Exkursion>
+    <timestamp>1507195800</timestamp>
+  </node>
+</nodes>

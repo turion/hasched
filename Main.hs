@@ -5,13 +5,28 @@ import Control.Monad
 import Parser
 import Stundenplan
 import LP
+import NamensschildWriter
 
 main :: IO ()
 main = do
-  seminar  <- leseSeminar "muenchen1/"
-  putStrLn $ concat $ zeigeHauef seminar
-  --schreibeThemenZuBetreuer seminar
+  seminar  <- leseSeminar "muenchen2/"
+  --schreibeNamensschilder seminar
   --schreibeBetreuerZuThemen seminar
+  --schreibeThemenZuBetreuer seminar
+  findeNuklearexkursionsTeilnehmer seminar
+  putStrLn $ show $ length $ schuelerInnen $ seminar
+  
+  
+findeNuklearexkursionsTeilnehmer :: Seminar -> IO()
+findeNuklearexkursionsTeilnehmer seminar= do
+  let str=concat $ map nuklearexkursionZuString (schuelerInnen seminar)
+  putStrLn str
+  
+nuklearexkursionZuString :: SchuelerIn -> String
+nuklearexkursionZuString schueler = 
+  let wahlen = filter (\tw -> (titel (tnode (gewaehltesThema tw)))=="Besichtigung der Forschungsneutronenquelle FRM II") (themenwahlen schueler)
+      bewertung = if (length wahlen)==0 then 0 else praeferenz $ head wahlen
+  in (vorname (sPerson schueler))++" "++(nachname (sPerson schueler))++": "++(show bewertung)++"\n"
   
 schreibeThemenZuBetreuer :: Seminar -> IO()
 schreibeThemenZuBetreuer seminar = do

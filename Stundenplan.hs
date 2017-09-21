@@ -82,6 +82,7 @@ data Zeiteinheit = Zeiteinheit
   { znode :: Node
   , zTyp :: ZeiteinheitTyp
   , zeit :: String
+  , ort :: String
   }
   deriving (Show, Eq, Ord, Read)
 
@@ -89,7 +90,7 @@ instance ContainsNode Zeiteinheit where
   theNode = znode
 
 instance LPVar Zeiteinheit String where
-  var (Zeiteinheit (Node nid _) _ _) = "zeiteinheit " ++ show nid
+  var (Zeiteinheit (Node nid _) _ _ _) = "zeiteinheit " ++ show nid
 
 -- TODO Zu testen
 -- | Findet alle vorherigen Zeiteinheiten,

@@ -1,0 +1,54 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german, ngerman]{babel}
+\usepackage{helvet}
+\usepackage{tikz} \usetikzlibrary{decorations.pathmorphing}
+
+\renewcommand{\thesection}{}
+
+\begin{document}
+\pagestyle{empty}
+\fontfamily{phv} \selectfont
+\def \hb{42mm}
+\def \hh{25mm}
+\def \bt{3cm}
+\def \bl{12mm}
+\newcommand{\Namensschild}[4]{
+  \node (c) at (current page.center) [xshift=#1, yshift=#2] {};
+  \draw [decorate]
+    (c) +(-\hb, -\hh)
+    -- +(\hb, -\hh)
+    -- +(\hb, \hh)
+    -- +(-\hb, \hh)
+    -- cycle;
+  \node (b) at (c) [anchor=south west, xshift=-3.8cm, yshift=7mm]
+    {\includegraphics[width=\bl]{orpheus-logo.png}};
+  \node at (b.east) [right=8mm, scale=1]
+    {\fontsize{9}{9} \selectfont \parbox{47mm}{\raggedleft 13. Seminar des
+Orpheus e.V. \\ München, 5. bis 8.10.2016}};
+  \node (n) at (c) [below=-3mm]
+    {\fontsize{16}{16} \selectfont #3};
+  \node at (n) [below=7mm]
+    {\fontsize{11}{11} \selectfont aus #4};
+}
+
+\newcommand{\Rueckseite}[2]{
+  \node (c) at (current page.center) [xshift=#1, yshift=#2] {};
+  \node (a) at (c) [above=5ex] {\emph{Handynummern}};
+  \node (a) at (c) [above=3ex] {Sven: 0173 4530128};
+  \node (a) at (c) [above=1ex] {Johannes: 0151 55841651};
+  \node (t) at (c) [below=1ex] {\emph{Adresse Jugendherberge:}};
+  \node (s) at (t) [below=.5ex] {Wendl-Dietrich-Straße 20};
+  \draw [decorate] 
+    (c) +(-\hb, -\hh)
+    -- +(\hb, -\hh)
+    -- +(\hb, \hh)
+    -- +(-\hb, \hh)
+    -- cycle;
+  \draw [dotted, very thin]
+    (c) +(-45mm, -28mm)
+    -- +(45mm, -28mm)
+    -- +(45mm, 28mm)
+    -- +(-45mm, 28mm)
+    -- cycle;
+}

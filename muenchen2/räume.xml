@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<nodes>
+  <node>
+    <id>1372</id>
+    <Name>Praktikum Optische Abbildungen</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>6</Raumgr-e>
+  </node>
+  <node>
+    <id>1371</id>
+    <Name>Praktikum spezifische Elektronenladung</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>6</Raumgr-e>
+  </node>
+  <node>
+    <id>1370</id>
+    <Name>Praktikum Pohlsches Rad</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>3</Raumgr-e>
+  </node>
+  <node>
+    <id>1369</id>
+    <Name>Praktikum Oszilloskop</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>6</Raumgr-e>
+  </node>
+  <node>
+    <id>1368</id>
+    <Name>Praktikum Millikan-Versuch</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>6</Raumgr-e>
+  </node>
+  <node>
+    <id>1367</id>
+    <Name>Praktikum Magnetismus</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>6</Raumgr-e>
+  </node>
+  <node>
+    <id>1366</id>
+    <Name>Praktikum Brückenschaltung</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>6</Raumgr-e>
+  </node>
+  <node>
+    <id>1365</id>
+    <Name>Praktikum Brennstoffzelle</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>6</Raumgr-e>
+  </node>
+  <node>
+    <id>1364</id>
+    <Name>CH 27401</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>30</Raumgr-e>
+  </node>
+  <node>
+    <id>1363</id>
+    <Name>CH 26410</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>30</Raumgr-e>
+  </node>
+  <node>
+    <id>1362</id>
+    <Name>CH 22209</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>30</Raumgr-e>
+  </node>
+  <node>
+    <id>1361</id>
+    <Name>CH 27402</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>120</Raumgr-e>
+  </node>
+  <node>
+    <id>1360</id>
+    <Name>CH 26411</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>120</Raumgr-e>
+  </node>
+  <node>
+    <id>1359</id>
+    <Name>CH 22210</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>120</Raumgr-e>
+  </node>
+  <node>
+    <id>1358</id>
+    <Name>MW 2235</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>20</Raumgr-e>
+  </node>
+  <node>
+    <id>1357</id>
+    <Name>MW 2050</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>100</Raumgr-e>
+  </node>
+  <node>
+    <id>1356</id>
+    <Name>MW 1250</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>100</Raumgr-e>
+  </node>
+  <node>
+    <id>1355</id>
+    <Name>MW 1050</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>100</Raumgr-e>
+  </node>
+  <node>
+    <id>1354</id>
+    <Name>MW 0250</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>100</Raumgr-e>
+  </node>
+  <node>
+    <id>1353</id>
+    <Name>MW 0234</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>20</Raumgr-e>
+  </node>
+</nodes>

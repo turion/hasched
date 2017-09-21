@@ -6,6 +6,7 @@ import Data.Map
 
 import LPUtils
 import Stundenplan
+import LPLokal
 
 data LPParseError v
   = InvalidDouble v Double
@@ -33,3 +34,13 @@ parseStundenplan seminar version lpResult = do
   lokalBelegungen <- stupidParse (moeglicheLokalBelegungen seminar) lpResult
   let globalplan = GlobalStundenplan seminar globalBelegung betreuerBelegung raumBelegung version
   return $ LokalStundenplan globalplan lokalBelegungen
+  
+parseLokal :: GlobalStundenplan -> Map String Double -> LokalStundenplan
+parseLokal plan lpResult =
+  let lokal =  [ LokalBelegung (GlobalBelegung thema zeiteinheit) schueler
+                 | 
+                  schueler <- schuelerInnen (seminar plan)
+                  ,zeiteinheit <- zeiteinheiten (seminar plan)
+                  ,thema <- themenVonZeiteinheit plan zeiteinheit
+                 , (lpResult ! (var (LokalBelegung (GlobalBelegung thema zeiteinheit) schueler)))==1.0]
+  in LokalStundenplan plan lokal
