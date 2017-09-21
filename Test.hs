@@ -34,7 +34,7 @@ testseminar = Seminar
 
 main :: IO ()
 main = do
-  putStrLn "Teste mit 0) Testseminar (default) 1) Jena-Testdaten 2) Jena-Testdaten mit einem Drittel der SchülerInnen 3) Jena-Testdaten mit einem Zehntel der SchülerInnen"
+  putStrLn "Teste mit 0) Testseminar (default) 1) Jena-Testdaten 2) Jena-Testdaten mit einem Drittel der SchülerInnen"
   auswahl <- readMaybe <$> getLine
   let
     getSeminar = case auswahl of
@@ -44,10 +44,6 @@ main = do
         seminar <- leseSeminar "jena/"
         let alleSchuelerInnen = schuelerInnen seminar
         return $ seminar { schuelerInnen = take (length alleSchuelerInnen `div` 3) alleSchuelerInnen }
-      Just 3 -> do
-        seminar <- leseSeminar "jena/"
-        let alleSchuelerInnen = schuelerInnen seminar
-        return $ seminar { schuelerInnen = take (length alleSchuelerInnen `div` 10) alleSchuelerInnen }
       _      -> do
         putStrLn "Default zu Testseminar"
         return testseminar
