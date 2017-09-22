@@ -17,7 +17,7 @@ newtype Nid = Nid Integer
 -- Konstruktor muss bei read umgangen werden
 instance Read Nid where
   readsPrec prec = map (first Nid) . readsPrec prec
-  
+
 instance Show Nid where
   show (Nid i) = show i
 
@@ -26,7 +26,7 @@ newtype Uid = Uid Integer
 
 instance Read Uid where
   readsPrec prec = map (first Uid) . readsPrec prec
-  
+
 instance Show Uid where
   show (Uid i) = show i
 
@@ -56,9 +56,9 @@ class ContainsNode a where
 
   matchNid :: Nid -> a -> Bool
   matchNid nid a = nid == nodeId a
-  
-  --titel :: a->String
-  --titel = ntitel. theNode
+
+  nTitel :: a -> String
+  nTitel = titel . theNode
 
 data Thema = Thema
   { tnode :: Node
