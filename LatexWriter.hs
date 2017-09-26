@@ -16,6 +16,11 @@ import Text.LaTeX.Base.Syntax
 import Text.LaTeX.Base.Render
 import Stundenplan
 
+
+unsafeHead :: String -> [a] -> a
+unsafeHead msg []      = error msg
+unsafeHead _   (a : _) = a
+
 data Zeitspanne = Zeitspanne
   { zTag    :: String
   , zBeginn :: String
@@ -104,11 +109,11 @@ findeThemen globalerStundenplan zeiteinheit = [thema | GlobalBelegung thema zeit
 
 -- TODO Unsicher, besser mit Maybe?
 findeRaum :: GlobalStundenplan -> Zeiteinheit -> Thema -> Raum
-findeRaum globalerStundenplan zeiteinheit thema = rRaum $ head $ filter (\rb -> rGlobalBelegung rb == GlobalBelegung thema zeiteinheit) $ raumBelegungen globalerStundenplan
+findeRaum globalerStundenplan zeiteinheit thema = rRaum $ unsafeHead "Kein Raum" $ filter (\rb -> rGlobalBelegung rb == GlobalBelegung thema zeiteinheit) $ raumBelegungen globalerStundenplan
 
 -- TODO Unsicher, besser mit Maybe?
 findeBetreuer :: GlobalStundenplan -> Zeiteinheit -> Thema -> BetreuerIn
-findeBetreuer globalerStundenplan zeiteinheit thema = bBetreuerIn $ head $ filter (\bb -> bGlobalBelegung bb == GlobalBelegung thema zeiteinheit) $ betreuerBelegungen globalerStundenplan
+findeBetreuer globalerStundenplan zeiteinheit thema = bBetreuerIn $ unsafeHead "Kein Betreuer" $ filter (\bb -> bGlobalBelegung bb == GlobalBelegung thema zeiteinheit) $ betreuerBelegungen globalerStundenplan
 
 -- TODO Besser mit geeigneter Ord-Instanz
 sortiereGlobaleBelegungen :: GlobalStundenplan -> [GlobalBelegung]
@@ -137,8 +142,8 @@ schreibePlanSchueler lokalerStundenplan schueler = do
     [newpage]
 
 schreibeTag :: LokalStundenplan -> SchuelerIn -> [Zeiteinheit] -> LaTeXT_ IO
-schreibeTag lokalerStundenplan schueler einheiten=do
-  let uberschrift = (large.textbf.fromString.zTag.zeiteinheitZuZeitspanne.head) einheiten
+schreibeTag lokalerStundenplan schueler einheiten = do
+  let uberschrift = large $ textbf $ fromString $ zTag $ zeiteinheitZuZeitspanne $ unsafeHead "Keine Zeiteinheiten" $ einheiten
   let tab = mconcat $  [raw "\\begin{tabular} {|p{3cm} p{6cm} p{6cm|} }",  hline]
                     ++ map (schreibeThema lokalerStundenplan schueler) einheiten
                     ++ [raw "\\end{tabular}"]
@@ -159,7 +164,7 @@ schreibePhysikeinheit (LokalStundenplan globalerPlan lokaleBelegungen) schueler 
 
 
 schreibePhysikeinheit' globalerPlan zeiteinheit lokaleBelegung = do
-  let thema = gbThema $ lGlobalBelegung $ head lokaleBelegung
+  let thema = gbThema $ lGlobalBelegung $ unsafeHead "Keine lokalen Belegungen" $ lokaleBelegung
   let betreuer = findeBetreuer globalerPlan zeiteinheit thema
   let raum = findeRaum globalerPlan zeiteinheit thema
   mconcat [(textbf . fromString . nTitel) thema & (textbf . fromString . personZuName . bPerson) betreuer & (textbf . fromString . nTitel) raum, lnbk, hline]
