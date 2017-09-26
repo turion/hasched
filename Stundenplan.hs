@@ -158,6 +158,13 @@ data Seminar = Seminar
 physikeinheiten :: Seminar -> [ Zeiteinheit ]
 physikeinheiten seminar = filter (\ze -> (zTyp ze)==Physikeinheit) $ zeiteinheiten seminar
 
+exkursionseinheit :: Seminar -> Zeiteinheit
+exkursionseinheit seminar = head $ filter (\ze -> (zTyp ze)==Exkursion) $ zeiteinheiten seminar
+
+--Physikeinheiten & Exkursion
+einheiten :: Seminar -> [Zeiteinheit]
+einheiten seminar = (exkursionseinheit seminar):(physikeinheiten seminar)
+
 data GlobalBelegung = GlobalBelegung
   { gbThema       :: Thema
   , gbZeiteinheit :: Zeiteinheit

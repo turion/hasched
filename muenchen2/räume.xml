@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <nodes>
   <node>
+    <id>1373</id>
+    <Name>Exkursion FRM II</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>22</Raumgr-e>
+  </node>
+  <node>
+    <id>1374</id>
+    <Name>Exkursion Deutsches Museum</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>25</Raumgr-e>
+  </node>
+  <node>
+    <id>1375</id>
+    <Name>Exkursion BMW Museum</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>25</Raumgr-e>
+  </node>
+  <node>
+    <id>1376</id>
+    <Name>Exkursion MPQ</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>25</Raumgr-e>
+  </node>
+  <node>
+    <id>1377</id>
+    <Name>Exkursion Englischer Garten</Name>
+    <Beamer>Nein</Beamer>
+    <Raumgr-e>25</Raumgr-e>
+  </node>
+  <node>
     <id>1372</id>
     <Name>Praktikum Optische Abbildungen</Name>
     <Beamer>Nein</Beamer>

@@ -240,7 +240,7 @@
         <vortrag>
             <einheit>5</einheit>
             <thema>Experiment Brennstoffzelle</thema>
-            <betreuer>Vincent Grande</betreuer>
+            <betreuer>Aaron Wild</betreuer>
             <raum>Praktikum Brennstoffzelle</raum>
         </vortrag>
         <vortrag>
@@ -301,7 +301,7 @@
         <vortrag>
             <einheit>6</einheit>
             <thema>Experiment Brennstoffzelle</thema>
-            <betreuer>Vincent Grande</betreuer>
+            <betreuer>Aaron Wild</betreuer>
             <raum>Praktikum Brennstoffzelle</raum>
         </vortrag>
         <vortrag>
@@ -405,7 +405,7 @@
         <vortrag>
             <einheit>8</einheit>
             <thema>Aufgabenseminar klassische Mechanik</thema>
-            <betreuer>Maximilian Marienhagen</betreuer>
+            <betreuer>Aaron Wild</betreuer>
             <raum>MW 2050</raum>
         </vortrag>
         <vortrag>
@@ -521,7 +521,38 @@
         <vortrag>
             <einheit>10</einheit>
             <thema>Aufgabenseminar klassische Mechanik</thema>
-            <betreuer>Maximilian Marienhagen</betreuer>
+            <betreuer>Aaron Wild</betreuer>
             <raum>CH 22209</raum>
+        </vortrag>
+        
+        <vortrag>
+            <einheit>-1</einheit>
+            <thema>Besichtigung der Forschungsneutronenquelle FRM II</thema>
+            <betreuer>Felix Wechsler</betreuer>
+            <raum>Exkursion FRM II</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>-1</einheit>
+            <thema>Besuch des Deutschen Museums</thema>
+            <betreuer>Maximilian Marienhagen</betreuer>
+            <raum>Exkursion Deutsches Museum</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>-1</einheit>
+            <thema>BMW Museum</thema>
+            <betreuer>Ann-Kathrin Raab</betreuer>
+            <raum>Exkursion BMW Museum</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>-1</einheit>
+            <thema>Max Planck Institut für Quantenoptik</thema>
+            <betreuer>Eugen Dizer</betreuer>
+            <raum>Exkursion MPQ</raum>
+        </vortrag>
+        <vortrag>
+            <einheit>-1</einheit>
+            <thema>Sport im Englischen Garten</thema>
+            <betreuer>Vincent Grande</betreuer>
+            <raum>Exkursion Englischer Garten</raum>
         </vortrag>
 </einheiten>

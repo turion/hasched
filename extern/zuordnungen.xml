@@ -1,24 +1,92 @@
-<exkursion name="Besichtigung der Forschungsneutronenquelle FRM II">
-    <teilnehmer>Bastian Hesbacher</teilnehmer>
-    <teilnehmer>Mia Sittinger</teilnehmer>
-    <teilnehmer>Brendan Berg</teilnehmer>
-    <teilnehmer>Daniel Samoylov</teilnehmer>
-    <teilnehmer>Ria Rosenauer</teilnehmer>
-    <teilnehmer>Lukas Schulz</teilnehmer>
-    <teilnehmer>Jean-Beaptiste Bellynck</teilnehmer>
-    <teilnehmer>Lucas Kersten</teilnehmer>
+<zuweisungen>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
     <teilnehmer>Gesa Dünnweber</teilnehmer>
-    <teilnehmer>Yoshi Eschen</teilnehmer>
-    <teilnehmer>Erik Sünderhauf</teilnehmer>
-    <teilnehmer>Natalie Adam</teilnehmer>
-    <teilnehmer>Charlotte Lange</teilnehmer>
-    <teilnehmer>Uri Sharell</teilnehmer>
-    <teilnehmer>Maximilian Adam</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Lucas Kersten</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Jean-Baptiste Bellynck</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Lukas Schulz</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Ria Rosenauer</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Daniel Samoylov</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Brendan Berg</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Mia Sittinger</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Bastian Hesbacher</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
     <teilnehmer>Auguste Medert</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Maximilian Adam</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Uri Sharell</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Natalie Adam</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Charlotte Lange</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Erik Sünderhauf</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
+    <teilnehmer>Yoshi Eschen</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
     <teilnehmer>Sebastian Harris</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
     <teilnehmer>Dennis Rudik</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
     <teilnehmer>Kevin Haag</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
     <teilnehmer>Theresa Fritschi</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
     <teilnehmer>Karim Alaa El-Din</teilnehmer>
+  </zuweisung>
+  <zuweisung>
+    <exkursion>Besichtigung der Forschungsneutronenquelle FRM II</exkursion>
     <teilnehmer>Jann Weidlich</teilnehmer>
-</exkursion>
+  </zuweisung>
+</zuweisungen>
+
+

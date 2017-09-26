@@ -14,18 +14,19 @@ import LPUtils
 
 orpheusLPOptionen :: GLPOpts
 orpheusLPOptionen = mipDefaults
-  { tmLim = 1000 -- Nach 1000 Sekunden
-  , mipGap = 0.1 -- 10 % Abstand zum Optimum sind ausreichend
+  { tmLim = 1000 -- Nach 1000 SekundenQF
+  , mipGap = 0.01 -- 1 % Abstand zum Optimum sind ausreichend
   }
 
 type LPGlobalFun = GlobalStundenplan -> LPM String Double ()
 
-generiereLokalenPlan :: GlobalStundenplan -> LP String Double
-generiereLokalenPlan plan 
+
+generiereLokalenPlan :: GlobalStundenplan -> [(Thema,SchuelerIn)] -> LP String Double
+generiereLokalenPlan plan zuweisungen
   = execLPM $ do
     optimum plan
     setzeVariablentypen plan
-    zwangsbedingungen plan
+    zwangsbedingungen zuweisungen plan
     
     
 optimum :: LPGlobalFun
@@ -35,22 +36,34 @@ optimum plan = do
     [(findePreaferenz schuelerIn thema
      , var $ LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn)
       | schuelerIn <- schuelerInnen (seminar plan)
-      , zeiteinheit <- physikeinheiten (seminar plan)
+      , zeiteinheit <- einheiten (seminar plan)
+      , thema <- themenVonZeiteinheit plan zeiteinheit
+    ]
+
+getLinFun :: GlobalStundenplan -> LinFunc String Double    
+getLinFun plan =linCombination
+    [(findePreaferenz schuelerIn thema
+     , var $ LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn)
+      | schuelerIn <- schuelerInnen (seminar plan)
+      , zeiteinheit <- einheiten (seminar plan)
       , thema <- themenVonZeiteinheit plan zeiteinheit
     ]
     
 setzeVariablentypen :: LPGlobalFun
 setzeVariablentypen plan = sequence_ $ do
   schuelerIn <- schuelerInnen (seminar plan)
-  zeiteinheit <- physikeinheiten (seminar plan)
+  zeiteinheit <- einheiten (seminar plan)
   thema <- themenVonZeiteinheit plan zeiteinheit
   return $ setVarKind (var (LokalBelegung (GlobalBelegung thema zeiteinheit) schuelerIn)) BinVar
   
-zwangsbedingungen :: LPGlobalFun
-zwangsbedingungen plan = do
+zwangsbedingungen :: [(Thema,SchuelerIn)] -> LPGlobalFun
+zwangsbedingungen zuweisungen plan = do
   jederSchuelerBesuchtThemaHoechstensEinMal plan
   jederSchuelerBesuchtProZeiteinheitGenauEinThema plan
   raumgroesseMussEingehaltenWerden plan
+  schuelerzahlMinimum plan
+  schuelerzahlMaximum plan
+  exkursionsausnahme zuweisungen plan
   
 jederSchuelerBesuchtThemaHoechstensEinMal :: LPGlobalFun
 jederSchuelerBesuchtThemaHoechstensEinMal plan = sequence_ $ do
@@ -62,28 +75,46 @@ jederSchuelerBesuchtThemaHoechstensEinMal plan = sequence_ $ do
 jederSchuelerBesuchtProZeiteinheitGenauEinThema :: LPGlobalFun
 jederSchuelerBesuchtProZeiteinheitGenauEinThema plan = sequence_ $ do
   schueler <- schuelerInnen (seminar plan)
-  zeiteinheit <- physikeinheiten (seminar plan)
+  zeiteinheit <- einheiten (seminar plan)
   return $ add
     [varLF (LokalBelegung (GlobalBelegung thema zeiteinheit) schueler) | thema <- themenVonZeiteinheit plan zeiteinheit] `equalTo` 1
     
 raumgroesseMussEingehaltenWerden :: LPGlobalFun
 raumgroesseMussEingehaltenWerden plan = sequence_ $ do
-  zeiteinheit <- physikeinheiten (seminar plan)
+  zeiteinheit <- einheiten (seminar plan)
   thema <- themenVonZeiteinheit plan zeiteinheit
   return $ add
     [varLF (LokalBelegung (GlobalBelegung thema zeiteinheit) schueler) | schueler <- schuelerInnen (seminar plan)] `leqTo` (fromIntegral (raumgroesse (raumVonEinheit plan zeiteinheit thema)))
-   
+    
+schuelerzahlMinimum :: LPGlobalFun
+schuelerzahlMinimum plan = sequence_ $ do
+  zeiteinheit <- einheiten (seminar plan)
+  thema <- themenVonZeiteinheit plan zeiteinheit
+  return $ add
+    [varLF (LokalBelegung (GlobalBelegung thema zeiteinheit) schueler) | schueler <- schuelerInnen (seminar plan)] `geqTo` 3
+    
+schuelerzahlMaximum :: LPGlobalFun
+schuelerzahlMaximum plan = sequence_ $ do
+  zeiteinheit <- einheiten (seminar plan)
+  thema <- themenVonZeiteinheit plan zeiteinheit
+  return $ add
+    [varLF (LokalBelegung (GlobalBelegung thema zeiteinheit) schueler) | schueler <- schuelerInnen (seminar plan)] `leqTo` 25
+
+exkursionsausnahme :: [(Thema,SchuelerIn)] -> LPGlobalFun
+exkursionsausnahme zuweisungen plan = sequence_ $ do
+  (thema,schueler) <- zuweisungen
+  return $ (varLF (LokalBelegung (GlobalBelegung thema (exkursionseinheit (seminar plan))) schueler)) `equalTo` 1    
 
 findePreaferenz :: SchuelerIn -> Thema -> Double
 findePreaferenz schueler thema =
   let preafs = [p | (Themenwahl t p) <- themenwahlen schueler, t==thema]
-  in if (length preafs)==1 then head preafs else 0 
+  in if (length preafs)==1 then head preafs else 0
     
 themenVonZeiteinheit :: GlobalStundenplan -> Zeiteinheit -> [Thema]
 themenVonZeiteinheit plan ze = [thema | (GlobalBelegung thema z)<-globalBelegungen plan, z==ze]
 
 zeiteinheitenVonThema :: GlobalStundenplan -> Thema -> [Zeiteinheit]
-zeiteinheitenVonThema plan thema = [ze | (GlobalBelegung t ze)<-globalBelegungen plan, t==thema]
+zeiteinheitenVonThema plan thema = [ze | (GlobalBelegung t ze)<-globalBelegungen plan, (nid (tnode t))==(nid (tnode thema))]
 
 raumVonEinheit :: GlobalStundenplan -> Zeiteinheit -> Thema -> Raum
 raumVonEinheit plan ze thema = 

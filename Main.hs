@@ -11,10 +11,10 @@ main :: IO ()
 main = do
   seminar  <- leseSeminar "muenchen2/"
   --schreibeNamensschilder seminar
-  --schreibeBetreuerZuThemen seminar
+  schreibeBetreuerZuThemen seminar
   --schreibeThemenZuBetreuer seminar
-  findeNuklearexkursionsTeilnehmer seminar
-  putStrLn $ show $ length $ schuelerInnen $ seminar
+  --findeNuklearexkursionsTeilnehmer seminar
+  --putStrLn $ show $ length $ schuelerInnen $ seminar
   
   
 findeNuklearexkursionsTeilnehmer :: Seminar -> IO()

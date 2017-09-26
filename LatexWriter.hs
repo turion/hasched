@@ -48,8 +48,9 @@ datumZuTag datum =
 -- With 'renderFile' you render it to 'Text' and write it in a file.
 makeLatex :: LokalStundenplan -> IO ()
 makeLatex plan = do
-  execLaTeXT (addPreamble (schreibeGlobalenPlan (globalStundenplan plan))) >>= renderFile "out/GlobalerStundenplan.tex"
-  execLaTeXT (addPreamble (schreibeLokalenPlan plan)) >>= renderFile "out/LokalerStundenplan.tex"
+  info <- readFile "extern/info.tex"
+  execLaTeXT (addPreamble (schreibeGlobalenPlan plan)) >>= renderFile "out/GlobalerStundenplan.tex"
+  execLaTeXT (addPreamble (schreibeLokalenPlan plan info)) >>= renderFile "out/LokalerStundenplan.tex"
   
 addPreamble :: LaTeXT_ IO -> LaTeXT_ IO
 addPreamble content=do
@@ -66,23 +67,25 @@ thePreamble = do
   usepackage ["utf8"] "inputenc"
   
 
-schreibeGlobalenPlan :: GlobalStundenplan -> LaTeXT_ IO 
-schreibeGlobalenPlan globalerStundenplan = do
-  let physikeinheiten = filter (\ze->(zTyp ze)==Physikeinheit) $ zeiteinheiten (seminar globalerStundenplan)
+schreibeGlobalenPlan :: LokalStundenplan -> LaTeXT_ IO 
+schreibeGlobalenPlan (LokalStundenplan globalerStundenplan lokalBelegungen) = do
+  let physikeinheiten = einheiten (seminar globalerStundenplan)
   let stringList = map zeiteinheitToTex  physikeinheiten
-  let themen = map (schreibeThemenZuZeiteinheit globalerStundenplan) physikeinheiten
+  let ls =LokalStundenplan globalerStundenplan lokalBelegungen
+  let themen = map (schreibeThemenZuZeiteinheit ls) physikeinheiten
   let glob=concat $ transpose [stringList,themen]
   mconcat glob
 
 zeiteinheitToTex :: Zeiteinheit -> LaTeXT_ IO
 zeiteinheitToTex ze = mconcat [(center.large.textbf.fromString.show.zeiteinheitZuZeitspanne) ze]
 
-schreibeThemenZuZeiteinheit :: GlobalStundenplan -> Zeiteinheit -> LaTeXT_ IO
-schreibeThemenZuZeiteinheit globalerStundenplan zeiteinheit=do
-  let content= mconcat $ map (\(t,b,r)-> mconcat [(fromString t)&(fromString b)&(fromString r),lnbk,hline]) (findeThemenBetreuerRaueme globalerStundenplan zeiteinheit)
-  let tab =mconcat [raw "\\begin{tabular} {|p{5cm}|p{5cm}|p{5cm}|}",
+schreibeThemenZuZeiteinheit :: LokalStundenplan -> Zeiteinheit -> LaTeXT_ IO
+schreibeThemenZuZeiteinheit (LokalStundenplan globalerStundenplan lokalBelegungen) zeiteinheit=do
+  let ls =LokalStundenplan globalerStundenplan lokalBelegungen
+  let content= mconcat $ map (\(t,b,r)-> mconcat [(fromString t)&(fromString b)&(fromString r)&(fromString (show (findeTeilnehmerzahl ls zeiteinheit (findeThemaByName (seminar globalerStundenplan) t)))) ,lnbk,hline])   (findeThemenBetreuerRaueme globalerStundenplan zeiteinheit)
+  let tab =mconcat [raw "\\begin{tabular} {|p{5cm}|p{4cm}|p{4cm}|p{2cm}}",
                     hline,
-                    ((textbf "Thema") & (textbf "Betreuer") & (textbf "Raum")),
+                    ((textbf "Thema") & (textbf "Betreuer") & (textbf "Raum")& (textbf "Anzahl")),
                     lnbk,
                     hline,
                     content,
@@ -90,6 +93,10 @@ schreibeThemenZuZeiteinheit globalerStundenplan zeiteinheit=do
   mconcat [center tab]
  
  
+findeThemaByName :: Seminar -> String -> Thema
+findeThemaByName seminar name =
+  let filt = filter (\t -> (titel (tnode t))==name) (themen seminar)
+  in if (length filt)==1 then head filt else error ("Fehler bei "++name)
   
 findeThemenBetreuerRaueme::GlobalStundenplan -> Zeiteinheit -> [(String,String,String)]
 findeThemenBetreuerRaueme plan zeiteinheit= map (\t -> (titel (tnode t), 
@@ -119,21 +126,22 @@ sortiereRaumBelegungen plan= sortWith (zeit.gbZeiteinheit.rGlobalBelegung)  (rau
 sortiereBetreuerBelegungen :: GlobalStundenplan -> [BetreuerBelegung]
 sortiereBetreuerBelegungen plan= sortWith (zeit.gbZeiteinheit.bGlobalBelegung)  (betreuerBelegungen  plan)
 
-schreibeLokalenPlan :: LokalStundenplan -> LaTeXT_ IO
-schreibeLokalenPlan lokalerStundenplan = do
-  let schuelerplan = map (schreibePlanSchueler lokalerStundenplan) $ (schuelerInnen.seminar.globalStundenplan) lokalerStundenplan
-  mconcat schuelerplan
+schreibeLokalenPlan :: LokalStundenplan -> String -> LaTeXT_ IO
+schreibeLokalenPlan lokalerStundenplan info = do
+  let schuelerplan = map (schreibePlanSchueler lokalerStundenplan info) $ (schuelerInnen.seminar.globalStundenplan) lokalerStundenplan
+  let betreuerplan = map (schreibePlanBetreuer lokalerStundenplan info) $ (betreuerInnen.seminar.globalStundenplan) lokalerStundenplan
+  mconcat (schuelerplan++betreuerplan)
 
 personToTex :: Person -> LaTeXT_ IO 
 personToTex p = (center.large.textbf.fromString) ("Stundenplan von "++(vorname p)++" "++(nachname p))
 
-schreibePlanSchueler :: LokalStundenplan -> SchuelerIn -> LaTeXT_ IO  
-schreibePlanSchueler lokalerStundenplan schueler= do
+schreibePlanSchueler :: LokalStundenplan -> String -> SchuelerIn -> LaTeXT_ IO  
+schreibePlanSchueler lokalerStundenplan info schueler= do
   let tage = groupWith (ztag.zeiteinheitZuZeitspanne) $ zeiteinheiten $ seminar $ globalStundenplan $ lokalerStundenplan
   mconcat $
     personToTex (sPerson schueler) :
     map (schreibeTag lokalerStundenplan schueler) tage ++
-    [newpage]
+    [raw (fromString info), newpage]
     
 schreibeTag :: LokalStundenplan -> SchuelerIn -> [Zeiteinheit] -> LaTeXT_ IO  
 schreibeTag lokalerStundenplan schueler einheiten=do
@@ -146,26 +154,96 @@ schreibeTag lokalerStundenplan schueler einheiten=do
   
 schreibeThema :: LokalStundenplan -> SchuelerIn -> Zeiteinheit -> LaTeXT_ IO
 schreibeThema (LokalStundenplan globalerPlan lokaleBelegungen) schueler zeiteinheit=
-  if (zTyp zeiteinheit) == Physikeinheit
-    then schreibePhysikeinheit (LokalStundenplan globalerPlan lokaleBelegungen) schueler zeiteinheit
-    else 
-      let zeitstring = zeitspanneZuZeitstring (zeiteinheitZuZeitspanne zeiteinheit) 
-      in mconcat [((textbf.fromString) zeitstring)&((textbf.fromString.titel.znode) zeiteinheit)&((textbf.fromString.ort) zeiteinheit),lnbk,hline]
+  case (zTyp zeiteinheit) of
+    Physikeinheit -> schreibePhysikeinheit (LokalStundenplan globalerPlan lokaleBelegungen) schueler zeiteinheit
+    Exkursion -> schreibeExkursion (LokalStundenplan globalerPlan lokaleBelegungen) schueler
+    Anderes ->  let zeitstring = zeitspanneZuZeitstring (zeiteinheitZuZeitspanne zeiteinheit) 
+                in mconcat [((textbf.fromString) zeitstring)&((textbf.fromString.titel.znode) zeiteinheit)&((textbf.fromString.ort) zeiteinheit),lnbk,hline]
       
 schreibePhysikeinheit :: LokalStundenplan -> SchuelerIn -> Zeiteinheit -> LaTeXT_ IO
 schreibePhysikeinheit (LokalStundenplan globalerPlan lokaleBelegungen) schueler zeiteinheit=do
-  let lokaleBelegung = filter (\lb-> (lSchuelerIn lb)==schueler && ((gbZeiteinheit.lGlobalBelegung) lb)==zeiteinheit) lokaleBelegungen
-  if (length lokaleBelegung) ==0 
+  let lokaleBelegung' = filter (\lb-> (lSchuelerIn lb)==schueler && ((gbZeiteinheit.lGlobalBelegung) lb)==zeiteinheit) lokaleBelegungen
+  if (length lokaleBelegung') ==0 
     then mconcat["frei"&""&"",lnbk,hline]
-    else schreibePhysikeinheit' globalerPlan zeiteinheit lokaleBelegung
+    else schreibePhysikeinheit' globalerPlan zeiteinheit lokaleBelegung' (LokalStundenplan globalerPlan lokaleBelegungen)
       
-      
-schreibePhysikeinheit' globalerPlan zeiteinheit lokaleBelegung=do
+schreibePhysikeinheit' :: GlobalStundenplan -> Zeiteinheit -> [LokalBelegung] -> LokalStundenplan -> LaTeXT_ IO      
+schreibePhysikeinheit' globalerPlan zeiteinheit lokaleBelegung lokalStundenplan=do
   let thema = gbThema $ lGlobalBelegung $ head lokaleBelegung
   let betreuer = findeBetreuer globalerPlan zeiteinheit thema
   let raum = findeRaum globalerPlan zeiteinheit thema
   let zeitstring = zeitspanneZuZeitstring (zeiteinheitZuZeitspanne zeiteinheit)
   mconcat[((textbf.fromString) zeitstring) & ((textbf.fromString.titel.tnode) thema) & ((textbf.fromString.titel.rnode) raum),
           lnbk, 
+          ""& (fromString ( "Betreuer: "++ ((personZuName.bPerson) betreuer))) & ""
+          ,lnbk,
+          ""& (fromString ("ca. " ++ (show (findeTeilnehmerzahl lokalStundenplan zeiteinheit thema))++" Teilnehmer")) & "" 
+          , lnbk, hline]
+          
+findeTeilnehmerzahl :: LokalStundenplan -> Zeiteinheit -> Thema -> Int
+findeTeilnehmerzahl (LokalStundenplan globalerPlan lokaleBelegungen) zeiteinheit thema =
+  length $ filter (\(LokalBelegung (GlobalBelegung t z) _) -> (t==thema)&&(z==zeiteinheit)) lokaleBelegungen
+          
+schreibeExkursion :: LokalStundenplan -> SchuelerIn -> LaTeXT_ IO
+schreibeExkursion (LokalStundenplan globalerPlan lokaleBelegung) schueler = do
+  let zeiteinheit =exkursionseinheit (seminar globalerPlan)
+  let thema = head [t| (LokalBelegung (GlobalBelegung t z) s) <- lokaleBelegung, (z==zeiteinheit)&&(s==schueler)]
+  let betreuer = findeBetreuer globalerPlan zeiteinheit thema
+  let zeitstring = zeitspanneZuZeitstring (zeiteinheitZuZeitspanne zeiteinheit)
+  mconcat[((textbf.fromString) zeitstring) & ((textbf.fromString.titel.tnode) thema) & "",
+          lnbk, 
           ""& (fromString ( "Betreuer: "++ ((personZuName.bPerson) betreuer))) & "" 
           , lnbk, hline]
+          
+          
+schreibePlanBetreuer :: LokalStundenplan -> String -> BetreuerIn -> LaTeXT_ IO  
+schreibePlanBetreuer lokalerStundenplan info betreuer= do
+  let tage = groupWith (ztag.zeiteinheitZuZeitspanne) $ zeiteinheiten $ seminar $ globalStundenplan $ lokalerStundenplan
+  mconcat $
+    personToTex (bPerson betreuer) :
+    map (schreibeTagBetreuer lokalerStundenplan betreuer) tage ++
+    [ raw (fromString info), newpage]
+    
+schreibeTagBetreuer :: LokalStundenplan -> BetreuerIn -> [Zeiteinheit] -> LaTeXT_ IO  
+schreibeTagBetreuer lokalerStundenplan betreuer einheiten=do
+  let uberschrift = (large.textbf.fromString.ztag.zeiteinheitZuZeitspanne.head) einheiten
+  let tab = mconcat $ [raw "\\begin{tabular} {|p{3cm} p{6cm} p{6cm}| }",
+                       hline] ++
+                      (map (schreibeThemaBetreuer lokalerStundenplan betreuer) einheiten) ++
+                      [raw "\\end{tabular}"]
+  mconcat [uberschrift,lnbk,tab,vspace (Mm 5),lnbk]
+    
+schreibeThemaBetreuer :: LokalStundenplan -> BetreuerIn -> Zeiteinheit -> LaTeXT_ IO
+schreibeThemaBetreuer (LokalStundenplan globalerPlan lokaleBelegungen) betreuer zeiteinheit=
+  case (zTyp zeiteinheit) of
+    Physikeinheit -> schreibePhysikeinheitBetreuer (LokalStundenplan globalerPlan lokaleBelegungen) betreuer zeiteinheit
+    Exkursion -> schreibeExkursionBetreuer (LokalStundenplan globalerPlan lokaleBelegungen) betreuer
+    Anderes ->  let zeitstring = zeitspanneZuZeitstring (zeiteinheitZuZeitspanne zeiteinheit) 
+                in mconcat [((textbf.fromString) zeitstring)&((textbf.fromString.titel.znode) zeiteinheit)&((textbf.fromString.ort) zeiteinheit),lnbk,hline]
+                
+schreibeExkursionBetreuer :: LokalStundenplan -> BetreuerIn -> LaTeXT_ IO
+schreibeExkursionBetreuer (LokalStundenplan globalerPlan lokaleBelegung) betreuer = do
+  let zeiteinheit =exkursionseinheit (seminar globalerPlan)
+  let themen = [t | (BetreuerBelegung (GlobalBelegung t z) b) <- (betreuerBelegungen globalerPlan) , (z==zeiteinheit) && (b==betreuer)] 
+  let zeitstring = zeitspanneZuZeitstring (zeiteinheitZuZeitspanne zeiteinheit)
+  if (length themen) == 1
+    then  
+      let teilnehmerzahl = findeTeilnehmerzahl (LokalStundenplan globalerPlan lokaleBelegung) zeiteinheit (head themen)
+      in mconcat[((textbf.fromString) zeitstring) & ((textbf.fromString.titel.tnode) (head themen)) & "",
+          lnbk,
+          "" & fromString ("ca. "++ (show teilnehmerzahl)++" Teilnehmer") & ""
+          ,lnbk,hline]
+    else mconcat[""&"Such dir was aus (nicht FRM2)"&"",lnbk,hline]
+    
+schreibePhysikeinheitBetreuer :: LokalStundenplan -> BetreuerIn -> Zeiteinheit -> LaTeXT_ IO
+schreibePhysikeinheitBetreuer (LokalStundenplan globalerPlan lokaleBelegungen) betreuer zeiteinheit = do
+  let themen = [t | (BetreuerBelegung (GlobalBelegung t z) b) <- (betreuerBelegungen globalerPlan) , (z==zeiteinheit) && (b==betreuer)] 
+  let zeitstring = zeitspanneZuZeitstring (zeiteinheitZuZeitspanne zeiteinheit)
+  if (length themen) == 1
+    then 
+      let teilnehmerzahl = findeTeilnehmerzahl (LokalStundenplan globalerPlan lokaleBelegungen) zeiteinheit (head themen)
+      in mconcat[((textbf.fromString) zeitstring) & ((textbf.fromString.titel.tnode) (head themen)) & "",
+          lnbk,
+          "" & fromString ("ca. "++ (show teilnehmerzahl)++" Teilnehmer") & ""
+          ,lnbk, hline]
+    else mconcat[((textbf.fromString) zeitstring)&"frei"&"",lnbk,hline] 

@@ -39,8 +39,8 @@ leseSeminar dir = do
   schuelerInnen <- leseSchuelerInnen dir
   betreuerInnen <- leseBetreuerInnen dir
   verpasst <- leseVerpasst dir
-  let schuelerInnen' = map (fuegeThemenwahlenHinzuS themen themenwahlen) schuelerInnen
-  let betreuerInnen' = map (fuegeThemenwahlenHinzuB themen themenwahlen) betreuerInnen
+  let schuelerInnen' = map (fuegeThemenwahlenHinzuS themen'' themenwahlen) schuelerInnen
+  let betreuerInnen' = map (fuegeThemenwahlenHinzuB themen'' themenwahlen) betreuerInnen
   --let schuelerInnen''  = map (fuegeVerpassenHinzuS  zeiteinheiten verpasst) schuelerInnen'
   --let betreuerInnen''  = map (fuegeVerpassenHinzuB  zeiteinheiten verpasst) betreuerInnen'
   return $ Seminar (Node 0 "seminar") schuelerInnen' betreuerInnen' themen'' zeiteinheiten raeume
@@ -249,6 +249,7 @@ vortragZuRaumBelegung :: Seminar -> (Int,String,String,String) -> RaumBelegung
 vortragZuRaumBelegung seminar (ze,thema,betreuer,raum) = RaumBelegung (votragZuGlobalBelegung seminar (ze,thema,betreuer,raum)) (findeRaumByName seminar raum)
 
 findeZeiteinheitByNo :: Seminar -> Int -> Zeiteinheit
+findeZeiteinheitByNo seminar (-1) = exkursionseinheit seminar
 findeZeiteinheitByNo seminar ze = (filter (\ze -> (zTyp ze)==Physikeinheit) (zeiteinheiten seminar)) !! (ze-1)
 
 findeThemaByName :: Seminar -> String -> Thema
@@ -260,7 +261,12 @@ findeBetreuerByName :: Seminar -> String -> BetreuerIn
 findeBetreuerByName seminar name =
   let nachname' = last $ splitOn " " name
       filt = filter (\b -> (nachname (bPerson b))==nachname') (betreuerInnen seminar)
-  in if (length filt)==1 then head filt else error ("Fehler bei "++nachname') 
+  in if (length filt)==1 then head filt else error ("Fehler bei "++nachname')
+  
+findeSchuelerByName :: Seminar -> String -> SchuelerIn
+findeSchuelerByName seminar name =
+  let filt = filter (\s -> ((vorname (sPerson s))++" "++(nachname (sPerson s)))==name) $ schuelerInnen seminar
+  in if (length filt)==1 then head filt else error ("Fehler bei "++name) 
 
 findeRaumByName :: Seminar -> String -> Raum
 findeRaumByName seminar name =
@@ -279,3 +285,13 @@ parseVortrag = proc vortrag -> do
   raum <- textAtTag "raum" -< vortrag
   returnA -< (read einheit, thema,betreuer,raum)
 
+
+
+leseExkursionsZwangsbedingungen ::Seminar -> String -> IO [( Thema , SchuelerIn )]
+leseExkursionsZwangsbedingungen seminar file = runX $ parseXML file >>> atTag "zuweisungen" >>> atTag "zuweisung" >>> parseZuweisung seminar
+
+parseZuweisung ::Seminar -> IOSLA (XIOState ()) (Data.Tree.NTree.TypeDefs.NTree XNode) (Thema,SchuelerIn)
+parseZuweisung seminar = proc zuweisung -> do
+  themaStr <- textAtTag "exkursion" -< zuweisung
+  schuelerStr <- textAtTag "teilnehmer" -< zuweisung
+  returnA -< (findeThemaByName seminar themaStr, findeSchuelerByName seminar schuelerStr) 
