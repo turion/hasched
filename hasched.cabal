@@ -17,12 +17,18 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:
-    LPUtils
-    LP
-    LPRead
-    Stundenplan
-    Parser
     LatexWriter
+    LP
+    LP.Betreuer
+    LP.Exkursionen
+    LP.Imports
+    LP.Lokal
+    LP.Raum
+    LP.Read
+    LP.Utils
+    Parser
+    Stundenplan
+    Testseminar
   build-depends:
       base >=4.8 && <4.10
     , glpk-hs >=0.5 && <0.6
@@ -33,6 +39,7 @@ library
     , HaTeX >= 3.17 && < 3.18
     , split >= 0.2.3 && < 0.2.4
     , time >= 1.5.0 && < 1.5.1
+    , GenericPretty >= 1.2.1 && < 1.3
   default-language:    Haskell2010
 
 executable hasched
@@ -47,6 +54,7 @@ executable hasched
     , HaTeX >= 3.17 && < 3.18
     , split >= 0.2.3 && < 0.2.4
     , time >= 1.5.0 && < 1.5.1
+    , GenericPretty >= 1.2.1 && < 1.3
   default-language:    Haskell2010
 
 executable test
@@ -60,6 +68,7 @@ executable test
     , containers >= 0.5.6 && <= 0.5.8
     , HaTeX >= 3.17 && < 3.18
     , split >= 0.2.3 && < 0.2.4
+    , GenericPretty >= 1.2.1 && < 1.3
     , time >= 1.5.0 && < 1.5.1
   default-language:    Haskell2010
 
@@ -71,6 +80,7 @@ executable testparser
     , hxt >= 9.3.1.16 && < 9.4
     , glpk-hs >=0.5 && <0.6
     , mtl >=2.2 && <2.3
+    , GenericPretty >= 1.2.1 && < 1.3
   default-language:    Haskell2010
 
 executable testLatex
@@ -84,4 +94,5 @@ executable testLatex
     , HaTeX >= 3.17 && < 3.18
     , split >= 0.2.3 && < 0.2.4
     , time >= 1.5.0 && < 1.5.1
+    , GenericPretty >= 1.2.1 && < 1.3
   default-language:    Haskell2010

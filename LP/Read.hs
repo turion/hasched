@@ -1,10 +1,10 @@
-module LPRead where
+module LP.Read where
 
 import Data.Maybe (fromMaybe)
 
 import Data.Map
 
-import LPUtils
+import LP.Utils
 import Stundenplan
 
 data LPParseError v

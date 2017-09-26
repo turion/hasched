@@ -1,36 +1,20 @@
-import Stundenplan
-import LP
-import LPRead
-import Parser (leseSeminar)
 import LatexWriter (makeLatex)
+import LP
+import LP.Read
+import Parser (leseSeminar)
+import Stundenplan
+import Testseminar
 
+-- glpk-hs
 import Data.LinearProgram.GLPK
 
+-- base
+import Data.Map (delete)
 import Text.Read (readMaybe)
 
-import Data.Map (delete)
+-- GenericPretty
+import Text.PrettyPrint.GenericPretty
 
-testthemen :: [ Thema ]
-testthemen = [ Thema (Node 23 "Mondflug") Nothing False [] []
-             , Thema (Node 42 "Supernova")  Nothing False [] []
-             ]
-
-testzeiteinheiten :: [ Zeiteinheit ]
-testzeiteinheiten = [ Zeiteinheit (Node 100 "Z0") Physikeinheit "2016-01-01 10:00:00"
-                    , Zeiteinheit (Node 101 "Z1") Physikeinheit "2016-01-01 11:00:00"
-                    ]
-
-testseminar :: Seminar
-testseminar = Seminar
-  (Node 0 "Testseminar")
-  [ SchuelerIn (Person 100000 "Testperson" "Nachname" []) [Themenwahl (testthemen !! 0) 2,Themenwahl (testthemen !! 1) 5]
-  , SchuelerIn (Person 100001 "Testperson1" "Nachname" []) [Themenwahl (testthemen !! 0) 2]
-  ]
-  [ BetreuerIn (Person 200000 "Testbetreuer" "Nachname" []) [Themenwahl thema 100 | thema <- testthemen]
-  ]
-  testthemen
-  testzeiteinheiten
-  [ Raum (Node 200 "Raum") 100 False [] ]
 
 main :: IO ()
 main = do
@@ -47,20 +31,25 @@ main = do
       _      -> do
         putStrLn "Default zu Testseminar"
         return testseminar
+  putStrLn "Lese Seminar..."
   seminar <- getSeminar
+  putStrLn "Löse Optimierungsproblem..."
   lpBerechnung <- glpSolveVars orpheusLPOptionen $ testLP seminar
   --print lpBerechnung
   case lpBerechnung of
     (retCode, Nothing)   -> putStrLn $ "Fehlgeschlagen: " ++ show retCode
     (_, Just (obj, lpResult)) -> do
+      putStrLn "Erfolgreich! Parse..."
       let lpResult' = delete "minimalspaß" lpResult -- TODO Aaaaaah
       case parseStundenplan seminar "testversion" lpResult' of
         Left e            -> print e
         Right stundenplan -> do
-          writeFile "tempstundenplan.txt" $ show stundenplan
+          putStrLn "Schreibe Stundenplan..."
+          writeFile "tempstundenplan.txt" $ pretty $ strip stundenplan
           putStrLn "(Global, Betreuer, Raum)"
           print ( length $ globalBelegungen $ globalStundenplan stundenplan
                 , length $ betreuerBelegungen $ globalStundenplan stundenplan
                 , length $ raumBelegungen $ globalStundenplan stundenplan
                 )
+          putStrLn "Erzeuge LaTeX..."
           makeLatex stundenplan

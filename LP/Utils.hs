@@ -1,6 +1,6 @@
 {-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, FlexibleContexts  #-}
 
-module LPUtils where
+module LP.Utils where
 
 import Control.Monad.LPMonad
 import Data.LinearProgram.Common
